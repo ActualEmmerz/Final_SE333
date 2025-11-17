@@ -54,11 +54,11 @@ import java.io.Writer;
 <span class="fc" id="L54">                    out.write((char) value);</span>
 <span class="fc" id="L55">                } catch (final NumberFormatException nfe) {</span>
 <span class="fc" id="L56">                    throw new IllegalArgumentException(&quot;Unable to parse unicode value: &quot; + unicode, nfe);</span>
-                }
+<span class="fc" id="L57">                }</span>
 <span class="fc" id="L58">                return i + 4;</span>
             } else {
 <span class="fc" id="L60">                throw new IllegalArgumentException(&quot;Less than 4 hex digits in unicode value: '&quot; + input.subSequence(index, input.length())</span>
-<span class="fc" id="L61">                        + &quot;' due to end of CharSequence&quot;);</span>
+                        + &quot;' due to end of CharSequence&quot;);
             }
         }
 <span class="fc" id="L64">        return 0;</span>

@@ -105,9 +105,9 @@ public class SerializationUtils {
 <span class="pc bpc" id="L105" title="1 of 2 branches missed.">                if (in != null) {</span>
 <span class="fc" id="L106">                    in.close();</span>
                 }
-<span class="pc" id="L108">            } catch (final IOException ex) {</span>
+<span class="nc" id="L108">            } catch (final IOException ex) {</span>
 <span class="nc" id="L109">                throw new SerializationException(&quot;IOException on closing cloned object data InputStream.&quot;, ex);</span>
-            }
+<span class="fc" id="L110">            }</span>
         }
     }
 
@@ -145,9 +145,9 @@ public class SerializationUtils {
 <span class="fc bfc" id="L145" title="All 2 branches covered.">                if (out != null) {</span>
 <span class="fc" id="L146">                    out.close();</span>
                 }
-<span class="pc" id="L148">            } catch (final IOException ex) { // NOPMD</span>
+<span class="nc" id="L148">            } catch (final IOException ex) { // NOPMD</span>
                 // ignore close exception
-            }
+<span class="fc" id="L150">            }</span>
         }
 <span class="fc" id="L152">    }</span>
 
@@ -220,9 +220,9 @@ public class SerializationUtils {
 <span class="fc bfc" id="L220" title="All 2 branches covered.">                if (in != null) {</span>
 <span class="fc" id="L221">                    in.close();</span>
                 }
-<span class="pc" id="L223">            } catch (final IOException ex) { // NOPMD</span>
+<span class="nc" id="L223">            } catch (final IOException ex) { // NOPMD</span>
                 // ignore close exception
-            }
+<span class="fc" id="L225">            }</span>
         }
     }
 
@@ -268,7 +268,7 @@ public class SerializationUtils {
      */
      static class ClassLoaderAwareObjectInputStream extends ObjectInputStream {
 <span class="fc" id="L270">        private static final Map&lt;String, Class&lt;?&gt;&gt; primitiveTypes = </span>
-<span class="fc" id="L271">                new HashMap&lt;String, Class&lt;?&gt;&gt;();</span>
+                new HashMap&lt;String, Class&lt;?&gt;&gt;();
         private final ClassLoader classLoader;
         
         /**

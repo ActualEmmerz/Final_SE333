@@ -146,7 +146,7 @@ public final class Range&lt;T&gt; implements Serializable {
 <span class="fc" id="L146">    private Range(final T element1, final T element2, Comparator&lt;T&gt; comparator) {</span>
 <span class="pc bpc" id="L147" title="2 of 4 branches missed.">        if (element1 == null || element2 == null) {</span>
 <span class="nc" id="L148">            throw new IllegalArgumentException(&quot;Elements in a range must not be null: element1=&quot; +</span>
-<span class="nc" id="L149">                                               element1 + &quot;, element2=&quot; + element2);</span>
+                                               element1 + &quot;, element2=&quot; + element2);
         }
 <span class="fc bfc" id="L151" title="All 2 branches covered.">        if (comparator == null) {</span>
 <span class="fc" id="L152">            comparator = ComparableComparator.INSTANCE;</span>
@@ -154,7 +154,7 @@ public final class Range&lt;T&gt; implements Serializable {
 <span class="fc bfc" id="L154" title="All 2 branches covered.">        if (comparator.compare(element1, element2) &lt; 1) {</span>
 <span class="fc" id="L155">            this.minimum = element1;</span>
 <span class="fc" id="L156">            this.maximum = element2;</span>
-<span class="fc" id="L157">        } else {</span>
+        } else {
 <span class="fc" id="L158">            this.minimum = element2;</span>
 <span class="fc" id="L159">            this.maximum = element1;</span>
         }
@@ -381,7 +381,7 @@ public final class Range&lt;T&gt; implements Serializable {
     public Range&lt;T&gt; intersectionWith(final Range&lt;T&gt; other) {
 <span class="fc bfc" id="L382" title="All 2 branches covered.">        if (!this.isOverlappedBy(other)) {</span>
 <span class="fc" id="L383">            throw new IllegalArgumentException(String.format(</span>
-<span class="fc" id="L384">                &quot;Cannot calculate intersection with non-overlapping range %s&quot;, other));</span>
+                &quot;Cannot calculate intersection with non-overlapping range %s&quot;, other));
         }
 <span class="fc bfc" id="L386" title="All 2 branches covered.">        if (this.equals(other)) {</span>
 <span class="fc" id="L387">            return this;</span>
@@ -476,8 +476,8 @@ public final class Range&lt;T&gt; implements Serializable {
     }
 
     //-----------------------------------------------------------------------
-    @SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
-<span class="fc" id="L480">    private enum ComparableComparator implements Comparator {</span>
+<span class="fc" id="L479">    @SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})</span>
+    private enum ComparableComparator implements Comparator {
 <span class="fc" id="L481">        INSTANCE;</span>
         /**
          * Comparable based compare implementation. 

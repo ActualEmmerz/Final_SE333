@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: org.apache.commons.lang3.time.DateUtilsTest
 -------------------------------------------------------------------------------
-Tests run: 38, Failures: 12, Errors: 5, Skipped: 0, Time elapsed: 0.127 s <<< FAILURE! -- in org.apache.commons.lang3.time.DateUtilsTest
-org.apache.commons.lang3.time.DateUtilsTest.testLANG799_DE_OK -- Time elapsed: 0.019 s <<< ERROR!
+Tests run: 38, Failures: 12, Errors: 5, Skipped: 0, Time elapsed: 0.069 s <<< FAILURE! -- in org.apache.commons.lang3.time.DateUtilsTest
+org.apache.commons.lang3.time.DateUtilsTest.testLANG799_DE_OK -- Time elapsed: 0 s <<< ERROR!
 java.text.ParseException: Unable to parse the date: Mi, 09 Apr 2008 23:55:38 GMT
 	at org.apache.commons.lang3.time.DateUtils.parseDateWithLeniency(DateUtils.java:390)
 	at org.apache.commons.lang3.time.DateUtils.parseDate(DateUtils.java:290)
@@ -33,7 +33,7 @@ java.text.ParseException: Unable to parse the date: Mi, 09 Apr 2008 23:55:38 GMT
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testLANG799_EN_WITH_DE_LOCALE -- Time elapsed: 0.003 s <<< ERROR!
+org.apache.commons.lang3.time.DateUtilsTest.testLANG799_EN_WITH_DE_LOCALE -- Time elapsed: 0.001 s <<< ERROR!
 java.text.ParseException: Unable to parse the date: Mi, 09 Apr 2008 23:55:38 GMT
 	at org.apache.commons.lang3.time.DateUtils.parseDateWithLeniency(DateUtils.java:390)
 	at org.apache.commons.lang3.time.DateUtils.parseDate(DateUtils.java:290)
@@ -63,7 +63,7 @@ java.text.ParseException: Unable to parse the date: Mi, 09 Apr 2008 23:55:38 GMT
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testRound -- Time elapsed: 0.016 s <<< ERROR!
+org.apache.commons.lang3.time.DateUtilsTest.testRound -- Time elapsed: 0.007 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.lang3.JavaVersion.atLeast(org.apache.commons.lang3.JavaVersion)" because "org.apache.commons.lang3.SystemUtils.JAVA_SPECIFICATION_VERSION_AS_ENUM" is null
 	at org.apache.commons.lang3.SystemUtils.isJavaVersionAtLeast(SystemUtils.java:1388)
 	at org.apache.commons.lang3.time.DateUtilsTest.testRound(DateUtilsTest.java:848)
@@ -92,7 +92,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.lang3.JavaVers
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testCeil -- Time elapsed: 0.007 s <<< ERROR!
+org.apache.commons.lang3.time.DateUtilsTest.testCeil -- Time elapsed: 0.008 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.lang3.JavaVersion.atLeast(org.apache.commons.lang3.JavaVersion)" because "org.apache.commons.lang3.SystemUtils.JAVA_SPECIFICATION_VERSION_AS_ENUM" is null
 	at org.apache.commons.lang3.SystemUtils.isJavaVersionAtLeast(SystemUtils.java:1388)
 	at org.apache.commons.lang3.time.DateUtilsTest.testCeil(DateUtilsTest.java:1427)
@@ -121,7 +121,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.lang3.JavaVers
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testAddSeconds -- Time elapsed: 0.003 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testAddSeconds -- Time elapsed: 0 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -155,7 +155,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testSetMinutes -- Time elapsed: 0.001 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testSetMinutes -- Time elapsed: 0.002 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -189,7 +189,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testAddHours -- Time elapsed: 0 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testAddHours -- Time elapsed: 0.001 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -223,7 +223,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testAddWeeks -- Time elapsed: 0.003 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testAddWeeks -- Time elapsed: 0.001 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -257,7 +257,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testAddYears -- Time elapsed: 0.001 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testAddYears -- Time elapsed: 0 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -291,7 +291,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testTruncateLang59 -- Time elapsed: 0.006 s <<< ERROR!
+org.apache.commons.lang3.time.DateUtilsTest.testTruncateLang59 -- Time elapsed: 0.002 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.lang3.JavaVersion.atLeast(org.apache.commons.lang3.JavaVersion)" because "org.apache.commons.lang3.SystemUtils.JAVA_SPECIFICATION_VERSION_AS_ENUM" is null
 	at org.apache.commons.lang3.SystemUtils.isJavaVersionAtLeast(SystemUtils.java:1388)
 	at org.apache.commons.lang3.time.DateUtilsTest.testTruncateLang59(DateUtilsTest.java:1137)
@@ -320,7 +320,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.lang3.JavaVers
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testSetSeconds -- Time elapsed: 0 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testSetSeconds -- Time elapsed: 0.001 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -354,7 +354,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testAddMonths -- Time elapsed: 0.001 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testAddMonths -- Time elapsed: 0 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -388,7 +388,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testSetMonths -- Time elapsed: 0 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testSetMonths -- Time elapsed: 0.001 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -456,7 +456,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testAddMilliseconds -- Time elapsed: 0 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testAddMilliseconds -- Time elapsed: 0.004 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -490,7 +490,7 @@ java.lang.AssertionError: expected:<4> but was:<11>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-org.apache.commons.lang3.time.DateUtilsTest.testSetHours -- Time elapsed: 0 s <<< FAILURE!
+org.apache.commons.lang3.time.DateUtilsTest.testSetHours -- Time elapsed: 0.001 s <<< FAILURE!
 java.lang.AssertionError: expected:<4> but was:<11>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)

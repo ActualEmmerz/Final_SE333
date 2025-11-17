@@ -90,7 +90,7 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
         protected FastDateFormat createInstance(final String pattern, final TimeZone timeZone, final Locale locale) {
 <span class="fc" id="L91">            return new FastDateFormat(pattern, timeZone, locale);</span>
         }
-<span class="fc" id="L93">    };</span>
+    };
 
     private final FastDatePrinter printer;
     private final FastDateParser parser;

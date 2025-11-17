@@ -552,7 +552,7 @@ public class ObjectUtils {
 <span class="fc" id="L552">                final MutableInt count = occurrences.get(t);</span>
 <span class="fc bfc" id="L553" title="All 2 branches covered.">                if (count == null) {</span>
 <span class="fc" id="L554">                    occurrences.put(t, new MutableInt(1));</span>
-<span class="fc" id="L555">                } else {</span>
+                } else {
 <span class="fc" id="L556">                    count.increment();</span>
                 }
             }
@@ -566,7 +566,7 @@ public class ObjectUtils {
 <span class="fc" id="L566">                    max = cmp;</span>
 <span class="fc" id="L567">                    result = e.getKey();</span>
                 }
-            }
+<span class="fc" id="L569">            }</span>
 <span class="fc" id="L570">            return result;</span>
         }
 <span class="fc" id="L572">        return null;</span>
@@ -590,7 +590,7 @@ public class ObjectUtils {
 <span class="fc" id="L590">                final Class&lt;?&gt; componentType = obj.getClass().getComponentType();</span>
 <span class="fc bfc" id="L591" title="All 2 branches covered.">                if (!componentType.isPrimitive()) {</span>
 <span class="fc" id="L592">                    result = ((Object[]) obj).clone();</span>
-<span class="fc" id="L593">                } else {</span>
+                } else {
 <span class="fc" id="L594">                    int length = Array.getLength(obj);</span>
 <span class="fc" id="L595">                    result = Array.newInstance(componentType, length);</span>
 <span class="fc bfc" id="L596" title="All 2 branches covered.">                    while (length-- &gt; 0) {</span>
@@ -604,14 +604,14 @@ public class ObjectUtils {
 <span class="fc" id="L604">                } catch (final NoSuchMethodException e) {</span>
 <span class="fc" id="L605">                    throw new CloneFailedException(&quot;Cloneable type &quot;</span>
 <span class="fc" id="L606">                        + obj.getClass().getName()</span>
-<span class="fc" id="L607">                        + &quot; has no clone method&quot;, e);</span>
+                        + &quot; has no clone method&quot;, e);
 <span class="nc" id="L608">                } catch (final IllegalAccessException e) {</span>
 <span class="nc" id="L609">                    throw new CloneFailedException(&quot;Cannot clone Cloneable type &quot;</span>
 <span class="nc" id="L610">                        + obj.getClass().getName(), e);</span>
 <span class="nc" id="L611">                } catch (final InvocationTargetException e) {</span>
 <span class="nc" id="L612">                    throw new CloneFailedException(&quot;Exception cloning Cloneable type &quot;</span>
 <span class="nc" id="L613">                        + obj.getClass().getName(), e.getCause());</span>
-                }
+<span class="fc" id="L614">                }</span>
             }
             @SuppressWarnings(&quot;unchecked&quot;) // OK because input is of type T
 <span class="fc" id="L617">            final T checked = (T) result;</span>

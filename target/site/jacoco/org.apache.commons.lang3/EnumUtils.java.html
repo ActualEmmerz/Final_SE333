@@ -146,7 +146,7 @@ public class EnumUtils {
 <span class="fc bfc" id="L146" title="All 2 branches covered.">        for (final E constant : values) {</span>
 <span class="fc bfc" id="L147" title="All 2 branches covered.">            Validate.isTrue(constant != null, NULL_ELEMENTS_NOT_PERMITTED);</span>
 <span class="fc" id="L148">            total |= 1 &lt;&lt; constant.ordinal();</span>
-        }
+<span class="fc" id="L149">        }</span>
 <span class="fc" id="L150">        return total;</span>
     }
 
@@ -173,11 +173,11 @@ public class EnumUtils {
 <span class="fc bfc" id="L173" title="All 2 branches covered.">        for (final E constant : values) {</span>
 <span class="fc bfc" id="L174" title="All 2 branches covered.">            Validate.isTrue(constant != null, NULL_ELEMENTS_NOT_PERMITTED);</span>
 <span class="fc" id="L175">            condensed.add(constant);</span>
-        }
+<span class="fc" id="L176">        }</span>
 <span class="fc" id="L177">        final long[] result = new long[(enumClass.getEnumConstants().length - 1) / Long.SIZE + 1];</span>
 <span class="fc bfc" id="L178" title="All 2 branches covered.">        for (final E value : condensed) {</span>
 <span class="fc" id="L179">            result[value.ordinal() / Long.SIZE] |= 1 &lt;&lt; (value.ordinal() % Long.SIZE);</span>
-        }
+<span class="fc" id="L180">        }</span>
 <span class="fc" id="L181">        ArrayUtils.reverse(result);</span>
 <span class="fc" id="L182">        return result;</span>
     }
@@ -228,7 +228,7 @@ public class EnumUtils {
 <span class="fc" id="L228">        final long[] result = new long[(enumClass.getEnumConstants().length - 1) / Long.SIZE + 1];</span>
 <span class="fc bfc" id="L229" title="All 2 branches covered.">        for (final E value : condensed) {</span>
 <span class="fc" id="L230">            result[value.ordinal() / Long.SIZE] |= 1 &lt;&lt; (value.ordinal() % Long.SIZE);</span>
-        }
+<span class="fc" id="L231">        }</span>
 <span class="fc" id="L232">        ArrayUtils.reverse(result);</span>
 <span class="fc" id="L233">        return result;</span>
     }

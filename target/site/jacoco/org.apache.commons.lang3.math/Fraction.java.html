@@ -143,8 +143,8 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
 <span class="fc" id="L143">            throw new ArithmeticException(&quot;The denominator must not be zero&quot;);</span>
         }
 <span class="fc bfc" id="L145" title="All 2 branches covered.">        if (denominator &lt; 0) {</span>
-<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            if (numerator==Integer.MIN_VALUE ||</span>
-<span class="fc bfc" id="L147" title="All 2 branches covered.">                    denominator==Integer.MIN_VALUE) {</span>
+<span class="pc bpc" id="L146" title="1 of 4 branches missed.">            if (numerator==Integer.MIN_VALUE ||</span>
+                    denominator==Integer.MIN_VALUE) {
 <span class="fc" id="L148">                throw new ArithmeticException(&quot;overflow: can't negate&quot;);</span>
             }
 <span class="fc" id="L150">            numerator = -numerator;</span>
@@ -182,11 +182,11 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
         long numeratorValue;
 <span class="fc bfc" id="L183" title="All 2 branches covered.">        if (whole &lt; 0) {</span>
 <span class="fc" id="L184">            numeratorValue = whole * (long)denominator - numerator;</span>
-<span class="fc" id="L185">        } else {</span>
+        } else {
 <span class="fc" id="L186">            numeratorValue = whole * (long)denominator + numerator;</span>
         }
-<span class="fc bfc" id="L188" title="All 2 branches covered.">        if (numeratorValue &lt; Integer.MIN_VALUE ||</span>
-<span class="fc bfc" id="L189" title="All 2 branches covered.">                numeratorValue &gt; Integer.MAX_VALUE)  {</span>
+<span class="fc bfc" id="L188" title="All 4 branches covered.">        if (numeratorValue &lt; Integer.MIN_VALUE ||</span>
+                numeratorValue &gt; Integer.MAX_VALUE)  {
 <span class="fc" id="L190">            throw new ArithmeticException(&quot;Numerator too large to represent as an Integer.&quot;);</span>
         }
 <span class="fc" id="L192">        return new Fraction((int) numeratorValue, denominator);</span>
@@ -218,8 +218,8 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
 <span class="fc" id="L218">            numerator/=2; denominator/=2;</span>
         }
 <span class="fc bfc" id="L220" title="All 2 branches covered.">        if (denominator &lt; 0) {</span>
-<span class="pc bpc" id="L221" title="1 of 2 branches missed.">            if (numerator==Integer.MIN_VALUE ||</span>
-<span class="fc bfc" id="L222" title="All 2 branches covered.">                    denominator==Integer.MIN_VALUE) {</span>
+<span class="pc bpc" id="L221" title="1 of 4 branches missed.">            if (numerator==Integer.MIN_VALUE ||</span>
+                    denominator==Integer.MIN_VALUE) {
 <span class="fc" id="L223">                throw new ArithmeticException(&quot;overflow: can't negate&quot;);</span>
             }
 <span class="fc" id="L225">            numerator = -numerator;</span>
@@ -251,7 +251,7 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
 <span class="fc" id="L251">        value = Math.abs(value);</span>
 <span class="fc bfc" id="L252" title="All 4 branches covered.">        if (value  &gt; Integer.MAX_VALUE || Double.isNaN(value)) {</span>
 <span class="fc" id="L253">            throw new ArithmeticException</span>
-<span class="fc" id="L254">                (&quot;The value must not be greater than Integer.MAX_VALUE or NaN&quot;);</span>
+                (&quot;The value must not be greater than Integer.MAX_VALUE or NaN&quot;);
         }
 <span class="fc" id="L256">        final int wholeNumber = (int) value;</span>
 <span class="fc" id="L257">        value -= wholeNumber;</span>
@@ -272,7 +272,7 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
         double fraction;
 <span class="fc" id="L273">        int i = 1;</span>
 //        System.out.println(&quot;---&quot;);
-<span class="pc bpc" id="L275" title="1 of 2 branches missed.">        do {</span>
+        do {
 <span class="fc" id="L276">            delta1 = delta2;</span>
 <span class="fc" id="L277">            a2 = (int) (x1 / y1);</span>
 <span class="fc" id="L278">            x2 = y1;</span>
@@ -291,7 +291,7 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
 <span class="fc" id="L291">            denom1 = denom2;</span>
 <span class="fc" id="L292">            i++;</span>
 //            System.out.println(&quot;&gt;&gt;&quot; + delta1 +&quot; &quot;+ delta2+&quot; &quot;+(delta1 &gt; delta2)+&quot; &quot;+i+&quot; &quot;+denom2);
-<span class="pc bpc" id="L294" title="1 of 6 branches missed.">        } while (delta1 &gt; delta2 &amp;&amp; denom2 &lt;= 10000 &amp;&amp; denom2 &gt; 0 &amp;&amp; i &lt; 25);</span>
+<span class="pc bpc" id="L294" title="2 of 8 branches missed.">        } while (delta1 &gt; delta2 &amp;&amp; denom2 &lt;= 10000 &amp;&amp; denom2 &gt; 0 &amp;&amp; i &lt; 25);</span>
 <span class="pc bpc" id="L295" title="1 of 2 branches missed.">        if (i == 25) {</span>
 <span class="nc" id="L296">            throw new ArithmeticException(&quot;Unable to convert double to fraction&quot;);</span>
         }
@@ -613,7 +613,7 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
             // B5 [reset max(u,v)]
 <span class="fc bfc" id="L614" title="All 2 branches covered.">            if (t&gt;0) {</span>
 <span class="fc" id="L615">                u = -t;</span>
-<span class="fc" id="L616">            } else {</span>
+            } else {
 <span class="fc" id="L617">                v = t;</span>
             }
             // B6/B3. at this point both u and v should be odd.
@@ -638,8 +638,8 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
      */
     private static int mulAndCheck(final int x, final int y) {
 <span class="fc" id="L640">        final long m = (long)x*(long)y;</span>
-<span class="pc bpc" id="L641" title="1 of 2 branches missed.">        if (m &lt; Integer.MIN_VALUE ||</span>
-<span class="fc bfc" id="L642" title="All 2 branches covered.">            m &gt; Integer.MAX_VALUE) {</span>
+<span class="pc bpc" id="L641" title="1 of 4 branches missed.">        if (m &lt; Integer.MIN_VALUE ||</span>
+            m &gt; Integer.MAX_VALUE) {
 <span class="fc" id="L643">            throw new ArithmeticException(&quot;overflow: mul&quot;);</span>
         }
 <span class="fc" id="L645">        return (int)m;</span>
@@ -674,8 +674,8 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
      */
     private static int addAndCheck(final int x, final int y) {
 <span class="fc" id="L676">        final long s = (long)x+(long)y;</span>
-<span class="fc bfc" id="L677" title="All 2 branches covered.">        if (s &lt; Integer.MIN_VALUE ||</span>
-<span class="fc bfc" id="L678" title="All 2 branches covered.">            s &gt; Integer.MAX_VALUE) {</span>
+<span class="fc bfc" id="L677" title="All 4 branches covered.">        if (s &lt; Integer.MIN_VALUE ||</span>
+            s &gt; Integer.MAX_VALUE) {
 <span class="fc" id="L679">            throw new ArithmeticException(&quot;overflow: add&quot;);</span>
         }
 <span class="fc" id="L681">        return (int)s;</span>
@@ -692,8 +692,8 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
      */
     private static int subAndCheck(final int x, final int y) {
 <span class="fc" id="L694">        final long s = (long)x-(long)y;</span>
-<span class="fc bfc" id="L695" title="All 2 branches covered.">        if (s &lt; Integer.MIN_VALUE ||</span>
-<span class="fc bfc" id="L696" title="All 2 branches covered.">            s &gt; Integer.MAX_VALUE) {</span>
+<span class="fc bfc" id="L695" title="All 4 branches covered.">        if (s &lt; Integer.MIN_VALUE ||</span>
+            s &gt; Integer.MAX_VALUE) {
 <span class="fc" id="L697">            throw new ArithmeticException(&quot;overflow: add&quot;);</span>
         }
 <span class="fc" id="L699">        return (int)s;</span>
@@ -776,7 +776,7 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
 <span class="fc" id="L776">        final BigInteger w = t.divide(BigInteger.valueOf(d2));</span>
 <span class="fc bfc" id="L777" title="All 2 branches covered.">        if (w.bitLength() &gt; 31) {</span>
 <span class="fc" id="L778">            throw new ArithmeticException</span>
-<span class="fc" id="L779">                (&quot;overflow: numerator too large after multiply&quot;);</span>
+                (&quot;overflow: numerator too large after multiply&quot;);
         }
 <span class="fc" id="L781">        return new Fraction</span>
 <span class="fc" id="L782">            (w.intValue(),</span>
@@ -943,7 +943,7 @@ public final class Fraction extends Number implements Comparable&lt;Fraction&gt;
 <span class="fc" id="L943">                final int properNumerator = getProperNumerator();</span>
 <span class="fc bfc" id="L944" title="All 2 branches covered.">                if (properNumerator == 0) {</span>
 <span class="fc" id="L945">                    toProperString = Integer.toString(getProperWhole());</span>
-<span class="fc" id="L946">                } else {</span>
+                } else {
 <span class="fc" id="L947">                    toProperString = new StringBuilder(32)</span>
 <span class="fc" id="L948">                        .append(getProperWhole()).append(' ')</span>
 <span class="fc" id="L949">                        .append(properNumerator).append('/')</span>

@@ -65,7 +65,7 @@ import org.apache.commons.lang3.tuple.Pair;
 <span class="fc bfc" id="L65" title="All 2 branches covered.">            if (StringUtils.equals(label, p.getKey())) {</span>
 <span class="fc" id="L66">                iter.remove();</span>
             }
-        }
+<span class="fc" id="L68">        }</span>
 <span class="fc" id="L69">        addContextValue(label, value);</span>
 <span class="fc" id="L70">        return this;</span>
     }
@@ -80,7 +80,7 @@ import org.apache.commons.lang3.tuple.Pair;
 <span class="fc bfc" id="L80" title="All 2 branches covered.">            if (StringUtils.equals(label, pair.getKey())) {</span>
 <span class="fc" id="L81">                values.add(pair.getValue());</span>
             }
-        }
+<span class="fc" id="L83">        }</span>
 <span class="fc" id="L84">        return values;</span>
     }
 
@@ -93,7 +93,7 @@ import org.apache.commons.lang3.tuple.Pair;
 <span class="fc bfc" id="L93" title="All 2 branches covered.">            if (StringUtils.equals(label, pair.getKey())) {</span>
 <span class="fc" id="L94">                return pair.getValue();</span>
             }
-        }
+<span class="fc" id="L96">        }</span>
 <span class="fc" id="L97">        return null;</span>
     }
 
@@ -105,7 +105,7 @@ import org.apache.commons.lang3.tuple.Pair;
 <span class="fc" id="L105">        final Set&lt;String&gt; labels = new HashSet&lt;String&gt;();</span>
 <span class="fc bfc" id="L106" title="All 2 branches covered.">        for (final Pair&lt;String, Object&gt; pair : contextValues) {</span>
 <span class="fc" id="L107">            labels.add(pair.getKey());</span>
-        }
+<span class="fc" id="L108">        }</span>
 <span class="fc" id="L109">        return labels;</span>
     }
 
@@ -146,17 +146,17 @@ import org.apache.commons.lang3.tuple.Pair;
 <span class="fc" id="L146">                final Object value = pair.getValue();</span>
 <span class="fc bfc" id="L147" title="All 2 branches covered.">                if (value == null) {</span>
 <span class="fc" id="L148">                    buffer.append(&quot;null&quot;);</span>
-<span class="fc" id="L149">                } else {</span>
+                } else {
                     String valueStr;
                     try {
 <span class="fc" id="L152">                        valueStr = value.toString();</span>
 <span class="fc" id="L153">                    } catch (final Exception e) {</span>
 <span class="fc" id="L154">                        valueStr = &quot;Exception thrown on toString(): &quot; + ExceptionUtils.getStackTrace(e);</span>
-                    }
+<span class="fc" id="L155">                    }</span>
 <span class="fc" id="L156">                    buffer.append(valueStr);</span>
                 }
 <span class="fc" id="L158">                buffer.append(&quot;]\n&quot;);</span>
-            }
+<span class="fc" id="L159">            }</span>
 <span class="fc" id="L160">            buffer.append(&quot;---------------------------------&quot;);</span>
         }
 <span class="fc" id="L162">        return buffer.toString();</span>

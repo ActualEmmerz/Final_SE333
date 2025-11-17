@@ -229,8 +229,8 @@ public class EventListenerSupport&lt;L&gt; implements Serializable {
 <span class="fc" id="L229">            } catch (final IOException exception) {</span>
                 //recreate test stream in case of indeterminate state
 <span class="fc" id="L231">                testObjectOutputStream = new ObjectOutputStream(new ByteArrayOutputStream());</span>
-            }
-        }
+<span class="fc" id="L232">            }</span>
+<span class="fc" id="L233">        }</span>
         /*
          * we can reconstitute everything we need from an array of our listeners,
          * which has the additional advantage of typically requiring less storage than a list:
@@ -311,7 +311,7 @@ public class EventListenerSupport&lt;L&gt; implements Serializable {
         public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
 <span class="fc bfc" id="L312" title="All 2 branches covered.">            for (final L listener : listeners) {</span>
 <span class="fc" id="L313">                method.invoke(listener, args);</span>
-            }
+<span class="fc" id="L314">            }</span>
 <span class="fc" id="L315">            return null;</span>
         }
     }

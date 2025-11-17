@@ -134,7 +134,7 @@ public abstract class ToStringStyle implements Serializable {
      * &lt;/p&gt;
      */
 <span class="fc" id="L136">    private static final ThreadLocal&lt;WeakHashMap&lt;Object, Object&gt;&gt; REGISTRY =</span>
-<span class="fc" id="L137">        new ThreadLocal&lt;WeakHashMap&lt;Object,Object&gt;&gt;();</span>
+        new ThreadLocal&lt;WeakHashMap&lt;Object,Object&gt;&gt;();
     /*
      * Note that objects of this class are generally shared between threads, so
      * an instance variable would not be suitable here.
@@ -441,7 +441,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="fc bfc" id="L441" title="All 2 branches covered.">        if (value == null) {</span>
 <span class="fc" id="L442">            appendNullText(buffer, fieldName);</span>
 
-<span class="fc" id="L444">        } else {</span>
+        } else {
 <span class="fc" id="L445">            appendInternal(buffer, fieldName, value, isFullDetail(fullDetail));</span>
         }
 
@@ -468,8 +468,8 @@ public abstract class ToStringStyle implements Serializable {
      * @param detail  output detail or not
      */
     protected void appendInternal(final StringBuffer buffer, final String fieldName, final Object value, final boolean detail) {
-<span class="fc bfc" id="L471" title="All 2 branches covered.">        if (isRegistered(value)</span>
-<span class="fc bfc" id="L472" title="All 6 branches covered.">            &amp;&amp; !(value instanceof Number || value instanceof Boolean || value instanceof Character)) {</span>
+<span class="fc bfc" id="L471" title="All 8 branches covered.">        if (isRegistered(value)</span>
+            &amp;&amp; !(value instanceof Number || value instanceof Boolean || value instanceof Character)) {
 <span class="fc" id="L473">           appendCyclicObject(buffer, fieldName, value);</span>
 <span class="fc" id="L474">           return;</span>
         }
@@ -480,88 +480,88 @@ public abstract class ToStringStyle implements Serializable {
 <span class="fc bfc" id="L480" title="All 2 branches covered.">            if (value instanceof Collection&lt;?&gt;) {</span>
 <span class="fc bfc" id="L481" title="All 2 branches covered.">                if (detail) {</span>
 <span class="fc" id="L482">                    appendDetail(buffer, fieldName, (Collection&lt;?&gt;) value);</span>
-<span class="fc" id="L483">                } else {</span>
+                } else {
 <span class="fc" id="L484">                    appendSummarySize(buffer, fieldName, ((Collection&lt;?&gt;) value).size());</span>
                 }
 
 <span class="fc bfc" id="L487" title="All 2 branches covered.">            } else if (value instanceof Map&lt;?, ?&gt;) {</span>
 <span class="fc bfc" id="L488" title="All 2 branches covered.">                if (detail) {</span>
 <span class="fc" id="L489">                    appendDetail(buffer, fieldName, (Map&lt;?, ?&gt;) value);</span>
-<span class="fc" id="L490">                } else {</span>
+                } else {
 <span class="fc" id="L491">                    appendSummarySize(buffer, fieldName, ((Map&lt;?, ?&gt;) value).size());</span>
                 }
 
 <span class="fc bfc" id="L494" title="All 2 branches covered.">            } else if (value instanceof long[]) {</span>
 <span class="pc bpc" id="L495" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L496">                    appendDetail(buffer, fieldName, (long[]) value);</span>
-<span class="fc" id="L497">                } else {</span>
+                } else {
 <span class="nc" id="L498">                    appendSummary(buffer, fieldName, (long[]) value);</span>
                 }
 
-<span class="pc bfc" id="L501" title="All 2 branches covered.">            } else if (value instanceof int[]) {</span>
+<span class="fc bfc" id="L501" title="All 2 branches covered.">            } else if (value instanceof int[]) {</span>
 <span class="pc bpc" id="L502" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L503">                    appendDetail(buffer, fieldName, (int[]) value);</span>
-<span class="fc" id="L504">                } else {</span>
+                } else {
 <span class="nc" id="L505">                    appendSummary(buffer, fieldName, (int[]) value);</span>
                 }
 
-<span class="pc bfc" id="L508" title="All 2 branches covered.">            } else if (value instanceof short[]) {</span>
+<span class="fc bfc" id="L508" title="All 2 branches covered.">            } else if (value instanceof short[]) {</span>
 <span class="pc bpc" id="L509" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L510">                    appendDetail(buffer, fieldName, (short[]) value);</span>
-<span class="fc" id="L511">                } else {</span>
+                } else {
 <span class="nc" id="L512">                    appendSummary(buffer, fieldName, (short[]) value);</span>
                 }
 
-<span class="pc bfc" id="L515" title="All 2 branches covered.">            } else if (value instanceof byte[]) {</span>
+<span class="fc bfc" id="L515" title="All 2 branches covered.">            } else if (value instanceof byte[]) {</span>
 <span class="pc bpc" id="L516" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L517">                    appendDetail(buffer, fieldName, (byte[]) value);</span>
-<span class="fc" id="L518">                } else {</span>
+                } else {
 <span class="nc" id="L519">                    appendSummary(buffer, fieldName, (byte[]) value);</span>
                 }
 
-<span class="pc bfc" id="L522" title="All 2 branches covered.">            } else if (value instanceof char[]) {</span>
+<span class="fc bfc" id="L522" title="All 2 branches covered.">            } else if (value instanceof char[]) {</span>
 <span class="pc bpc" id="L523" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L524">                    appendDetail(buffer, fieldName, (char[]) value);</span>
-<span class="fc" id="L525">                } else {</span>
+                } else {
 <span class="nc" id="L526">                    appendSummary(buffer, fieldName, (char[]) value);</span>
                 }
 
-<span class="pc bfc" id="L529" title="All 2 branches covered.">            } else if (value instanceof double[]) {</span>
+<span class="fc bfc" id="L529" title="All 2 branches covered.">            } else if (value instanceof double[]) {</span>
 <span class="pc bpc" id="L530" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L531">                    appendDetail(buffer, fieldName, (double[]) value);</span>
-<span class="fc" id="L532">                } else {</span>
+                } else {
 <span class="nc" id="L533">                    appendSummary(buffer, fieldName, (double[]) value);</span>
                 }
 
-<span class="pc bfc" id="L536" title="All 2 branches covered.">            } else if (value instanceof float[]) {</span>
+<span class="fc bfc" id="L536" title="All 2 branches covered.">            } else if (value instanceof float[]) {</span>
 <span class="pc bpc" id="L537" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L538">                    appendDetail(buffer, fieldName, (float[]) value);</span>
-<span class="fc" id="L539">                } else {</span>
+                } else {
 <span class="nc" id="L540">                    appendSummary(buffer, fieldName, (float[]) value);</span>
                 }
 
-<span class="pc bfc" id="L543" title="All 2 branches covered.">            } else if (value instanceof boolean[]) {</span>
+<span class="fc bfc" id="L543" title="All 2 branches covered.">            } else if (value instanceof boolean[]) {</span>
 <span class="pc bpc" id="L544" title="1 of 2 branches missed.">                if (detail) {</span>
 <span class="fc" id="L545">                    appendDetail(buffer, fieldName, (boolean[]) value);</span>
-<span class="fc" id="L546">                } else {</span>
+                } else {
 <span class="nc" id="L547">                    appendSummary(buffer, fieldName, (boolean[]) value);</span>
                 }
 
-<span class="pc bfc" id="L550" title="All 2 branches covered.">            } else if (value.getClass().isArray()) {</span>
+<span class="fc bfc" id="L550" title="All 2 branches covered.">            } else if (value.getClass().isArray()) {</span>
 <span class="fc bfc" id="L551" title="All 2 branches covered.">                if (detail) {</span>
 <span class="fc" id="L552">                    appendDetail(buffer, fieldName, (Object[]) value);</span>
-<span class="fc" id="L553">                } else {</span>
+                } else {
 <span class="fc" id="L554">                    appendSummary(buffer, fieldName, (Object[]) value);</span>
                 }
 
-<span class="fc" id="L557">            } else {</span>
+            } else {
 <span class="fc bfc" id="L558" title="All 2 branches covered.">                if (detail) {</span>
 <span class="fc" id="L559">                    appendDetail(buffer, fieldName, value);</span>
-<span class="fc" id="L560">                } else {</span>
+                } else {
 <span class="fc" id="L561">                    appendSummary(buffer, fieldName, value);</span>
                 }
             }
-<span class="fc" id="L564">        } finally {</span>
+        } finally {
 <span class="fc" id="L565">            unregister(value);</span>
         }
 <span class="fc" id="L567">    }</span>
@@ -877,7 +877,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L877" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L878">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L880">        } else {</span>
+        } else {
 <span class="nc" id="L881">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -905,7 +905,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="fc bfc" id="L905" title="All 2 branches covered.">            if (item == null) {</span>
 <span class="fc" id="L906">                appendNullText(buffer, fieldName);</span>
 
-<span class="fc" id="L908">            } else {</span>
+            } else {
 <span class="fc" id="L909">                appendInternal(buffer, fieldName, item, arrayContentDetail);</span>
             }
         }
@@ -932,7 +932,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="fc bfc" id="L932" title="All 2 branches covered.">            if (item == null) {</span>
 <span class="fc" id="L933">                appendNullText(buffer, fieldName);</span>
 
-<span class="fc" id="L935">            } else {</span>
+            } else {
 <span class="fc" id="L936">                appendInternal(buffer, fieldName, item, arrayContentDetail);</span>
             }
         }
@@ -973,7 +973,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L973" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L974">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L976">        } else {</span>
+        } else {
 <span class="nc" id="L977">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1034,7 +1034,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1034" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1035">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1037">        } else {</span>
+        } else {
 <span class="nc" id="L1038">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1095,7 +1095,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1095" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1096">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1098">        } else {</span>
+        } else {
 <span class="nc" id="L1099">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1156,7 +1156,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1156" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1157">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1159">        } else {</span>
+        } else {
 <span class="nc" id="L1160">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1217,7 +1217,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1217" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1218">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1220">        } else {</span>
+        } else {
 <span class="nc" id="L1221">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1278,7 +1278,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1278" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1279">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1281">        } else {</span>
+        } else {
 <span class="nc" id="L1282">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1339,7 +1339,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1339" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1340">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1342">        } else {</span>
+        } else {
 <span class="nc" id="L1343">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1400,7 +1400,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="pc bpc" id="L1400" title="1 of 2 branches missed.">        } else if (isFullDetail(fullDetail)) {</span>
 <span class="fc" id="L1401">            appendDetail(buffer, fieldName, array);</span>
 
-<span class="fc" id="L1403">        } else {</span>
+        } else {
 <span class="nc" id="L1404">            appendSummary(buffer, fieldName, array);</span>
         }
 
@@ -1453,7 +1453,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="fc" id="L1453">            register(object);</span>
 <span class="fc bfc" id="L1454" title="All 2 branches covered.">            if (useShortClassName) {</span>
 <span class="fc" id="L1455">                buffer.append(getShortClassName(object.getClass()));</span>
-<span class="fc" id="L1456">            } else {</span>
+            } else {
 <span class="fc" id="L1457">                buffer.append(object.getClass().getName());</span>
             }
         }

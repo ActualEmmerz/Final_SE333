@@ -183,7 +183,7 @@ public class ExtendedMessageFormat extends MessageFormat {
 <span class="pc bpc" id="L183" title="1 of 2 branches missed.">                Validate.isTrue(foundDescriptions.size() == fmtCount);</span>
 <span class="pc bpc" id="L184" title="1 of 2 branches missed.">                if (c[pos.getIndex()] != END_FE) {</span>
 <span class="nc" id="L185">                    throw new IllegalArgumentException(</span>
-<span class="nc" id="L186">                            &quot;Unreadable format element at position &quot; + start);</span>
+                            &quot;Unreadable format element at position &quot; + start);
                 }
                 //$FALL-THROUGH$
             default:
@@ -355,11 +355,11 @@ public class ExtendedMessageFormat extends MessageFormat {
         }
 <span class="nc bnc" id="L356" title="All 2 branches missed.">        if (error) {</span>
 <span class="nc" id="L357">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L358">                    &quot;Invalid format argument index at position &quot; + start + &quot;: &quot;</span>
+                    &quot;Invalid format argument index at position &quot; + start + &quot;: &quot;
 <span class="nc" id="L359">                            + pattern.substring(start, pos.getIndex()));</span>
         }
 <span class="nc" id="L361">        throw new IllegalArgumentException(</span>
-<span class="nc" id="L362">                &quot;Unterminated format element at position &quot; + start);</span>
+                &quot;Unterminated format element at position &quot; + start);
     }
 
     /**
@@ -391,7 +391,7 @@ public class ExtendedMessageFormat extends MessageFormat {
             }
         }
 <span class="nc" id="L393">        throw new IllegalArgumentException(</span>
-<span class="nc" id="L394">                &quot;Unterminated format element at position &quot; + start);</span>
+                &quot;Unterminated format element at position &quot; + start);
     }
 
     /**
@@ -425,8 +425,8 @@ public class ExtendedMessageFormat extends MessageFormat {
 <span class="fc bfc" id="L425" title="All 2 branches covered.">                    if (customPattern != null) {</span>
 <span class="fc" id="L426">                        sb.append(START_FMT).append(customPattern);</span>
                     }
-                }
-<span class="fc" id="L429">                break;</span>
+<span class="fc" id="L428">                }</span>
+                break;
             case END_FE:
 <span class="fc" id="L431">                depth--;</span>
                 //$FALL-THROUGH$
@@ -434,7 +434,7 @@ public class ExtendedMessageFormat extends MessageFormat {
 <span class="fc" id="L434">                sb.append(c);</span>
 <span class="fc" id="L435">                next(pos);</span>
             }
-        }
+<span class="fc" id="L437">        }</span>
 <span class="fc" id="L438">        return sb.toString();</span>
     }
 
@@ -447,10 +447,10 @@ public class ExtendedMessageFormat extends MessageFormat {
     private void seekNonWs(final String pattern, final ParsePosition pos) {
 <span class="fc" id="L448">        int len = 0;</span>
 <span class="fc" id="L449">        final char[] buffer = pattern.toCharArray();</span>
-<span class="nc bnc" id="L450" title="All 2 branches missed.">        do {</span>
+        do {
 <span class="fc" id="L451">            len = StrMatcher.splitMatcher().isMatch(buffer, pos.getIndex());</span>
 <span class="fc" id="L452">            pos.setIndex(pos.getIndex() + len);</span>
-<span class="pc bpc" id="L453" title="1 of 2 branches missed.">        } while (len &gt; 0 &amp;&amp; pos.getIndex() &lt; pattern.length());</span>
+<span class="pc bpc" id="L453" title="3 of 4 branches missed.">        } while (len &gt; 0 &amp;&amp; pos.getIndex() &lt; pattern.length());</span>
 <span class="fc" id="L454">    }</span>
 
     /**
@@ -486,7 +486,7 @@ public class ExtendedMessageFormat extends MessageFormat {
 <span class="pc bpc" id="L486" title="1 of 2 branches missed.">        for (int i = pos.getIndex(); i &lt; pattern.length(); i++) {</span>
 <span class="pc bpc" id="L487" title="3 of 4 branches missed.">            if (escapingOn &amp;&amp; pattern.substring(i).startsWith(ESCAPED_QUOTE)) {</span>
 <span class="nc" id="L488">                appendTo.append(c, lastHold, pos.getIndex() - lastHold).append(</span>
-<span class="nc" id="L489">                        QUOTE);</span>
+                        QUOTE);
 <span class="nc" id="L490">                pos.setIndex(i + ESCAPED_QUOTE.length());</span>
 <span class="nc" id="L491">                lastHold = pos.getIndex();</span>
 <span class="nc" id="L492">                continue;</span>
@@ -501,7 +501,7 @@ public class ExtendedMessageFormat extends MessageFormat {
             }
         }
 <span class="nc" id="L503">        throw new IllegalArgumentException(</span>
-<span class="nc" id="L504">                &quot;Unterminated quoted string at position &quot; + start);</span>
+                &quot;Unterminated quoted string at position &quot; + start);
     }
 
     /**
@@ -529,7 +529,7 @@ public class ExtendedMessageFormat extends MessageFormat {
 <span class="pc bpc" id="L529" title="1 of 2 branches missed.">            if (name != null) {</span>
 <span class="fc" id="L530">                return true;</span>
             }
-        }
+<span class="nc" id="L532">        }</span>
 <span class="nc" id="L533">        return false;</span>
     }
 }

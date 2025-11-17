@@ -58,7 +58,7 @@ import org.apache.commons.lang3.reflect.MethodUtils;
 <span class="nc" id="L58">                    + &quot; method which takes a parameter of type &quot; + listenerType.getName() + &quot;.&quot;);</span>
 <span class="fc" id="L59">        } catch (final InvocationTargetException e) {</span>
 <span class="fc" id="L60">            throw new RuntimeException(&quot;Unable to add listener.&quot;, e.getCause());</span>
-        }
+<span class="fc" id="L61">        }</span>
 <span class="fc" id="L62">    }</span>
 
     /**
@@ -75,7 +75,7 @@ import org.apache.commons.lang3.reflect.MethodUtils;
     public static &lt;L&gt; void bindEventsToMethod(final Object target, final String methodName, final Object eventSource,
             final Class&lt;L&gt; listenerType, final String... eventTypes) {
 <span class="fc" id="L77">        final L listener = listenerType.cast(Proxy.newProxyInstance(target.getClass().getClassLoader(),</span>
-<span class="fc" id="L78">                new Class[] { listenerType }, new EventBindingInvocationHandler(target, methodName, eventTypes)));</span>
+                new Class[] { listenerType }, new EventBindingInvocationHandler(target, methodName, eventTypes)));
 <span class="fc" id="L79">        addEventListener(eventSource, listenerType, listener);</span>
 <span class="fc" id="L80">    }</span>
 

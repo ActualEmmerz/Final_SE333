@@ -120,7 +120,7 @@ public class FastDateParser implements DateParser, Serializable {
 
 <span class="fc" id="L121">        currentFormatField= patternMatcher.group();</span>
 <span class="fc" id="L122">        Strategy currentStrategy= getStrategy(currentFormatField, definingCalendar);</span>
-<span class="fc" id="L123">        for(;;) {</span>
+        for(;;) {
 <span class="fc" id="L124">            patternMatcher.region(patternMatcher.end(), patternMatcher.regionEnd());</span>
 <span class="fc bfc" id="L125" title="All 2 branches covered.">            if(!patternMatcher.lookingAt()) {</span>
 <span class="fc" id="L126">                nextStrategy = null;</span>
@@ -133,7 +133,7 @@ public class FastDateParser implements DateParser, Serializable {
             }
 <span class="fc" id="L134">            currentFormatField= nextFormatField;</span>
 <span class="fc" id="L135">            currentStrategy= nextStrategy;</span>
-        }
+<span class="fc" id="L136">        }</span>
 <span class="fc bfc" id="L137" title="All 2 branches covered.">        if (patternMatcher.regionStart() != patternMatcher.regionEnd()) {</span>
 <span class="fc" id="L138">            throw new IllegalArgumentException(&quot;Failed to parse \&quot;&quot;+pattern+&quot;\&quot; ; gave up at index &quot;+patternMatcher.regionStart());</span>
         }
@@ -248,7 +248,7 @@ public class FastDateParser implements DateParser, Serializable {
             // Add a note re supported date range
 <span class="pc bpc" id="L249" title="1 of 2 branches missed.">            if (locale.equals(JAPANESE_IMPERIAL)) {</span>
 <span class="nc" id="L250">                throw new ParseException(</span>
-<span class="nc" id="L251">                        &quot;(The &quot; +locale + &quot; locale does not support dates before 1868 AD)\n&quot; +</span>
+                        &quot;(The &quot; +locale + &quot; locale does not support dates before 1868 AD)\n&quot; +
 <span class="nc" id="L252">                                &quot;Unparseable date: \&quot;&quot;+source+&quot;\&quot; does not match &quot;+parsePattern.pattern(), 0);</span>
             }
 <span class="fc" id="L254">            throw new ParseException(&quot;Unparseable date: \&quot;&quot;+source+&quot;\&quot; does not match &quot;+parsePattern.pattern(), 0);</span>
@@ -281,7 +281,7 @@ public class FastDateParser implements DateParser, Serializable {
 <span class="fc bfc" id="L281" title="All 2 branches covered.">        for(int i=0; i&lt;strategies.length;) {</span>
 <span class="fc" id="L282">            final Strategy strategy= strategies[i++];</span>
 <span class="fc" id="L283">            strategy.setCalendar(this, cal, matcher.group(i));</span>
-        }
+<span class="fc" id="L284">        }</span>
 <span class="fc" id="L285">        pos.setIndex(offset+matcher.end());</span>
 <span class="fc" id="L286">        return cal.getTime();</span>
     }
@@ -308,7 +308,7 @@ public class FastDateParser implements DateParser, Serializable {
                     }
 <span class="fc" id="L309">                    c= value.charAt(i);</span>
                 }
-<span class="fc" id="L311">                break;</span>
+                break;
             case '\\':
 <span class="pc bpc" id="L313" title="1 of 2 branches missed.">                if(++i==value.length()) {</span>
 <span class="nc" id="L314">                    break;</span>
@@ -415,7 +415,7 @@ public class FastDateParser implements DateParser, Serializable {
      * A &lt;code&gt;Pattern&lt;/code&gt; to parse the user supplied SimpleDateFormat pattern
      */
 <span class="fc" id="L417">    private static final Pattern formatPattern= Pattern.compile(</span>
-<span class="fc" id="L418">            &quot;D+|E+|F+|G+|H+|K+|M+|S+|W+|Z+|a+|d+|h+|k+|m+|s+|w+|y+|z+|''|'[^']++(''[^']*+)*+'|[^'A-Za-z]++&quot;);</span>
+            &quot;D+|E+|F+|G+|H+|K+|M+|S+|W+|Z+|a+|d+|h+|k+|m+|s+|w+|y+|z+|''|'[^']++(''[^']*+)*+'|[^'A-Za-z]++&quot;);
 
     /**
      * Obtain a Strategy given a field from a SimpleDateFormat pattern
@@ -572,7 +572,7 @@ public class FastDateParser implements DateParser, Serializable {
 <span class="fc" id="L572">            regex.append('(');</span>
 <span class="fc bfc" id="L573" title="All 2 branches covered.">            for(final String textKeyValue : keyValues.keySet()) {</span>
 <span class="fc" id="L574">                escapeRegex(regex, textKeyValue, false).append('|');</span>
-            }
+<span class="fc" id="L575">            }</span>
 <span class="fc" id="L576">            regex.setCharAt(regex.length()-1, ')');</span>
 <span class="fc" id="L577">            return true;</span>
         }
@@ -588,7 +588,7 @@ public class FastDateParser implements DateParser, Serializable {
 <span class="nc" id="L588">                sb.append(&quot; not in (&quot;);</span>
 <span class="nc bnc" id="L589" title="All 2 branches missed.">                for(final String textKeyValue : keyValues.keySet()) {</span>
 <span class="nc" id="L590">                    sb.append(textKeyValue).append(' ');</span>
-                }
+<span class="nc" id="L591">                }</span>
 <span class="nc" id="L592">                sb.setCharAt(sb.length()-1, ')');</span>
 <span class="nc" id="L593">                throw new IllegalArgumentException(sb.toString());</span>
             }
@@ -626,7 +626,7 @@ public class FastDateParser implements DateParser, Serializable {
         boolean addRegex(final FastDateParser parser, final StringBuilder regex) {
 <span class="fc bfc" id="L627" title="All 2 branches covered.">            if(parser.isNextNumber()) {</span>
 <span class="fc" id="L628">                regex.append(&quot;(\\p{IsNd}{&quot;).append(parser.getFieldWidth()).append(&quot;}+)&quot;);</span>
-<span class="fc" id="L629">            }</span>
+            }
             else {
 <span class="fc" id="L631">                regex.append(&quot;(\\p{IsNd}++)&quot;);</span>
             }
@@ -694,7 +694,7 @@ public class FastDateParser implements DateParser, Serializable {
 <span class="fc" id="L694">            sb.append(&quot;(GMT[+\\-]\\d{0,1}\\d{2}|[+\\-]\\d{2}:?\\d{2}|&quot;);</span>
 <span class="fc bfc" id="L695" title="All 2 branches covered.">            for(final String id : tzNames.keySet()) {</span>
 <span class="fc" id="L696">                escapeRegex(sb, id, false).append('|');</span>
-            }
+<span class="fc" id="L697">            }</span>
 <span class="fc" id="L698">            sb.setCharAt(sb.length()-1, ')');</span>
 <span class="fc" id="L699">            validTimeZoneChars= sb.toString();</span>
 <span class="fc" id="L700">        }</span>
@@ -716,10 +716,10 @@ public class FastDateParser implements DateParser, Serializable {
             TimeZone tz;
 <span class="fc bfc" id="L717" title="All 4 branches covered.">            if(value.charAt(0)=='+' || value.charAt(0)=='-') {</span>
 <span class="fc" id="L718">                tz= TimeZone.getTimeZone(&quot;GMT&quot;+value);</span>
-<span class="fc" id="L719">            }</span>
+            }
 <span class="pc bpc" id="L720" title="1 of 2 branches missed.">            else if(value.startsWith(&quot;GMT&quot;)) {</span>
 <span class="fc" id="L721">                tz= TimeZone.getTimeZone(value);</span>
-<span class="fc" id="L722">            }</span>
+            }
             else {
 <span class="nc" id="L724">                tz= tzNames.get(value);</span>
 <span class="nc bnc" id="L725" title="All 2 branches missed.">                if(tz==null) {</span>

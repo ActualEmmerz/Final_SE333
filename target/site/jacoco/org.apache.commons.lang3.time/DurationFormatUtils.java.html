@@ -329,7 +329,7 @@ public class DurationFormatUtils {
 <span class="fc" id="L329">                    years = 0;</span>
                 }
             }
-<span class="fc" id="L332">        } else {</span>
+        } else {
             // there are no M's in the format string
 
 <span class="fc bfc" id="L335" title="All 2 branches covered.">            if( !Token.containsTokenWithValue(tokens, y) ) {</span>
@@ -422,7 +422,7 @@ public class DurationFormatUtils {
 <span class="fc" id="L422">            final int count = token.getCount();</span>
 <span class="fc bfc" id="L423" title="All 2 branches covered.">            if (value instanceof StringBuilder) {</span>
 <span class="fc" id="L424">                buffer.append(value.toString());</span>
-<span class="fc" id="L425">            } else {</span>
+            } else {
 <span class="fc bfc" id="L426" title="All 2 branches covered.">                if (value == y) {</span>
 <span class="fc bfc" id="L427" title="All 2 branches covered.">                    buffer.append(padWithZeros ? StringUtils.leftPad(Integer.toString(years), count, '0') : Integer</span>
 <span class="fc" id="L428">                            .toString(years));</span>
@@ -503,7 +503,7 @@ public class DurationFormatUtils {
 <span class="fc bfc" id="L503" title="All 2 branches covered.">                if (inLiteral) {</span>
 <span class="fc" id="L504">                    buffer = null;</span>
 <span class="fc" id="L505">                    inLiteral = false;</span>
-<span class="fc" id="L506">                } else {</span>
+                } else {
 <span class="fc" id="L507">                    buffer = new StringBuilder();</span>
 <span class="fc" id="L508">                    list.add(new Token(buffer));</span>
 <span class="fc" id="L509">                    inLiteral = true;</span>
@@ -541,7 +541,7 @@ public class DurationFormatUtils {
 <span class="fc bfc" id="L541" title="All 2 branches covered.">            if (value != null) {</span>
 <span class="fc bfc" id="L542" title="All 4 branches covered.">                if (previous != null &amp;&amp; previous.getValue() == value) {</span>
 <span class="fc" id="L543">                    previous.increment();</span>
-<span class="fc" id="L544">                } else {</span>
+                } else {
 <span class="fc" id="L545">                    final Token token = new Token(value);</span>
 <span class="fc" id="L546">                    list.add(token);</span>
 <span class="fc" id="L547">                    previous = token;</span>

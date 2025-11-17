@@ -125,7 +125,7 @@ public class ArrayUtils {
      * This value is returned by methods in this class and can also be used in comparisons with values returned by
      * various method from {@link java.util.List}.
      */
-<span class="fc" id="L128">    public static final int INDEX_NOT_FOUND = -1;</span>
+    public static final int INDEX_NOT_FOUND = -1;
 
     /**
      * &lt;p&gt;ArrayUtils instances should NOT be constructed in standard programming.
@@ -245,14 +245,14 @@ public class ArrayUtils {
 <span class="fc" id="L245">                final Object[] entry = (Object[]) object;</span>
 <span class="fc bfc" id="L246" title="All 2 branches covered.">                if (entry.length &lt; 2) {</span>
 <span class="fc" id="L247">                    throw new IllegalArgumentException(&quot;Array element &quot; + i + &quot;, '&quot;</span>
-<span class="fc" id="L248">                        + object</span>
-<span class="fc" id="L249">                        + &quot;', has a length less than 2&quot;);</span>
+                        + object
+                        + &quot;', has a length less than 2&quot;);
                 }
 <span class="fc" id="L251">                map.put(entry[0], entry[1]);</span>
 <span class="fc" id="L252">            } else {</span>
 <span class="fc" id="L253">                throw new IllegalArgumentException(&quot;Array element &quot; + i + &quot;, '&quot;</span>
-<span class="fc" id="L254">                        + object</span>
-<span class="fc" id="L255">                        + &quot;', is neither of type Map.Entry nor an Array&quot;);</span>
+                        + object
+                        + &quot;', is neither of type Map.Entry nor an Array&quot;);
             }
         }
 <span class="fc" id="L258">        return map;</span>
@@ -1193,9 +1193,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final Object[] array1, final Object[] array2) {
-<span class="fc bfc" id="L1196" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1197" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1198" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1196" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1199">                return false;</span>
         }
 <span class="fc" id="L1201">        return true;</span>
@@ -1211,9 +1211,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final long[] array1, final long[] array2) {
-<span class="fc bfc" id="L1214" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1215" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1216" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1214" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1217">                return false;</span>
         }
 <span class="fc" id="L1219">        return true;</span>
@@ -1229,9 +1229,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final int[] array1, final int[] array2) {
-<span class="fc bfc" id="L1232" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1233" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1234" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1232" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1235">                return false;</span>
         }
 <span class="fc" id="L1237">        return true;</span>
@@ -1247,9 +1247,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final short[] array1, final short[] array2) {
-<span class="fc bfc" id="L1250" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1251" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1252" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1250" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1253">                return false;</span>
         }
 <span class="fc" id="L1255">        return true;</span>
@@ -1265,9 +1265,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final char[] array1, final char[] array2) {
-<span class="fc bfc" id="L1268" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1269" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1270" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1268" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1271">                return false;</span>
         }
 <span class="fc" id="L1273">        return true;</span>
@@ -1283,9 +1283,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final byte[] array1, final byte[] array2) {
-<span class="fc bfc" id="L1286" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1287" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1288" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1286" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1289">                return false;</span>
         }
 <span class="fc" id="L1291">        return true;</span>
@@ -1301,9 +1301,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final double[] array1, final double[] array2) {
-<span class="fc bfc" id="L1304" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1305" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1306" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1304" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1307">                return false;</span>
         }
 <span class="fc" id="L1309">        return true;</span>
@@ -1319,9 +1319,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final float[] array1, final float[] array2) {
-<span class="fc bfc" id="L1322" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1323" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1324" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1322" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1325">                return false;</span>
         }
 <span class="fc" id="L1327">        return true;</span>
@@ -1337,9 +1337,9 @@ public class ArrayUtils {
      *  {@code null} as an empty array
      */
     public static boolean isSameLength(final boolean[] array1, final boolean[] array2) {
-<span class="fc bfc" id="L1340" title="All 6 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1341" title="All 6 branches covered.">            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||</span>
-<span class="fc bfc" id="L1342" title="All 6 branches covered.">            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {</span>
+<span class="fc bfc" id="L1340" title="All 18 branches covered.">        if ((array1 == null &amp;&amp; array2 != null &amp;&amp; array2.length &gt; 0) ||</span>
+            (array2 == null &amp;&amp; array1 != null &amp;&amp; array1.length &gt; 0) ||
+            (array1 != null &amp;&amp; array2 != null &amp;&amp; array1.length != array2.length)) {
 <span class="fc" id="L1343">                return false;</span>
         }
 <span class="fc" id="L1345">        return true;</span>
@@ -3472,7 +3472,7 @@ public class ArrayUtils {
 <span class="fc" id="L3472">                        +type1.getName(), ase);</span>
             }
 <span class="nc" id="L3474">            throw ase; // No, so rethrow original</span>
-        }
+<span class="fc" id="L3475">        }</span>
 <span class="fc" id="L3476">        return joinedArray;</span>
     }
 
@@ -3743,7 +3743,7 @@ public class ArrayUtils {
 <span class="fc" id="L3743">            type = array.getClass();</span>
 <span class="fc bfc" id="L3744" title="All 2 branches covered.">        } else if (element != null) {</span>
 <span class="fc" id="L3745">            type = element.getClass();</span>
-<span class="fc" id="L3746">        } else {</span>
+        } else {
 <span class="fc" id="L3747">            throw new IllegalArgumentException(&quot;Arguments cannot both be null&quot;);</span>
         }
         @SuppressWarnings(&quot;unchecked&quot;) // type must be T
@@ -4024,7 +4024,7 @@ public class ArrayUtils {
 <span class="fc" id="L4024">            clss = array.getClass().getComponentType();</span>
 <span class="fc bfc" id="L4025" title="All 2 branches covered.">        } else if (element != null) {</span>
 <span class="fc" id="L4026">            clss = element.getClass();</span>
-<span class="fc" id="L4027">        } else {</span>
+        } else {
 <span class="fc" id="L4028">            throw new IllegalArgumentException(&quot;Array and element cannot both be null&quot;);</span>
         }
         @SuppressWarnings(&quot;unchecked&quot;) // the add method creates an array of type clss, which is type T
@@ -5006,7 +5006,7 @@ public class ArrayUtils {
 <span class="fc" id="L5006">            final MutableInt count = occurrences.get(v);</span>
 <span class="fc bfc" id="L5007" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5008">                occurrences.put(v, new MutableInt(1));</span>
-<span class="fc" id="L5009">            } else {</span>
+            } else {
 <span class="fc" id="L5010">                count.increment();</span>
             }
         }
@@ -5021,7 +5021,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5022">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5024">        }</span>
         @SuppressWarnings(&quot;unchecked&quot;) // removeAll() always creates an array of the same type as its input
         final
 <span class="fc" id="L5027">        T[] result = (T[]) removeAll(array, toRemove);</span>
@@ -5098,7 +5098,7 @@ public class ArrayUtils {
 <span class="fc" id="L5098">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5099" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5100">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5101">            } else {</span>
+            } else {
 <span class="fc" id="L5102">                count.increment();</span>
             }
         }
@@ -5113,7 +5113,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5114">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5116">        }</span>
 <span class="fc" id="L5117">        return (byte[]) removeAll(array, toRemove);</span>
     }
 
@@ -5187,7 +5187,7 @@ public class ArrayUtils {
 <span class="fc" id="L5187">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5188" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5189">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5190">            } else {</span>
+            } else {
 <span class="fc" id="L5191">                count.increment();</span>
             }
         }
@@ -5202,7 +5202,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5203">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5205">        }</span>
 <span class="fc" id="L5206">        return (short[]) removeAll(array, toRemove);</span>
     }
 
@@ -5276,7 +5276,7 @@ public class ArrayUtils {
 <span class="fc" id="L5276">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5277" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5278">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5279">            } else {</span>
+            } else {
 <span class="fc" id="L5280">                count.increment();</span>
             }
         }
@@ -5291,7 +5291,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5292">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5294">        }</span>
 <span class="fc" id="L5295">        return (int[]) removeAll(array, toRemove);</span>
     }
 
@@ -5365,7 +5365,7 @@ public class ArrayUtils {
 <span class="fc" id="L5365">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5366" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5367">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5368">            } else {</span>
+            } else {
 <span class="fc" id="L5369">                count.increment();</span>
             }
         }
@@ -5380,7 +5380,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5381">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5383">        }</span>
 <span class="fc" id="L5384">        return (char[]) removeAll(array, toRemove);</span>
     }
 
@@ -5454,7 +5454,7 @@ public class ArrayUtils {
 <span class="fc" id="L5454">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5455" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5456">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5457">            } else {</span>
+            } else {
 <span class="fc" id="L5458">                count.increment();</span>
             }
         }
@@ -5469,7 +5469,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5470">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5472">        }</span>
 <span class="fc" id="L5473">        return (long[]) removeAll(array, toRemove);</span>
     }
 
@@ -5543,7 +5543,7 @@ public class ArrayUtils {
 <span class="fc" id="L5543">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5544" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5545">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5546">            } else {</span>
+            } else {
 <span class="fc" id="L5547">                count.increment();</span>
             }
         }
@@ -5558,7 +5558,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5559">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5561">        }</span>
 <span class="fc" id="L5562">        return (float[]) removeAll(array, toRemove);</span>
     }
 
@@ -5632,7 +5632,7 @@ public class ArrayUtils {
 <span class="fc" id="L5632">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5633" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5634">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5635">            } else {</span>
+            } else {
 <span class="fc" id="L5636">                count.increment();</span>
             }
         }
@@ -5647,7 +5647,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5648">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5650">        }</span>
 <span class="fc" id="L5651">        return (double[]) removeAll(array, toRemove);</span>
     }
 
@@ -5717,7 +5717,7 @@ public class ArrayUtils {
 <span class="fc" id="L5717">            final MutableInt count = occurrences.get(boxed);</span>
 <span class="fc bfc" id="L5718" title="All 2 branches covered.">            if (count == null) {</span>
 <span class="fc" id="L5719">                occurrences.put(boxed, new MutableInt(1));</span>
-<span class="fc" id="L5720">            } else {</span>
+            } else {
 <span class="fc" id="L5721">                count.increment();</span>
             }
         }
@@ -5732,7 +5732,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5733">                toRemove.set(found++);</span>
             }
-        }
+<span class="fc" id="L5735">        }</span>
 <span class="fc" id="L5736">        return (boolean[]) removeAll(array, toRemove);</span>
     }
 
@@ -5763,7 +5763,7 @@ public class ArrayUtils {
                 }
 <span class="fc" id="L5764">                diff++;</span>
 <span class="fc" id="L5765">                prevIndex = index;</span>
-            }
+<span class="fc" id="L5766">            }</span>
         }
 <span class="fc" id="L5768">        final Object result = Array.newInstance(array.getClass().getComponentType(), length - diff);</span>
 <span class="fc bfc" id="L5769" title="All 2 branches covered.">        if (diff &lt; length) {</span>

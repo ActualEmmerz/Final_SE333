@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1763339367275
+Bnd-LastModified: 1763348283219
 Build-Jdk: 25.0.1
 Built-By: emuhr
 Bundle-Description: The Apache Commons Parent Pom provides common settin

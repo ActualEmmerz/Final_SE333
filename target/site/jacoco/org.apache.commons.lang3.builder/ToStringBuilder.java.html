@@ -1057,7 +1057,7 @@ public class ToStringBuilder implements Builder&lt;String&gt; {
     public String toString() {
 <span class="fc bfc" id="L1058" title="All 2 branches covered.">        if (this.getObject() == null) {</span>
 <span class="fc" id="L1059">            this.getStringBuffer().append(this.getStyle().getNullText());</span>
-<span class="fc" id="L1060">        } else {</span>
+        } else {
 <span class="fc" id="L1061">            style.appendEnd(this.getStringBuffer(), this.getObject());</span>
         }
 <span class="fc" id="L1063">        return this.getStringBuffer().toString();</span>

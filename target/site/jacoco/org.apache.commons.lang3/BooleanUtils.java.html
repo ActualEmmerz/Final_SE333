@@ -558,12 +558,12 @@ public class BooleanUtils {
 <span class="fc bfc" id="L558" title="All 6 branches covered.">        switch (str.length()) {</span>
             case 1: {
 <span class="fc" id="L560">                final char ch0 = str.charAt(0);</span>
-<span class="fc bfc" id="L561" title="All 4 branches covered.">                if (ch0 == 'y' || ch0 == 'Y' ||</span>
-<span class="fc bfc" id="L562" title="All 4 branches covered.">                    ch0 == 't' || ch0 == 'T') {</span>
+<span class="fc bfc" id="L561" title="All 8 branches covered.">                if (ch0 == 'y' || ch0 == 'Y' ||</span>
+                    ch0 == 't' || ch0 == 'T') {
 <span class="fc" id="L563">                    return Boolean.TRUE;</span>
                 }
-<span class="fc bfc" id="L565" title="All 4 branches covered.">                if (ch0 == 'n' || ch0 == 'N' ||</span>
-<span class="fc bfc" id="L566" title="All 4 branches covered.">                    ch0 == 'f' || ch0 == 'F') {</span>
+<span class="fc bfc" id="L565" title="All 8 branches covered.">                if (ch0 == 'n' || ch0 == 'N' ||</span>
+                    ch0 == 'f' || ch0 == 'F') {
 <span class="fc" id="L567">                    return Boolean.FALSE;</span>
                 }
                 break;
@@ -571,12 +571,12 @@ public class BooleanUtils {
             case 2: {
 <span class="fc" id="L572">                final char ch0 = str.charAt(0);</span>
 <span class="fc" id="L573">                final char ch1 = str.charAt(1);</span>
-<span class="fc bfc" id="L574" title="All 4 branches covered.">                if ((ch0 == 'o' || ch0 == 'O') &amp;&amp;</span>
-<span class="pc bpc" id="L575" title="1 of 4 branches missed.">                    (ch1 == 'n' || ch1 == 'N') ) {</span>
+<span class="pc bpc" id="L574" title="1 of 8 branches missed.">                if ((ch0 == 'o' || ch0 == 'O') &amp;&amp;</span>
+                    (ch1 == 'n' || ch1 == 'N') ) {
 <span class="fc" id="L576">                    return Boolean.TRUE;</span>
                 }
-<span class="fc bfc" id="L578" title="All 4 branches covered.">                if ((ch0 == 'n' || ch0 == 'N') &amp;&amp;</span>
-<span class="pc bpc" id="L579" title="1 of 4 branches missed.">                    (ch1 == 'o' || ch1 == 'O') ) {</span>
+<span class="pc bpc" id="L578" title="1 of 8 branches missed.">                if ((ch0 == 'n' || ch0 == 'N') &amp;&amp;</span>
+                    (ch1 == 'o' || ch1 == 'O') ) {
 <span class="fc" id="L580">                    return Boolean.FALSE;</span>
                 }
                 break;
@@ -585,14 +585,14 @@ public class BooleanUtils {
 <span class="fc" id="L585">                final char ch0 = str.charAt(0);</span>
 <span class="fc" id="L586">                final char ch1 = str.charAt(1);</span>
 <span class="fc" id="L587">                final char ch2 = str.charAt(2);</span>
-<span class="fc bfc" id="L588" title="All 4 branches covered.">                if ((ch0 == 'y' || ch0 == 'Y') &amp;&amp;</span>
-<span class="fc bfc" id="L589" title="All 4 branches covered.">                    (ch1 == 'e' || ch1 == 'E') &amp;&amp;</span>
-<span class="fc bfc" id="L590" title="All 4 branches covered.">                    (ch2 == 's' || ch2 == 'S') ) {</span>
+<span class="fc bfc" id="L588" title="All 12 branches covered.">                if ((ch0 == 'y' || ch0 == 'Y') &amp;&amp;</span>
+                    (ch1 == 'e' || ch1 == 'E') &amp;&amp;
+                    (ch2 == 's' || ch2 == 'S') ) {
 <span class="fc" id="L591">                    return Boolean.TRUE;</span>
                 }
-<span class="fc bfc" id="L593" title="All 4 branches covered.">                if ((ch0 == 'o' || ch0 == 'O') &amp;&amp;</span>
-<span class="fc bfc" id="L594" title="All 4 branches covered.">                    (ch1 == 'f' || ch1 == 'F') &amp;&amp;</span>
-<span class="pc bpc" id="L595" title="1 of 4 branches missed.">                    (ch2 == 'f' || ch2 == 'F') ) {</span>
+<span class="pc bpc" id="L593" title="1 of 12 branches missed.">                if ((ch0 == 'o' || ch0 == 'O') &amp;&amp;</span>
+                    (ch1 == 'f' || ch1 == 'F') &amp;&amp;
+                    (ch2 == 'f' || ch2 == 'F') ) {
 <span class="fc" id="L596">                    return Boolean.FALSE;</span>
                 }
                 break;
@@ -602,10 +602,10 @@ public class BooleanUtils {
 <span class="fc" id="L602">                final char ch1 = str.charAt(1);</span>
 <span class="fc" id="L603">                final char ch2 = str.charAt(2);</span>
 <span class="fc" id="L604">                final char ch3 = str.charAt(3);</span>
-<span class="fc bfc" id="L605" title="All 4 branches covered.">                if ((ch0 == 't' || ch0 == 'T') &amp;&amp;</span>
-<span class="pc bpc" id="L606" title="1 of 4 branches missed.">                    (ch1 == 'r' || ch1 == 'R') &amp;&amp;</span>
-<span class="pc bpc" id="L607" title="1 of 4 branches missed.">                    (ch2 == 'u' || ch2 == 'U') &amp;&amp;</span>
-<span class="fc bfc" id="L608" title="All 4 branches covered.">                    (ch3 == 'e' || ch3 == 'E') ) {</span>
+<span class="pc bpc" id="L605" title="2 of 16 branches missed.">                if ((ch0 == 't' || ch0 == 'T') &amp;&amp;</span>
+                    (ch1 == 'r' || ch1 == 'R') &amp;&amp;
+                    (ch2 == 'u' || ch2 == 'U') &amp;&amp;
+                    (ch3 == 'e' || ch3 == 'E') ) {
 <span class="fc" id="L609">                    return Boolean.TRUE;</span>
                 }
                 break;
@@ -616,11 +616,11 @@ public class BooleanUtils {
 <span class="fc" id="L616">                final char ch2 = str.charAt(2);</span>
 <span class="fc" id="L617">                final char ch3 = str.charAt(3);</span>
 <span class="fc" id="L618">                final char ch4 = str.charAt(4);</span>
-<span class="pc bpc" id="L619" title="1 of 4 branches missed.">                if ((ch0 == 'f' || ch0 == 'F') &amp;&amp;</span>
-<span class="pc bpc" id="L620" title="1 of 4 branches missed.">                    (ch1 == 'a' || ch1 == 'A') &amp;&amp;</span>
-<span class="pc bpc" id="L621" title="1 of 4 branches missed.">                    (ch2 == 'l' || ch2 == 'L') &amp;&amp;</span>
-<span class="pc bpc" id="L622" title="1 of 4 branches missed.">                    (ch3 == 's' || ch3 == 'S') &amp;&amp;</span>
-<span class="pc bpc" id="L623" title="1 of 4 branches missed.">                    (ch4 == 'e' || ch4 == 'E') ) {</span>
+<span class="pc bpc" id="L619" title="5 of 20 branches missed.">                if ((ch0 == 'f' || ch0 == 'F') &amp;&amp;</span>
+                    (ch1 == 'a' || ch1 == 'A') &amp;&amp;
+                    (ch2 == 'l' || ch2 == 'L') &amp;&amp;
+                    (ch3 == 's' || ch3 == 'S') &amp;&amp;
+                    (ch4 == 'e' || ch4 == 'E') ) {
 <span class="fc" id="L624">                    return Boolean.FALSE;</span>
                 }
                 break;
@@ -1050,7 +1050,7 @@ public class BooleanUtils {
 <span class="fc bfc" id="L1050" title="All 2 branches covered.">            if (element) {</span>
 <span class="fc bfc" id="L1051" title="All 2 branches covered.">                if (trueCount &lt; 1) {</span>
 <span class="fc" id="L1052">                    trueCount++;</span>
-<span class="fc" id="L1053">                } else {</span>
+                } else {
 <span class="fc" id="L1054">                    return false;</span>
                 }
             }

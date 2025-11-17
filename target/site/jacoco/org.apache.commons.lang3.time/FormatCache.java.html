@@ -39,10 +39,10 @@ import java.util.concurrent.ConcurrentMap;
     static final int NONE= -1;
     
 <span class="fc" id="L41">    private final ConcurrentMap&lt;MultipartKey, F&gt; cInstanceCache </span>
-<span class="fc" id="L42">        = new ConcurrentHashMap&lt;MultipartKey, F&gt;(7);</span>
+        = new ConcurrentHashMap&lt;MultipartKey, F&gt;(7);
     
 <span class="fc" id="L44">    private static final ConcurrentMap&lt;MultipartKey, String&gt; cDateTimeInstanceCache </span>
-<span class="fc" id="L45">        = new ConcurrentHashMap&lt;MultipartKey, String&gt;(7);</span>
+        = new ConcurrentHashMap&lt;MultipartKey, String&gt;(7);
 
     /**
      * &lt;p&gt;Gets a formatter instance using the default pattern in the
@@ -197,10 +197,10 @@ import java.util.concurrent.ConcurrentMap;
                 DateFormat formatter;
 <span class="fc bfc" id="L198" title="All 2 branches covered.">                if (dateStyle == null) {</span>
 <span class="fc" id="L199">                    formatter = DateFormat.getTimeInstance(timeStyle.intValue(), locale);                    </span>
-<span class="fc" id="L200">                }</span>
+                }
 <span class="fc bfc" id="L201" title="All 2 branches covered.">                else if (timeStyle == null) {</span>
 <span class="fc" id="L202">                    formatter = DateFormat.getDateInstance(dateStyle.intValue(), locale);                    </span>
-<span class="fc" id="L203">                }</span>
+                }
                 else {
 <span class="fc" id="L205">                    formatter = DateFormat.getDateTimeInstance(dateStyle.intValue(), timeStyle.intValue(), locale);</span>
                 }
@@ -214,7 +214,7 @@ import java.util.concurrent.ConcurrentMap;
                 }
 <span class="nc" id="L215">            } catch (final ClassCastException ex) {</span>
 <span class="nc" id="L216">                throw new IllegalArgumentException(&quot;No date time pattern for locale: &quot; + locale);</span>
-            }
+<span class="fc" id="L217">            }</span>
         }
 <span class="fc" id="L219">        return pattern;</span>
     }

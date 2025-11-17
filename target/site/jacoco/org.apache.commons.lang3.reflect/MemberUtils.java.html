@@ -37,7 +37,7 @@ import org.apache.commons.lang3.ClassUtils;
 
     /** Array of primitive number types ordered by &quot;promotability&quot; */
 <span class="fc" id="L39">    private static final Class&lt;?&gt;[] ORDERED_PRIMITIVE_TYPES = { Byte.TYPE, Short.TYPE,</span>
-<span class="fc" id="L40">            Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE };</span>
+            Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE };
 
     /**
      * XXX Default access superclass workaround
@@ -60,9 +60,9 @@ import org.apache.commons.lang3.ClassUtils;
 <span class="fc bfc" id="L60" title="All 2 branches covered.">                &amp;&amp; isPackageAccess(m.getDeclaringClass().getModifiers())) {</span>
             try {
 <span class="fc" id="L62">                o.setAccessible(true);</span>
-<span class="pc" id="L63">            } catch (final SecurityException e) { // NOPMD</span>
+<span class="nc" id="L63">            } catch (final SecurityException e) { // NOPMD</span>
                 // ignore in favor of subsequent IllegalAccessException
-            }
+<span class="fc" id="L65">            }</span>
         }
 <span class="fc" id="L67">    }</span>
 

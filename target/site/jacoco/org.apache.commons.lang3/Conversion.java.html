@@ -79,8 +79,8 @@ import java.util.UUID;
 <span class="fc" id="L79">        final int digit = Character.digit(hexDigit, 16);</span>
 <span class="fc bfc" id="L80" title="All 2 branches covered.">        if (digit &lt; 0) {</span>
 <span class="fc" id="L81">            throw new IllegalArgumentException(&quot;Cannot interpret '&quot;</span>
-<span class="fc" id="L82">                + hexDigit</span>
-<span class="fc" id="L83">                + &quot;' as a hexadecimal digit&quot;);</span>
+                + hexDigit
+                + &quot;' as a hexadecimal digit&quot;);
         }
 <span class="fc" id="L85">        return digit;</span>
     }
@@ -139,8 +139,8 @@ import java.util.UUID;
 <span class="fc" id="L139">            return 0xF;</span>
         default:
 <span class="fc" id="L141">            throw new IllegalArgumentException(&quot;Cannot interpret '&quot;</span>
-<span class="fc" id="L142">                + hexDigit</span>
-<span class="fc" id="L143">                + &quot;' as a hexadecimal digit&quot;);</span>
+                + hexDigit
+                + &quot;' as a hexadecimal digit&quot;);
         }
     }
 
@@ -199,8 +199,8 @@ import java.util.UUID;
 <span class="fc" id="L199">            return new boolean[]{true, true, true, true};</span>
         default:
 <span class="fc" id="L201">            throw new IllegalArgumentException(&quot;Cannot interpret '&quot;</span>
-<span class="fc" id="L202">                + hexDigit</span>
-<span class="fc" id="L203">                + &quot;' as a hexadecimal digit&quot;);</span>
+                + hexDigit
+                + &quot;' as a hexadecimal digit&quot;);
         }
     }
 
@@ -259,8 +259,8 @@ import java.util.UUID;
 <span class="fc" id="L259">            return new boolean[]{true, true, true, true};</span>
         default:
 <span class="fc" id="L261">            throw new IllegalArgumentException(&quot;Cannot interpret '&quot;</span>
-<span class="fc" id="L262">                + hexDigit</span>
-<span class="fc" id="L263">                + &quot;' as a hexadecimal digit&quot;);</span>
+                + hexDigit
+                + &quot;' as a hexadecimal digit&quot;);
         }
     }
 
@@ -406,9 +406,9 @@ import java.util.UUID;
         }
 <span class="fc bfc" id="L407" title="All 2 branches covered.">        if (src.length - srcPos &lt; 4) {</span>
 <span class="fc" id="L408">            throw new IllegalArgumentException(&quot;src.length-srcPos&lt;4: src.length=&quot;</span>
-<span class="fc" id="L409">                + src.length</span>
-<span class="fc" id="L410">                + &quot;, srcPos=&quot;</span>
-<span class="fc" id="L411">                + srcPos);</span>
+                + src.length
+                + &quot;, srcPos=&quot;
+                + srcPos);
         }
 <span class="fc bfc" id="L413" title="All 2 branches covered.">        if (src[srcPos + 3]) {</span>
 <span class="fc bfc" id="L414" title="All 2 branches covered.">            if (src[srcPos + 2]) {</span>
@@ -687,7 +687,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L688" title="1 of 2 branches missed.">        if ((nInts - 1) * 32 + dstPos &gt;= 64) {</span>
 <span class="nc" id="L689">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L690">                &quot;(nInts-1)*32+dstPos is greather or equal to than 64&quot;);</span>
+                &quot;(nInts-1)*32+dstPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L692">        long out = dstInit;</span>
 <span class="fc" id="L693">        int shift = 0;</span>
@@ -724,7 +724,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L725" title="1 of 2 branches missed.">        if ((nShorts - 1) * 16 + dstPos &gt;= 64) {</span>
 <span class="nc" id="L726">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L727">                &quot;(nShorts-1)*16+dstPos is greather or equal to than 64&quot;);</span>
+                &quot;(nShorts-1)*16+dstPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L729">        long out = dstInit;</span>
 <span class="fc" id="L730">        int shift = 0;</span>
@@ -761,7 +761,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L762" title="1 of 2 branches missed.">        if ((nShorts - 1) * 16 + dstPos &gt;= 32) {</span>
 <span class="nc" id="L763">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L764">                &quot;(nShorts-1)*16+dstPos is greather or equal to than 32&quot;);</span>
+                &quot;(nShorts-1)*16+dstPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L766">        int out = dstInit;</span>
 <span class="fc" id="L767">        int shift = 0;</span>
@@ -798,7 +798,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L799" title="1 of 2 branches missed.">        if ((nBytes - 1) * 8 + dstPos &gt;= 64) {</span>
 <span class="nc" id="L800">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L801">                &quot;(nBytes-1)*8+dstPos is greather or equal to than 64&quot;);</span>
+                &quot;(nBytes-1)*8+dstPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L803">        long out = dstInit;</span>
 <span class="fc" id="L804">        int shift = 0;</span>
@@ -834,7 +834,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L835" title="1 of 2 branches missed.">        if ((nBytes - 1) * 8 + dstPos &gt;= 32) {</span>
 <span class="nc" id="L836">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L837">                &quot;(nBytes-1)*8+dstPos is greather or equal to than 32&quot;);</span>
+                &quot;(nBytes-1)*8+dstPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L839">        int out = dstInit;</span>
 <span class="fc" id="L840">        int shift = 0;</span>
@@ -871,7 +871,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L872" title="1 of 2 branches missed.">        if ((nBytes - 1) * 8 + dstPos &gt;= 16) {</span>
 <span class="nc" id="L873">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L874">                &quot;(nBytes-1)*8+dstPos is greather or equal to than 16&quot;);</span>
+                &quot;(nBytes-1)*8+dstPos is greather or equal to than 16&quot;);
         }
 <span class="fc" id="L876">        short out = dstInit;</span>
 <span class="fc" id="L877">        int shift = 0;</span>
@@ -905,7 +905,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L906" title="1 of 2 branches missed.">        if ((nHex - 1) * 4 + dstPos &gt;= 64) {</span>
 <span class="nc" id="L907">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L908">                &quot;(nHexs-1)*4+dstPos is greather or equal to than 64&quot;);</span>
+                &quot;(nHexs-1)*4+dstPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L910">        long out = dstInit;</span>
 <span class="fc" id="L911">        int shift = 0;</span>
@@ -939,7 +939,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L940" title="1 of 2 branches missed.">        if ((nHex - 1) * 4 + dstPos &gt;= 32) {</span>
 <span class="nc" id="L941">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L942">                &quot;(nHexs-1)*4+dstPos is greather or equal to than 32&quot;);</span>
+                &quot;(nHexs-1)*4+dstPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L944">        int out = dstInit;</span>
 <span class="fc" id="L945">        int shift = 0;</span>
@@ -973,7 +973,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L974" title="1 of 2 branches missed.">        if ((nHex - 1) * 4 + dstPos &gt;= 16) {</span>
 <span class="nc" id="L975">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L976">                &quot;(nHexs-1)*4+dstPos is greather or equal to than 16&quot;);</span>
+                &quot;(nHexs-1)*4+dstPos is greather or equal to than 16&quot;);
         }
 <span class="fc" id="L978">        short out = dstInit;</span>
 <span class="fc" id="L979">        int shift = 0;</span>
@@ -1007,7 +1007,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1008" title="1 of 2 branches missed.">        if ((nHex - 1) * 4 + dstPos &gt;= 8) {</span>
 <span class="nc" id="L1009">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1010">                &quot;(nHexs-1)*4+dstPos is greather or equal to than 8&quot;);</span>
+                &quot;(nHexs-1)*4+dstPos is greather or equal to than 8&quot;);
         }
 <span class="fc" id="L1012">        byte out = dstInit;</span>
 <span class="fc" id="L1013">        int shift = 0;</span>
@@ -1044,7 +1044,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1045" title="1 of 2 branches missed.">        if (nBools - 1 + dstPos &gt;= 64) {</span>
 <span class="nc" id="L1046">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1047">                &quot;nBools-1+dstPos is greather or equal to than 64&quot;);</span>
+                &quot;nBools-1+dstPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L1049">        long out = dstInit;</span>
 <span class="fc" id="L1050">        int shift = 0;</span>
@@ -1080,7 +1080,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1081" title="1 of 2 branches missed.">        if (nBools - 1 + dstPos &gt;= 32) {</span>
 <span class="nc" id="L1082">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1083">                &quot;nBools-1+dstPos is greather or equal to than 32&quot;);</span>
+                &quot;nBools-1+dstPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L1085">        int out = dstInit;</span>
 <span class="fc" id="L1086">        int shift = 0;</span>
@@ -1117,7 +1117,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1118" title="1 of 2 branches missed.">        if (nBools - 1 + dstPos &gt;= 16) {</span>
 <span class="nc" id="L1119">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1120">                &quot;nBools-1+dstPos is greather or equal to than 16&quot;);</span>
+                &quot;nBools-1+dstPos is greather or equal to than 16&quot;);
         }
 <span class="fc" id="L1122">        short out = dstInit;</span>
 <span class="fc" id="L1123">        int shift = 0;</span>
@@ -1189,7 +1189,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1190" title="1 of 2 branches missed.">        if ((nInts - 1) * 32 + srcPos &gt;= 64) {</span>
 <span class="nc" id="L1191">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1192">                &quot;(nInts-1)*32+srcPos is greather or equal to than 64&quot;);</span>
+                &quot;(nInts-1)*32+srcPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L1194">        int shift = 0;</span>
 <span class="fc bfc" id="L1195" title="All 2 branches covered.">        for (int i = 0; i &lt; nInts; i++ ) {</span>
@@ -1223,7 +1223,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1224" title="1 of 2 branches missed.">        if ((nShorts - 1) * 16 + srcPos &gt;= 64) {</span>
 <span class="nc" id="L1225">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1226">                &quot;(nShorts-1)*16+srcPos is greather or equal to than 64&quot;);</span>
+                &quot;(nShorts-1)*16+srcPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L1228">        int shift = 0;</span>
 <span class="fc bfc" id="L1229" title="All 2 branches covered.">        for (int i = 0; i &lt; nShorts; i++ ) {</span>
@@ -1257,7 +1257,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1258" title="1 of 2 branches missed.">        if ((nShorts - 1) * 16 + srcPos &gt;= 32) {</span>
 <span class="nc" id="L1259">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1260">                &quot;(nShorts-1)*16+srcPos is greather or equal to than 32&quot;);</span>
+                &quot;(nShorts-1)*16+srcPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L1262">        int shift = 0;</span>
 <span class="fc bfc" id="L1263" title="All 2 branches covered.">        for (int i = 0; i &lt; nShorts; i++ ) {</span>
@@ -1291,7 +1291,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1292" title="1 of 2 branches missed.">        if ((nBytes - 1) * 8 + srcPos &gt;= 64) {</span>
 <span class="nc" id="L1293">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1294">                &quot;(nBytes-1)*8+srcPos is greather or equal to than 64&quot;);</span>
+                &quot;(nBytes-1)*8+srcPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L1296">        int shift = 0;</span>
 <span class="fc bfc" id="L1297" title="All 2 branches covered.">        for (int i = 0; i &lt; nBytes; i++ ) {</span>
@@ -1324,7 +1324,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1325" title="1 of 2 branches missed.">        if ((nBytes - 1) * 8 + srcPos &gt;= 32) {</span>
 <span class="nc" id="L1326">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1327">                &quot;(nBytes-1)*8+srcPos is greather or equal to than 32&quot;);</span>
+                &quot;(nBytes-1)*8+srcPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L1329">        int shift = 0;</span>
 <span class="fc bfc" id="L1330" title="All 2 branches covered.">        for (int i = 0; i &lt; nBytes; i++ ) {</span>
@@ -1358,7 +1358,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1359" title="1 of 2 branches missed.">        if ((nBytes - 1) * 8 + srcPos &gt;= 16) {</span>
 <span class="nc" id="L1360">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1361">                &quot;(nBytes-1)*8+srcPos is greather or equal to than 16&quot;);</span>
+                &quot;(nBytes-1)*8+srcPos is greather or equal to than 16&quot;);
         }
 <span class="fc" id="L1363">        int shift = 0;</span>
 <span class="fc bfc" id="L1364" title="All 2 branches covered.">        for (int i = 0; i &lt; nBytes; i++ ) {</span>
@@ -1390,7 +1390,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1391" title="1 of 2 branches missed.">        if ((nHexs - 1) * 4 + srcPos &gt;= 64) {</span>
 <span class="nc" id="L1392">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1393">                &quot;(nHexs-1)*4+srcPos is greather or equal to than 64&quot;);</span>
+                &quot;(nHexs-1)*4+srcPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L1395">        final StringBuilder sb = new StringBuilder(dstInit);</span>
 <span class="fc" id="L1396">        int shift = 0;</span>
@@ -1401,7 +1401,7 @@ import java.util.UUID;
 <span class="fc bfc" id="L1401" title="All 2 branches covered.">            if (dstPos + i == append) {</span>
 <span class="fc" id="L1402">                ++append;</span>
 <span class="fc" id="L1403">                sb.append(intToHexDigit(bits));</span>
-<span class="fc" id="L1404">            } else {</span>
+            } else {
 <span class="fc" id="L1405">                sb.setCharAt(dstPos + i, intToHexDigit(bits));</span>
             }
         }
@@ -1430,7 +1430,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1431" title="1 of 2 branches missed.">        if ((nHexs - 1) * 4 + srcPos &gt;= 32) {</span>
 <span class="nc" id="L1432">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1433">                &quot;(nHexs-1)*4+srcPos is greather or equal to than 32&quot;);</span>
+                &quot;(nHexs-1)*4+srcPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L1435">        final StringBuilder sb = new StringBuilder(dstInit);</span>
 <span class="fc" id="L1436">        int shift = 0;</span>
@@ -1441,7 +1441,7 @@ import java.util.UUID;
 <span class="fc bfc" id="L1441" title="All 2 branches covered.">            if (dstPos + i == append) {</span>
 <span class="fc" id="L1442">                ++append;</span>
 <span class="fc" id="L1443">                sb.append(intToHexDigit(bits));</span>
-<span class="fc" id="L1444">            } else {</span>
+            } else {
 <span class="fc" id="L1445">                sb.setCharAt(dstPos + i, intToHexDigit(bits));</span>
             }
         }
@@ -1470,7 +1470,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1471" title="1 of 2 branches missed.">        if ((nHexs - 1) * 4 + srcPos &gt;= 16) {</span>
 <span class="nc" id="L1472">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1473">                &quot;(nHexs-1)*4+srcPos is greather or equal to than 16&quot;);</span>
+                &quot;(nHexs-1)*4+srcPos is greather or equal to than 16&quot;);
         }
 <span class="fc" id="L1475">        final StringBuilder sb = new StringBuilder(dstInit);</span>
 <span class="fc" id="L1476">        int shift = 0;</span>
@@ -1481,7 +1481,7 @@ import java.util.UUID;
 <span class="fc bfc" id="L1481" title="All 2 branches covered.">            if (dstPos + i == append) {</span>
 <span class="fc" id="L1482">                ++append;</span>
 <span class="fc" id="L1483">                sb.append(intToHexDigit(bits));</span>
-<span class="fc" id="L1484">            } else {</span>
+            } else {
 <span class="fc" id="L1485">                sb.setCharAt(dstPos + i, intToHexDigit(bits));</span>
             }
         }
@@ -1510,7 +1510,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1511" title="1 of 2 branches missed.">        if ((nHexs - 1) * 4 + srcPos &gt;= 8) {</span>
 <span class="nc" id="L1512">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1513">                &quot;(nHexs-1)*4+srcPos is greather or equal to than 8&quot;);</span>
+                &quot;(nHexs-1)*4+srcPos is greather or equal to than 8&quot;);
         }
 <span class="fc" id="L1515">        final StringBuilder sb = new StringBuilder(dstInit);</span>
 <span class="fc" id="L1516">        int shift = 0;</span>
@@ -1521,7 +1521,7 @@ import java.util.UUID;
 <span class="fc bfc" id="L1521" title="All 2 branches covered.">            if (dstPos + i == append) {</span>
 <span class="fc" id="L1522">                ++append;</span>
 <span class="fc" id="L1523">                sb.append(intToHexDigit(bits));</span>
-<span class="fc" id="L1524">            } else {</span>
+            } else {
 <span class="fc" id="L1525">                sb.setCharAt(dstPos + i, intToHexDigit(bits));</span>
             }
         }
@@ -1552,7 +1552,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1553" title="1 of 2 branches missed.">        if (nBools - 1 + srcPos &gt;= 64) {</span>
 <span class="nc" id="L1554">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1555">                &quot;nBools-1+srcPos is greather or equal to than 64&quot;);</span>
+                &quot;nBools-1+srcPos is greather or equal to than 64&quot;);
         }
 <span class="fc" id="L1557">        int shift = 0;</span>
 <span class="fc bfc" id="L1558" title="All 2 branches covered.">        for (int i = 0; i &lt; nBools; i++ ) {</span>
@@ -1586,7 +1586,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1587" title="1 of 2 branches missed.">        if (nBools - 1 + srcPos &gt;= 32) {</span>
 <span class="nc" id="L1588">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1589">                &quot;nBools-1+srcPos is greather or equal to than 32&quot;);</span>
+                &quot;nBools-1+srcPos is greather or equal to than 32&quot;);
         }
 <span class="fc" id="L1591">        int shift = 0;</span>
 <span class="fc bfc" id="L1592" title="All 2 branches covered.">        for (int i = 0; i &lt; nBools; i++ ) {</span>
@@ -1620,7 +1620,7 @@ import java.util.UUID;
         }
 <span class="pc bpc" id="L1621" title="1 of 2 branches missed.">        if (nBools - 1 + srcPos &gt;= 16) {</span>
 <span class="nc" id="L1622">            throw new IllegalArgumentException(</span>
-<span class="nc" id="L1623">                &quot;nBools-1+srcPos is greather or equal to than 16&quot;);</span>
+                &quot;nBools-1+srcPos is greather or equal to than 16&quot;);
         }
 <span class="fc" id="L1625">        int shift = 0;</span>
 <span class="pc bpc" id="L1626" title="1 of 2 branches missed.">        assert ((nBools - 1) * 1 &lt; 16 - srcPos);</span>
@@ -1712,7 +1712,7 @@ import java.util.UUID;
 <span class="nc" id="L1712">            throw new IllegalArgumentException(&quot;Need at least 16 bytes for UUID&quot;);</span>
         }
 <span class="fc" id="L1714">        return new UUID(byteArrayToLong(src, srcPos, 0, 0, 8), byteArrayToLong(</span>
-<span class="fc" id="L1715">            src, srcPos + 8, 0, 0, 8));</span>
+            src, srcPos + 8, 0, 0, 8));
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

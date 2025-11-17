@@ -234,15 +234,15 @@ public class RandomStringUtils {
 <span class="fc bfc" id="L234" title="All 4 branches covered.">        if (start == 0 &amp;&amp; end == 0) {</span>
 <span class="fc bfc" id="L235" title="All 2 branches covered.">            if (chars != null) {</span>
 <span class="fc" id="L236">                end = chars.length;</span>
-<span class="fc" id="L237">            } else {</span>
+            } else {
 <span class="fc bfc" id="L238" title="All 4 branches covered.">                if (!letters &amp;&amp; !numbers) {</span>
 <span class="fc" id="L239">                    end = Integer.MAX_VALUE;</span>
-<span class="fc" id="L240">                } else {</span>
+                } else {
 <span class="fc" id="L241">                    end = 'z' + 1;</span>
 <span class="fc" id="L242">                    start = ' ';                </span>
                 }
             }
-<span class="fc" id="L245">        } else {</span>
+        } else {
 <span class="fc bfc" id="L246" title="All 2 branches covered.">            if (end &lt;= start) {</span>
 <span class="fc" id="L247">                throw new IllegalArgumentException(&quot;Parameter end (&quot; + end + &quot;) must be greater than start (&quot; + start + &quot;)&quot;);</span>
             }
@@ -255,16 +255,16 @@ public class RandomStringUtils {
             char ch;
 <span class="fc bfc" id="L256" title="All 2 branches covered.">            if (chars == null) {</span>
 <span class="fc" id="L257">                ch = (char) (random.nextInt(gap) + start);</span>
-<span class="fc" id="L258">            } else {</span>
+            } else {
 <span class="fc" id="L259">                ch = chars[random.nextInt(gap) + start];</span>
             }
-<span class="fc bfc" id="L261" title="All 4 branches covered.">            if (letters &amp;&amp; Character.isLetter(ch)</span>
-<span class="fc bfc" id="L262" title="All 4 branches covered.">                    || numbers &amp;&amp; Character.isDigit(ch)</span>
-<span class="fc bfc" id="L263" title="All 4 branches covered.">                    || !letters &amp;&amp; !numbers) {</span>
+<span class="fc bfc" id="L261" title="All 6 branches covered.">            if (letters &amp;&amp; Character.isLetter(ch)</span>
+<span class="fc bfc" id="L262" title="All 6 branches covered.">                    || numbers &amp;&amp; Character.isDigit(ch)</span>
+                    || !letters &amp;&amp; !numbers) {
 <span class="fc bfc" id="L264" title="All 4 branches covered.">                if(ch &gt;= 56320 &amp;&amp; ch &lt;= 57343) {</span>
 <span class="pc bpc" id="L265" title="1 of 2 branches missed.">                    if(count == 0) {</span>
 <span class="nc" id="L266">                        count++;</span>
-<span class="nc" id="L267">                    } else {</span>
+                    } else {
                         // low surrogate, insert high surrogate after putting it in
 <span class="fc" id="L269">                        buffer[count] = ch;</span>
 <span class="fc" id="L270">                        count--;</span>
@@ -273,7 +273,7 @@ public class RandomStringUtils {
 <span class="fc bfc" id="L273" title="All 4 branches covered.">                } else if(ch &gt;= 55296 &amp;&amp; ch &lt;= 56191) {</span>
 <span class="pc bpc" id="L274" title="1 of 2 branches missed.">                    if(count == 0) {</span>
 <span class="nc" id="L275">                        count++;</span>
-<span class="nc" id="L276">                    } else {</span>
+                    } else {
                         // high surrogate, insert low surrogate before putting it in
 <span class="fc" id="L278">                        buffer[count] = (char) (56320 + random.nextInt(128));</span>
 <span class="fc" id="L279">                        count--;</span>
@@ -282,13 +282,13 @@ public class RandomStringUtils {
 <span class="fc bfc" id="L282" title="All 4 branches covered.">                } else if(ch &gt;= 56192 &amp;&amp; ch &lt;= 56319) {</span>
                     // private high surrogate, no effing clue, so skip it
 <span class="fc" id="L284">                    count++;</span>
-<span class="fc" id="L285">                } else {</span>
+                } else {
 <span class="fc" id="L286">                    buffer[count] = ch;</span>
                 }
-<span class="fc" id="L288">            } else {</span>
+            } else {
 <span class="fc" id="L289">                count++;</span>
             }
-        }
+<span class="fc" id="L291">        }</span>
 <span class="fc" id="L292">        return new String(buffer);</span>
     }
 

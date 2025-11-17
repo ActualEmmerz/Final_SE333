@@ -120,7 +120,7 @@ public class UnicodeEscaper extends CodePointTranslator {
 <span class="fc" id="L120">            out.write(&quot;\\u0&quot; + hex(codepoint));</span>
 <span class="fc bfc" id="L121" title="All 2 branches covered.">        } else if (codepoint &gt; 0xf) {</span>
 <span class="fc" id="L122">            out.write(&quot;\\u00&quot; + hex(codepoint));</span>
-<span class="fc" id="L123">        } else {</span>
+        } else {
 <span class="fc" id="L124">            out.write(&quot;\\u000&quot; + hex(codepoint));</span>
         }
 <span class="fc" id="L126">        return true;</span>

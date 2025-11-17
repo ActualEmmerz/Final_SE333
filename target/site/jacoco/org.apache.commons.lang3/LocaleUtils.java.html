@@ -40,11 +40,11 @@ public class LocaleUtils {
 
     /** Concurrent map of language locales by country. */
 <span class="fc" id="L42">    private static final ConcurrentMap&lt;String, List&lt;Locale&gt;&gt; cLanguagesByCountry = </span>
-<span class="fc" id="L43">        new ConcurrentHashMap&lt;String, List&lt;Locale&gt;&gt;();</span>
+        new ConcurrentHashMap&lt;String, List&lt;Locale&gt;&gt;();
 
     /** Concurrent map of country locales by language. */
 <span class="fc" id="L46">    private static final ConcurrentMap&lt;String, List&lt;Locale&gt;&gt; cCountriesByLanguage = </span>
-<span class="fc" id="L47">        new ConcurrentHashMap&lt;String, List&lt;Locale&gt;&gt;();</span>
+        new ConcurrentHashMap&lt;String, List&lt;Locale&gt;&gt;();
 
     /**
      * &lt;p&gt;{@code LocaleUtils} instances should NOT be constructed in standard programming.

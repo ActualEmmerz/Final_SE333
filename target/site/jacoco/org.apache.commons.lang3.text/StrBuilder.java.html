@@ -126,7 +126,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 <span class="fc" id="L126">        super();</span>
 <span class="fc bfc" id="L127" title="All 2 branches covered.">        if (str == null) {</span>
 <span class="fc" id="L128">            buffer = new char[CAPACITY];</span>
-<span class="fc" id="L129">        } else {</span>
+        } else {
 <span class="fc" id="L130">            buffer = new char[str.length() + CAPACITY];</span>
 <span class="fc" id="L131">            append(str);</span>
         }
@@ -773,7 +773,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 <span class="fc" id="L773">            buffer[size++] = 'r';</span>
 <span class="fc" id="L774">            buffer[size++] = 'u';</span>
 <span class="fc" id="L775">            buffer[size++] = 'e';</span>
-<span class="fc" id="L776">        } else {</span>
+        } else {
 <span class="fc" id="L777">            ensureCapacity(size + 5);</span>
 <span class="fc" id="L778">            buffer[size++] = 'f';</span>
 <span class="fc" id="L779">            buffer[size++] = 'a';</span>
@@ -1094,7 +1094,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 <span class="fc bfc" id="L1094" title="All 2 branches covered.">        if (iterable != null) {</span>
 <span class="fc bfc" id="L1095" title="All 2 branches covered.">            for (final Object o : iterable) {</span>
 <span class="fc" id="L1096">                append(o);</span>
-            }
+<span class="fc" id="L1097">            }</span>
         }
 <span class="fc" id="L1099">        return this;</span>
     }
@@ -1287,7 +1287,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
     public StrBuilder appendSeparator(final char standard, final char defaultIfEmpty) {
 <span class="fc bfc" id="L1288" title="All 2 branches covered.">        if (size() &gt; 0) {</span>
 <span class="fc" id="L1289">            append(standard);</span>
-<span class="fc" id="L1290">        } else {</span>
+        } else {
 <span class="fc" id="L1291">            append(defaultIfEmpty);</span>
         }
 <span class="fc" id="L1293">        return this;</span>
@@ -1387,7 +1387,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 <span class="fc" id="L1387">            final int strLen = str.length();</span>
 <span class="fc bfc" id="L1388" title="All 2 branches covered.">            if (strLen &gt;= width) {</span>
 <span class="fc" id="L1389">                str.getChars(strLen - width, strLen, buffer, size);</span>
-<span class="fc" id="L1390">            } else {</span>
+            } else {
 <span class="fc" id="L1391">                final int padLen = width - strLen;</span>
 <span class="fc bfc" id="L1392" title="All 2 branches covered.">                for (int i = 0; i &lt; padLen; i++) {</span>
 <span class="fc" id="L1393">                    buffer[size + i] = padChar;</span>
@@ -1434,7 +1434,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 <span class="fc" id="L1434">            final int strLen = str.length();</span>
 <span class="fc bfc" id="L1435" title="All 2 branches covered.">            if (strLen &gt;= width) {</span>
 <span class="fc" id="L1436">                str.getChars(0, width, buffer, size);</span>
-<span class="fc" id="L1437">            } else {</span>
+            } else {
 <span class="fc" id="L1438">                final int padLen = width - strLen;</span>
 <span class="fc" id="L1439">                str.getChars(0, strLen, buffer, size);</span>
 <span class="fc bfc" id="L1440" title="All 2 branches covered.">                for (int i = 0; i &lt; padLen; i++) {</span>
@@ -1577,7 +1577,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 <span class="fc" id="L1577">            buffer[index++] = 'u';</span>
 <span class="fc" id="L1578">            buffer[index] = 'e';</span>
 <span class="fc" id="L1579">            size += 4;</span>
-<span class="fc" id="L1580">        } else {</span>
+        } else {
 <span class="fc" id="L1581">            ensureCapacity(size + 5);</span>
 <span class="fc" id="L1582">            System.arraycopy(buffer, index, buffer, index + 5, size - index);</span>
 <span class="fc" id="L1583">            buffer[index++] = 'f';</span>
@@ -2866,8 +2866,8 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         /** {@inheritDoc} */
         @Override
         public int read(final char b[], final int off, int len) {
-<span class="fc bfc" id="L2869" title="All 6 branches covered.">            if (off &lt; 0 || len &lt; 0 || off &gt; b.length ||</span>
-<span class="pc bpc" id="L2870" title="1 of 4 branches missed.">                    (off + len) &gt; b.length || (off + len) &lt; 0) {</span>
+<span class="pc bpc" id="L2869" title="1 of 10 branches missed.">            if (off &lt; 0 || len &lt; 0 || off &gt; b.length ||</span>
+                    (off + len) &gt; b.length || (off + len) &lt; 0) {
 <span class="fc" id="L2871">                throw new IndexOutOfBoundsException();</span>
             }
 <span class="fc bfc" id="L2873" title="All 2 branches covered.">            if (len == 0) {</span>

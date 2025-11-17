@@ -112,27 +112,27 @@ public class WordUtils {
 <span class="fc" id="L112">                wrappedLine.append(newLineStr);</span>
 <span class="fc" id="L113">                offset = spaceToWrapAt + 1;</span>
                 
-<span class="fc" id="L115">            } else {</span>
+            } else {
                 // really long word or URL
 <span class="fc bfc" id="L117" title="All 2 branches covered.">                if (wrapLongWords) {</span>
                     // wrap really long word one line at a time
 <span class="fc" id="L119">                    wrappedLine.append(str.substring(offset, wrapLength + offset));</span>
 <span class="fc" id="L120">                    wrappedLine.append(newLineStr);</span>
 <span class="fc" id="L121">                    offset += wrapLength;</span>
-<span class="fc" id="L122">                } else {</span>
+                } else {
                     // do not wrap really long word, just extend beyond limit
 <span class="fc" id="L124">                    spaceToWrapAt = str.indexOf(' ', wrapLength + offset);</span>
 <span class="fc bfc" id="L125" title="All 2 branches covered.">                    if (spaceToWrapAt &gt;= 0) {</span>
 <span class="fc" id="L126">                        wrappedLine.append(str.substring(offset, spaceToWrapAt));</span>
 <span class="fc" id="L127">                        wrappedLine.append(newLineStr);</span>
 <span class="fc" id="L128">                        offset = spaceToWrapAt + 1;</span>
-<span class="fc" id="L129">                    } else {</span>
+                    } else {
 <span class="fc" id="L130">                        wrappedLine.append(str.substring(offset));</span>
 <span class="fc" id="L131">                        offset = inputLineLength;</span>
                     }
                 }
             }
-        }
+<span class="fc" id="L135">        }</span>
 
         // Whatever is left in line is short enough to just pass through
 <span class="fc" id="L138">        wrappedLine.append(str.substring(offset));</span>
@@ -384,10 +384,10 @@ public class WordUtils {
 <span class="fc bfc" id="L384" title="All 2 branches covered.">                if (whitespace) {</span>
 <span class="fc" id="L385">                    buffer[i] = Character.toTitleCase(ch);</span>
 <span class="fc" id="L386">                    whitespace = false;</span>
-<span class="fc" id="L387">                } else {</span>
+                } else {
 <span class="fc" id="L388">                    buffer[i] = Character.toUpperCase(ch);</span>
                 }
-<span class="fc" id="L390">            } else {</span>
+            } else {
 <span class="fc" id="L391">                whitespace = Character.isWhitespace(ch);</span>
             }
         }

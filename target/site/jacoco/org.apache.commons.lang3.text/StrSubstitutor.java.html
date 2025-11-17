@@ -185,7 +185,7 @@ public class StrSubstitutor {
 <span class="fc" id="L185">            final String propName = (String)propNames.nextElement();</span>
 <span class="fc" id="L186">            final String propValue = valueProperties.getProperty(propName);</span>
 <span class="fc" id="L187">            valueMap.put(propName, propValue);</span>
-        }
+<span class="fc" id="L188">        }</span>
 <span class="fc" id="L189">        return StrSubstitutor.replace(source, valueMap);</span>
     }
 
@@ -281,8 +281,8 @@ public class StrSubstitutor {
      * @param escape  the escape character
      * @throws IllegalArgumentException if the prefix or suffix is null
      */
-<span class="fc" id="L284">    public StrSubstitutor(</span>
-            final StrLookup&lt;?&gt; variableResolver, final StrMatcher prefixMatcher, final StrMatcher suffixMatcher, final char escape) {
+    public StrSubstitutor(
+<span class="fc" id="L285">            final StrLookup&lt;?&gt; variableResolver, final StrMatcher prefixMatcher, final StrMatcher suffixMatcher, final char escape) {</span>
 <span class="fc" id="L286">        this.setVariableResolver(variableResolver);</span>
 <span class="fc" id="L287">        this.setVariablePrefixMatcher(prefixMatcher);</span>
 <span class="fc" id="L288">        this.setVariableSuffixMatcher(suffixMatcher);</span>
@@ -670,10 +670,10 @@ public class StrSubstitutor {
 <span class="fc" id="L670">        int pos = offset;</span>
 <span class="fc bfc" id="L671" title="All 2 branches covered.">        while (pos &lt; bufEnd) {</span>
 <span class="fc" id="L672">            final int startMatchLen = prefixMatcher.isMatch(chars, pos, offset,</span>
-<span class="fc" id="L673">                    bufEnd);</span>
+                    bufEnd);
 <span class="fc bfc" id="L674" title="All 2 branches covered.">            if (startMatchLen == 0) {</span>
 <span class="fc" id="L675">                pos++;</span>
-<span class="fc" id="L676">            } else {</span>
+            } else {
                 // found variable start marker
 <span class="fc bfc" id="L678" title="All 4 branches covered.">                if (pos &gt; offset &amp;&amp; chars[pos - 1] == escape) {</span>
                     // escaped
@@ -682,7 +682,7 @@ public class StrSubstitutor {
 <span class="fc" id="L682">                    lengthChange--;</span>
 <span class="fc" id="L683">                    altered = true;</span>
 <span class="fc" id="L684">                    bufEnd--;</span>
-<span class="fc" id="L685">                } else {</span>
+                } else {
                     // find suffix
 <span class="fc" id="L687">                    final int startPos = pos;</span>
 <span class="fc" id="L688">                    pos += startMatchLen;</span>
@@ -691,7 +691,7 @@ public class StrSubstitutor {
 <span class="fc bfc" id="L691" title="All 2 branches covered.">                    while (pos &lt; bufEnd) {</span>
 <span class="fc bfc" id="L692" title="All 2 branches covered.">                        if (isEnableSubstitutionInVariables()</span>
 <span class="fc bfc" id="L693" title="All 2 branches covered.">                                &amp;&amp; (endMatchLen = prefixMatcher.isMatch(chars,</span>
-<span class="fc" id="L694">                                        pos, offset, bufEnd)) != 0) {</span>
+                                        pos, offset, bufEnd)) != 0) {
                             // found a nested variable start
 <span class="fc" id="L696">                            nestedVarCount++;</span>
 <span class="fc" id="L697">                            pos += endMatchLen;</span>
@@ -699,15 +699,15 @@ public class StrSubstitutor {
                         }
 
 <span class="fc" id="L701">                        endMatchLen = suffixMatcher.isMatch(chars, pos, offset,</span>
-<span class="fc" id="L702">                                bufEnd);</span>
+                                bufEnd);
 <span class="fc bfc" id="L703" title="All 2 branches covered.">                        if (endMatchLen == 0) {</span>
 <span class="fc" id="L704">                            pos++;</span>
-<span class="fc" id="L705">                        } else {</span>
+                        } else {
                             // found variable end marker
 <span class="fc bfc" id="L707" title="All 2 branches covered.">                            if (nestedVarCount == 0) {</span>
 <span class="fc" id="L708">                                String varName = new String(chars, startPos</span>
-<span class="fc" id="L709">                                        + startMatchLen, pos - startPos</span>
-<span class="fc" id="L710">                                        - startMatchLen);</span>
+                                        + startMatchLen, pos - startPos
+                                        - startMatchLen);
 <span class="fc bfc" id="L711" title="All 2 branches covered.">                                if (isEnableSubstitutionInVariables()) {</span>
 <span class="fc" id="L712">                                    final StrBuilder bufName = new StrBuilder(varName);</span>
 <span class="fc" id="L713">                                    substitute(bufName, 0, bufName.length());</span>
@@ -720,7 +720,7 @@ public class StrSubstitutor {
 <span class="fc bfc" id="L720" title="All 2 branches covered.">                                if (priorVariables == null) {</span>
 <span class="fc" id="L721">                                    priorVariables = new ArrayList&lt;String&gt;();</span>
 <span class="fc" id="L722">                                    priorVariables.add(new String(chars,</span>
-<span class="fc" id="L723">                                            offset, length));</span>
+                                            offset, length));
                                 }
 
                                 // handle cyclic substitution
@@ -729,16 +729,16 @@ public class StrSubstitutor {
 
                                 // resolve the variable
 <span class="fc" id="L731">                                final String varValue = resolveVariable(varName, buf,</span>
-<span class="fc" id="L732">                                        startPos, endPos);</span>
+                                        startPos, endPos);
 <span class="fc bfc" id="L733" title="All 2 branches covered.">                                if (varValue != null) {</span>
                                     // recursive replace
 <span class="fc" id="L735">                                    final int varLen = varValue.length();</span>
 <span class="fc" id="L736">                                    buf.replace(startPos, endPos, varValue);</span>
 <span class="fc" id="L737">                                    altered = true;</span>
 <span class="fc" id="L738">                                    int change = substitute(buf, startPos,</span>
-<span class="fc" id="L739">                                            varLen, priorVariables);</span>
+                                            varLen, priorVariables);
 <span class="fc" id="L740">                                    change = change</span>
-<span class="fc" id="L741">                                            + varLen - (endPos - startPos);</span>
+                                            + varLen - (endPos - startPos);
 <span class="fc" id="L742">                                    pos += change;</span>
 <span class="fc" id="L743">                                    bufEnd += change;</span>
 <span class="fc" id="L744">                                    lengthChange += change;</span>
@@ -758,7 +758,7 @@ public class StrSubstitutor {
                     }
                 }
             }
-        }
+<span class="fc" id="L761">        }</span>
 <span class="fc bfc" id="L762" title="All 2 branches covered.">        if (top) {</span>
 <span class="fc bfc" id="L763" title="All 2 branches covered.">            return altered ? 1 : 0;</span>
         }

@@ -520,13 +520,13 @@ public class ReflectionToStringBuilder extends ToStringBuilder {
                     // for primitive types.
 <span class="fc" id="L521">                    final Object fieldValue = this.getValue(field);</span>
 <span class="fc" id="L522">                    this.append(fieldName, fieldValue);</span>
-<span class="pc" id="L523">                } catch (final IllegalAccessException ex) {</span>
+<span class="nc" id="L523">                } catch (final IllegalAccessException ex) {</span>
                     //this can't happen. Would get a Security exception
                     // instead
                     //throw a runtime exception in case the impossible
                     // happens.
 <span class="nc" id="L528">                    throw new InternalError(&quot;Unexpected IllegalAccessException: &quot; + ex.getMessage());</span>
-                }
+<span class="fc" id="L529">                }</span>
             }
         }
 <span class="fc" id="L532">    }</span>
@@ -641,7 +641,7 @@ public class ReflectionToStringBuilder extends ToStringBuilder {
     public ReflectionToStringBuilder setExcludeFieldNames(final String... excludeFieldNamesParam) {
 <span class="fc bfc" id="L642" title="All 2 branches covered.">        if (excludeFieldNamesParam == null) {</span>
 <span class="fc" id="L643">            this.excludeFieldNames = null;</span>
-<span class="fc" id="L644">        } else {</span>
+        } else {
             //clone and remove nulls
 <span class="fc" id="L646">            this.excludeFieldNames = toNoNullStringArray(excludeFieldNamesParam);</span>
 <span class="fc" id="L647">            Arrays.sort(this.excludeFieldNames);</span>

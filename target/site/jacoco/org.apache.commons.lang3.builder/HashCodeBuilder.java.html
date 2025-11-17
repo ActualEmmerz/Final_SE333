@@ -179,20 +179,20 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
 <span class="fc" id="L179">            AccessibleObject.setAccessible(fields, true);</span>
 <span class="fc bfc" id="L180" title="All 2 branches covered.">            for (final Field field : fields) {</span>
 <span class="fc bfc" id="L181" title="All 2 branches covered.">                if (!ArrayUtils.contains(excludeFields, field.getName())</span>
-<span class="fc bfc" id="L182" title="All 2 branches covered.">                    &amp;&amp; (field.getName().indexOf('$') == -1)</span>
-<span class="fc bfc" id="L183" title="All 4 branches covered.">                    &amp;&amp; (useTransients || !Modifier.isTransient(field.getModifiers()))</span>
+<span class="fc bfc" id="L182" title="All 4 branches covered.">                    &amp;&amp; (field.getName().indexOf('$') == -1)</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">                    &amp;&amp; (useTransients || !Modifier.isTransient(field.getModifiers()))</span>
 <span class="fc bfc" id="L184" title="All 2 branches covered.">                    &amp;&amp; (!Modifier.isStatic(field.getModifiers()))) {</span>
                     try {
 <span class="fc" id="L186">                        final Object fieldValue = field.get(object);</span>
 <span class="fc" id="L187">                        builder.append(fieldValue);</span>
-<span class="pc" id="L188">                    } catch (final IllegalAccessException e) {</span>
+<span class="nc" id="L188">                    } catch (final IllegalAccessException e) {</span>
                         // this can't happen. Would get a Security exception instead
                         // throw a runtime exception in case the impossible happens.
 <span class="nc" id="L191">                        throw new InternalError(&quot;Unexpected IllegalAccessException&quot;);</span>
-                    }
+<span class="fc" id="L192">                    }</span>
                 }
             }
-<span class="fc" id="L195">        } finally {</span>
+        } finally {
 <span class="fc" id="L196">            unregister(object);</span>
         }
 <span class="fc" id="L198">    }</span>
@@ -468,7 +468,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
 <span class="fc bfc" id="L468" title="All 2 branches covered.">            if (getRegistry() == null) {</span>
 <span class="fc" id="L469">                REGISTRY.set(new HashSet&lt;IDKey&gt;());</span>
             }
-        }
+<span class="fc" id="L471">        }</span>
 <span class="fc" id="L472">        getRegistry().add(new IDKey(value));</span>
 <span class="fc" id="L473">    }</span>
 
@@ -494,7 +494,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
 <span class="pc bpc" id="L494" title="1 of 4 branches missed.">                if (registry != null &amp;&amp; registry.isEmpty()) {</span>
 <span class="fc" id="L495">                    REGISTRY.remove();</span>
                 }
-            }
+<span class="fc" id="L497">            }</span>
         }
 <span class="fc" id="L499">    }</span>
 
@@ -590,7 +590,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final boolean[] array) {
 <span class="fc bfc" id="L591" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L592">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L593">        } else {</span>
+        } else {
 <span class="fc bfc" id="L594" title="All 2 branches covered.">            for (final boolean element : array) {</span>
 <span class="fc" id="L595">                append(element);</span>
             }
@@ -628,7 +628,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final byte[] array) {
 <span class="fc bfc" id="L629" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L630">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L631">        } else {</span>
+        } else {
 <span class="fc bfc" id="L632" title="All 2 branches covered.">            for (final byte element : array) {</span>
 <span class="fc" id="L633">                append(element);</span>
             }
@@ -662,7 +662,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final char[] array) {
 <span class="fc bfc" id="L663" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L664">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L665">        } else {</span>
+        } else {
 <span class="fc bfc" id="L666" title="All 2 branches covered.">            for (final char element : array) {</span>
 <span class="fc" id="L667">                append(element);</span>
             }
@@ -695,7 +695,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final double[] array) {
 <span class="fc bfc" id="L696" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L697">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L698">        } else {</span>
+        } else {
 <span class="fc bfc" id="L699" title="All 2 branches covered.">            for (final double element : array) {</span>
 <span class="fc" id="L700">                append(element);</span>
             }
@@ -729,7 +729,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final float[] array) {
 <span class="fc bfc" id="L730" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L731">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L732">        } else {</span>
+        } else {
 <span class="fc bfc" id="L733" title="All 2 branches covered.">            for (final float element : array) {</span>
 <span class="fc" id="L734">                append(element);</span>
             }
@@ -763,7 +763,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final int[] array) {
 <span class="fc bfc" id="L764" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L765">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L766">        } else {</span>
+        } else {
 <span class="fc bfc" id="L767" title="All 2 branches covered.">            for (final int element : array) {</span>
 <span class="fc" id="L768">                append(element);</span>
             }
@@ -801,7 +801,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final long[] array) {
 <span class="fc bfc" id="L802" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L803">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L804">        } else {</span>
+        } else {
 <span class="fc bfc" id="L805" title="All 2 branches covered.">            for (final long element : array) {</span>
 <span class="fc" id="L806">                append(element);</span>
             }
@@ -822,7 +822,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
 <span class="fc bfc" id="L822" title="All 2 branches covered.">        if (object == null) {</span>
 <span class="fc" id="L823">            iTotal = iTotal * iConstant;</span>
 
-<span class="fc" id="L825">        } else {</span>
+        } else {
 <span class="fc bfc" id="L826" title="All 2 branches covered.">            if(object.getClass().isArray()) {</span>
                 // 'Switch' on type of array, to dispatch to the correct handler
                 // This handles multi dimensional arrays
@@ -842,11 +842,11 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
 <span class="fc" id="L842">                    append((float[]) object);</span>
 <span class="fc bfc" id="L843" title="All 2 branches covered.">                } else if (object instanceof boolean[]) {</span>
 <span class="fc" id="L844">                    append((boolean[]) object);</span>
-<span class="fc" id="L845">                } else {</span>
+                } else {
                     // Not an array of primitives
 <span class="fc" id="L847">                    append((Object[]) object);</span>
                 }
-<span class="fc" id="L849">            } else {</span>
+            } else {
 <span class="fc" id="L850">                iTotal = iTotal * iConstant + object.hashCode();</span>
             }
         }
@@ -865,7 +865,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final Object[] array) {
 <span class="fc bfc" id="L866" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L867">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L868">        } else {</span>
+        } else {
 <span class="fc bfc" id="L869" title="All 2 branches covered.">            for (final Object element : array) {</span>
 <span class="fc" id="L870">                append(element);</span>
             }
@@ -899,7 +899,7 @@ public class HashCodeBuilder implements Builder&lt;Integer&gt; {
     public HashCodeBuilder append(final short[] array) {
 <span class="fc bfc" id="L900" title="All 2 branches covered.">        if (array == null) {</span>
 <span class="fc" id="L901">            iTotal = iTotal * iConstant;</span>
-<span class="fc" id="L902">        } else {</span>
+        } else {
 <span class="fc bfc" id="L903" title="All 2 branches covered.">            for (final short element : array) {</span>
 <span class="fc" id="L904">                append(element);</span>
             }

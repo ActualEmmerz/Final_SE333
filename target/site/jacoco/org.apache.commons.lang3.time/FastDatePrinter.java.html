@@ -198,7 +198,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
             case 'y': // year (number)
 <span class="fc bfc" id="L199" title="All 2 branches covered.">                if (tokenLen == 2) {</span>
 <span class="fc" id="L200">                    rule = TwoDigitYearField.INSTANCE;</span>
-<span class="fc" id="L201">                } else {</span>
+                } else {
 <span class="fc bfc" id="L202" title="All 2 branches covered.">                    rule = selectNumberRule(Calendar.YEAR, tokenLen &lt; 4 ? 4 : tokenLen);</span>
                 }
 <span class="fc" id="L204">                break;</span>
@@ -209,7 +209,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="fc" id="L209">                    rule = new TextField(Calendar.MONTH, shortMonths);</span>
 <span class="fc bfc" id="L210" title="All 2 branches covered.">                } else if (tokenLen == 2) {</span>
 <span class="fc" id="L211">                    rule = TwoDigitMonthField.INSTANCE;</span>
-<span class="fc" id="L212">                } else {</span>
+                } else {
 <span class="fc" id="L213">                    rule = UnpaddedMonthField.INSTANCE;</span>
                 }
 <span class="fc" id="L215">                break;</span>
@@ -258,14 +258,14 @@ public class FastDatePrinter implements DatePrinter, Serializable {
             case 'z': // time zone (text)
 <span class="fc bfc" id="L259" title="All 2 branches covered.">                if (tokenLen &gt;= 4) {</span>
 <span class="fc" id="L260">                    rule = new TimeZoneNameRule(mTimeZone, mLocale, TimeZone.LONG);</span>
-<span class="fc" id="L261">                } else {</span>
+                } else {
 <span class="fc" id="L262">                    rule = new TimeZoneNameRule(mTimeZone, mLocale, TimeZone.SHORT);</span>
                 }
 <span class="fc" id="L264">                break;</span>
             case 'Z': // time zone (value)
 <span class="fc bfc" id="L266" title="All 2 branches covered.">                if (tokenLen == 1) {</span>
 <span class="fc" id="L267">                    rule = TimeZoneNumberRule.INSTANCE_NO_COLON;</span>
-<span class="fc" id="L268">                } else {</span>
+                } else {
 <span class="fc" id="L269">                    rule = TimeZoneNumberRule.INSTANCE_COLON;</span>
                 }
 <span class="fc" id="L271">                break;</span>
@@ -273,7 +273,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="fc" id="L273">                final String sub = token.substring(1);</span>
 <span class="fc bfc" id="L274" title="All 2 branches covered.">                if (sub.length() == 1) {</span>
 <span class="fc" id="L275">                    rule = new CharacterLiteral(sub.charAt(0));</span>
-<span class="fc" id="L276">                } else {</span>
+                } else {
 <span class="fc" id="L277">                    rule = new StringLiteral(sub);</span>
                 }
 <span class="fc" id="L279">                break;</span>
@@ -314,8 +314,8 @@ public class FastDatePrinter implements DatePrinter, Serializable {
                 } else {
                     break;
                 }
-            }
-<span class="fc" id="L318">        } else {</span>
+<span class="fc" id="L317">            }</span>
+        } else {
             // This will identify token as text.
 <span class="fc" id="L320">            buf.append('\'');</span>
 
@@ -329,11 +329,11 @@ public class FastDatePrinter implements DatePrinter, Serializable {
                         // '' is treated as escaped '
 <span class="fc" id="L330">                        i++;</span>
 <span class="fc" id="L331">                        buf.append(c);</span>
-<span class="fc" id="L332">                    } else {</span>
+                    } else {
 <span class="fc bfc" id="L333" title="All 2 branches covered.">                        inLiteral = !inLiteral;</span>
                     }
-<span class="fc bfc" id="L335" title="All 2 branches covered.">                } else if (!inLiteral &amp;&amp;</span>
-<span class="fc bfc" id="L336" title="All 8 branches covered.">                         (c &gt;= 'A' &amp;&amp; c &lt;= 'Z' || c &gt;= 'a' &amp;&amp; c &lt;= 'z')) {</span>
+<span class="fc bfc" id="L335" title="All 10 branches covered.">                } else if (!inLiteral &amp;&amp;</span>
+                         (c &gt;= 'A' &amp;&amp; c &lt;= 'Z' || c &gt;= 'a' &amp;&amp; c &lt;= 'z')) {
 <span class="fc" id="L337">                    i--;</span>
 <span class="fc" id="L338">                    break;</span>
                 } else {
@@ -691,7 +691,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="fc bfc" id="L691" title="All 2 branches covered.">                if (len &gt; max) {</span>
 <span class="fc" id="L692">                    max = len;</span>
                 }
-            }
+<span class="fc" id="L694">            }</span>
 <span class="fc" id="L695">            return max;</span>
         }
 
@@ -745,7 +745,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="fc bfc" id="L745" title="All 2 branches covered.">            } else if (value &lt; 100) {</span>
 <span class="fc" id="L746">                buffer.append((char)(value / 10 + '0'));</span>
 <span class="fc" id="L747">                buffer.append((char)(value % 10 + '0'));</span>
-<span class="fc" id="L748">            } else {</span>
+            } else {
 <span class="fc" id="L749">                buffer.append(Integer.toString(value));</span>
             }
 <span class="fc" id="L751">        }</span>
@@ -788,7 +788,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         public final void appendTo(final StringBuffer buffer, final int value) {
 <span class="pc bpc" id="L789" title="1 of 2 branches missed.">            if (value &lt; 10) {</span>
 <span class="fc" id="L790">                buffer.append((char)(value + '0'));</span>
-<span class="fc" id="L791">            } else {</span>
+            } else {
 <span class="nc" id="L792">                buffer.append((char)(value / 10 + '0'));</span>
 <span class="nc" id="L793">                buffer.append((char)(value % 10 + '0'));</span>
             }
@@ -844,11 +844,11 @@ public class FastDatePrinter implements DatePrinter, Serializable {
                 }
 <span class="fc" id="L845">                buffer.append((char)(value / 10 + '0'));</span>
 <span class="fc" id="L846">                buffer.append((char)(value % 10 + '0'));</span>
-<span class="fc" id="L847">            } else {</span>
+            } else {
                 int digits;
 <span class="fc bfc" id="L849" title="All 2 branches covered.">                if (value &lt; 1000) {</span>
 <span class="fc" id="L850">                    digits = 3;</span>
-<span class="fc" id="L851">                } else {</span>
+                } else {
 <span class="pc bpc" id="L852" title="1 of 2 branches missed.">                    Validate.isTrue(value &gt; -1, &quot;Negative values should not be possible&quot;, value);</span>
 <span class="fc" id="L853">                    digits = Integer.toString(value).length();</span>
                 }
@@ -899,7 +899,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="fc bfc" id="L899" title="All 2 branches covered.">            if (value &lt; 100) {</span>
 <span class="fc" id="L900">                buffer.append((char)(value / 10 + '0'));</span>
 <span class="fc" id="L901">                buffer.append((char)(value % 10 + '0'));</span>
-<span class="fc" id="L902">            } else {</span>
+            } else {
 <span class="fc" id="L903">                buffer.append(Integer.toString(value));</span>
             }
 <span class="fc" id="L905">        }</span>
@@ -1076,7 +1076,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     //-----------------------------------------------------------------------
 
 <span class="fc" id="L1078">    private static ConcurrentMap&lt;TimeZoneDisplayKey, String&gt; cTimeZoneDisplayCache =</span>
-<span class="fc" id="L1079">        new ConcurrentHashMap&lt;TimeZoneDisplayKey, String&gt;(7);</span>
+        new ConcurrentHashMap&lt;TimeZoneDisplayKey, String&gt;(7);
     /**
      * &lt;p&gt;Gets the time zone display name, using a cache for performance.&lt;/p&gt;
      *
@@ -1144,7 +1144,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="pc bpc" id="L1144" title="1 of 2 branches missed.">            if (zone.useDaylightTime()</span>
 <span class="fc bfc" id="L1145" title="All 2 branches covered.">                    &amp;&amp; calendar.get(Calendar.DST_OFFSET) != 0) {</span>
 <span class="fc" id="L1146">                buffer.append(getTimeZoneDisplay(zone, true, mStyle, mLocale));</span>
-<span class="fc" id="L1147">            } else {</span>
+            } else {
 <span class="fc" id="L1148">                buffer.append(getTimeZoneDisplay(zone, false, mStyle, mLocale));</span>
             }
 <span class="fc" id="L1150">        }</span>
@@ -1187,7 +1187,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 <span class="fc bfc" id="L1187" title="All 2 branches covered.">            if (offset &lt; 0) {</span>
 <span class="fc" id="L1188">                buffer.append('-');</span>
 <span class="fc" id="L1189">                offset = -offset;</span>
-<span class="fc" id="L1190">            } else {</span>
+            } else {
 <span class="fc" id="L1191">                buffer.append('+');</span>
             }
 
@@ -1222,8 +1222,8 @@ public class FastDatePrinter implements DatePrinter, Serializable {
          * @param style the timezone style
          * @param locale the timezone locale
          */
-<span class="fc" id="L1225">        TimeZoneDisplayKey(final TimeZone timeZone,</span>
-                           final boolean daylight, int style, final Locale locale) {
+        TimeZoneDisplayKey(final TimeZone timeZone,
+<span class="fc" id="L1226">                           final boolean daylight, int style, final Locale locale) {</span>
 <span class="fc" id="L1227">            mTimeZone = timeZone;</span>
 <span class="fc bfc" id="L1228" title="All 2 branches covered.">            if (daylight) {</span>
 <span class="fc" id="L1229">                style |= 0x80000000;</span>
@@ -1250,9 +1250,9 @@ public class FastDatePrinter implements DatePrinter, Serializable {
             }
 <span class="pc bpc" id="L1251" title="1 of 2 branches missed.">            if (obj instanceof TimeZoneDisplayKey) {</span>
 <span class="fc" id="L1252">                final TimeZoneDisplayKey other = (TimeZoneDisplayKey)obj;</span>
-<span class="pc" id="L1253">                return</span>
-<span class="pc bpc" id="L1254" title="1 of 2 branches missed.">                    mTimeZone.equals(other.mTimeZone) &amp;&amp;</span>
-<span class="pc bpc" id="L1255" title="1 of 2 branches missed.">                    mStyle == other.mStyle &amp;&amp;</span>
+<span class="fc" id="L1253">                return</span>
+<span class="pc bpc" id="L1254" title="2 of 4 branches missed.">                    mTimeZone.equals(other.mTimeZone) &amp;&amp;</span>
+                    mStyle == other.mStyle &amp;&amp;
 <span class="pc bpc" id="L1256" title="1 of 2 branches missed.">                    mLocale.equals(other.mLocale);</span>
             }
 <span class="nc" id="L1258">            return false;</span>

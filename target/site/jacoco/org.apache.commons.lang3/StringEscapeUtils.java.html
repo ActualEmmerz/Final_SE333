@@ -50,10 +50,10 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L52">    public static final CharSequenceTranslator ESCAPE_JAVA = </span>
-<span class="fc" id="L53">          new LookupTranslator(</span>
-<span class="fc" id="L54">            new String[][] { </span>
-<span class="fc" id="L55">              {&quot;\&quot;&quot;, &quot;\\\&quot;&quot;},</span>
-<span class="fc" id="L56">              {&quot;\\&quot;, &quot;\\\\&quot;},</span>
+          new LookupTranslator(
+            new String[][] { 
+              {&quot;\&quot;&quot;, &quot;\\\&quot;&quot;},
+              {&quot;\\&quot;, &quot;\\\\&quot;},
 <span class="fc" id="L57">          }).with(</span>
 <span class="fc" id="L58">            new LookupTranslator(EntityArrays.JAVA_CTRL_CHARS_ESCAPE())</span>
 <span class="fc" id="L59">          ).with(</span>
@@ -70,13 +70,13 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L72">    public static final CharSequenceTranslator ESCAPE_ECMASCRIPT = </span>
-<span class="fc" id="L73">        new AggregateTranslator(</span>
-<span class="fc" id="L74">            new LookupTranslator(</span>
-<span class="fc" id="L75">                      new String[][] { </span>
-<span class="fc" id="L76">                            {&quot;'&quot;, &quot;\\'&quot;},</span>
-<span class="fc" id="L77">                            {&quot;\&quot;&quot;, &quot;\\\&quot;&quot;},</span>
-<span class="fc" id="L78">                            {&quot;\\&quot;, &quot;\\\\&quot;},</span>
-<span class="fc" id="L79">                            {&quot;/&quot;, &quot;\\/&quot;}</span>
+        new AggregateTranslator(
+            new LookupTranslator(
+                      new String[][] { 
+                            {&quot;'&quot;, &quot;\\'&quot;},
+                            {&quot;\&quot;&quot;, &quot;\\\&quot;&quot;},
+                            {&quot;\\&quot;, &quot;\\\\&quot;},
+                            {&quot;/&quot;, &quot;\\/&quot;}
                       }),
 <span class="fc" id="L81">            new LookupTranslator(EntityArrays.JAVA_CTRL_CHARS_ESCAPE()),</span>
 <span class="fc" id="L82">            JavaUnicodeEscaper.outsideOf(32, 0x7f) </span>
@@ -92,12 +92,12 @@ public class StringEscapeUtils {
      * @since 3.2
      */
 <span class="fc" id="L94">    public static final CharSequenceTranslator ESCAPE_JSON =</span>
-<span class="fc" id="L95">        new AggregateTranslator(</span>
-<span class="fc" id="L96">            new LookupTranslator(</span>
-<span class="fc" id="L97">                      new String[][] {</span>
-<span class="fc" id="L98">                            {&quot;\&quot;&quot;, &quot;\\\&quot;&quot;},</span>
-<span class="fc" id="L99">                            {&quot;\\&quot;, &quot;\\\\&quot;},</span>
-<span class="fc" id="L100">                            {&quot;/&quot;, &quot;\\/&quot;}</span>
+        new AggregateTranslator(
+            new LookupTranslator(
+                      new String[][] {
+                            {&quot;\&quot;&quot;, &quot;\\\&quot;&quot;},
+                            {&quot;\\&quot;, &quot;\\\\&quot;},
+                            {&quot;/&quot;, &quot;\\/&quot;}
                       }),
 <span class="fc" id="L102">            new LookupTranslator(EntityArrays.JAVA_CTRL_CHARS_ESCAPE()),</span>
 <span class="fc" id="L103">            JavaUnicodeEscaper.outsideOf(32, 0x7f)</span>
@@ -113,7 +113,7 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L115">    public static final CharSequenceTranslator ESCAPE_XML = </span>
-<span class="fc" id="L116">        new AggregateTranslator(</span>
+        new AggregateTranslator(
 <span class="fc" id="L117">            new LookupTranslator(EntityArrays.BASIC_ESCAPE()),</span>
 <span class="fc" id="L118">            new LookupTranslator(EntityArrays.APOS_ESCAPE())</span>
         );
@@ -128,7 +128,7 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L130">    public static final CharSequenceTranslator ESCAPE_HTML3 = </span>
-<span class="fc" id="L131">        new AggregateTranslator(</span>
+        new AggregateTranslator(
 <span class="fc" id="L132">            new LookupTranslator(EntityArrays.BASIC_ESCAPE()),</span>
 <span class="fc" id="L133">            new LookupTranslator(EntityArrays.ISO8859_1_ESCAPE())</span>
         );
@@ -143,7 +143,7 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L145">    public static final CharSequenceTranslator ESCAPE_HTML4 = </span>
-<span class="fc" id="L146">        new AggregateTranslator(</span>
+        new AggregateTranslator(
 <span class="fc" id="L147">            new LookupTranslator(EntityArrays.BASIC_ESCAPE()),</span>
 <span class="fc" id="L148">            new LookupTranslator(EntityArrays.ISO8859_1_ESCAPE()),</span>
 <span class="fc" id="L149">            new LookupTranslator(EntityArrays.HTML40_EXTENDED_ESCAPE())</span>
@@ -169,7 +169,7 @@ public class StringEscapeUtils {
         private static final char CSV_QUOTE = '&quot;';
 <span class="fc" id="L170">        private static final String CSV_QUOTE_STR = String.valueOf(CSV_QUOTE);</span>
 <span class="fc" id="L171">        private static final char[] CSV_SEARCH_CHARS = </span>
-<span class="fc" id="L172">            new char[] {CSV_DELIMITER, CSV_QUOTE, CharUtils.CR, CharUtils.LF};</span>
+            new char[] {CSV_DELIMITER, CSV_QUOTE, CharUtils.CR, CharUtils.LF};
 
         @Override
         public int translate(final CharSequence input, final int index, final Writer out) throws IOException {
@@ -180,7 +180,7 @@ public class StringEscapeUtils {
 
 <span class="fc bfc" id="L181" title="All 2 branches covered.">            if (StringUtils.containsNone(input.toString(), CSV_SEARCH_CHARS)) {</span>
 <span class="fc" id="L182">                out.write(input.toString());</span>
-<span class="fc" id="L183">            } else {</span>
+            } else {
 <span class="fc" id="L184">                out.write(CSV_QUOTE);</span>
 <span class="fc" id="L185">                out.write(StringUtils.replace(input.toString(), CSV_QUOTE_STR, CSV_QUOTE_STR + CSV_QUOTE_STR));</span>
 <span class="fc" id="L186">                out.write(CSV_QUOTE);</span>
@@ -202,16 +202,16 @@ public class StringEscapeUtils {
      */
     // TODO: throw &quot;illegal character: \92&quot; as an Exception if a \ on the end of the Java (as per the compiler)?
 <span class="fc" id="L204">    public static final CharSequenceTranslator UNESCAPE_JAVA = </span>
-<span class="fc" id="L205">        new AggregateTranslator(</span>
-<span class="fc" id="L206">            new OctalUnescaper(),     // .between('\1', '\377'),</span>
-<span class="fc" id="L207">            new UnicodeUnescaper(),</span>
+        new AggregateTranslator(
+            new OctalUnescaper(),     // .between('\1', '\377'),
+            new UnicodeUnescaper(),
 <span class="fc" id="L208">            new LookupTranslator(EntityArrays.JAVA_CTRL_CHARS_UNESCAPE()),</span>
-<span class="fc" id="L209">            new LookupTranslator(</span>
-<span class="fc" id="L210">                      new String[][] { </span>
-<span class="fc" id="L211">                            {&quot;\\\\&quot;, &quot;\\&quot;},</span>
-<span class="fc" id="L212">                            {&quot;\\\&quot;&quot;, &quot;\&quot;&quot;},</span>
-<span class="fc" id="L213">                            {&quot;\\'&quot;, &quot;'&quot;},</span>
-<span class="fc" id="L214">                            {&quot;\\&quot;, &quot;&quot;}</span>
+            new LookupTranslator(
+                      new String[][] { 
+                            {&quot;\\\\&quot;, &quot;\\&quot;},
+                            {&quot;\\\&quot;&quot;, &quot;\&quot;&quot;},
+                            {&quot;\\'&quot;, &quot;'&quot;},
+                            {&quot;\\&quot;, &quot;&quot;}
                       })
         );
 
@@ -247,10 +247,10 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L249">    public static final CharSequenceTranslator UNESCAPE_HTML3 = </span>
-<span class="fc" id="L250">        new AggregateTranslator(</span>
+        new AggregateTranslator(
 <span class="fc" id="L251">            new LookupTranslator(EntityArrays.BASIC_UNESCAPE()),</span>
 <span class="fc" id="L252">            new LookupTranslator(EntityArrays.ISO8859_1_UNESCAPE()),</span>
-<span class="fc" id="L253">            new NumericEntityUnescaper()</span>
+            new NumericEntityUnescaper()
         );
 
     /**
@@ -263,11 +263,11 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L265">    public static final CharSequenceTranslator UNESCAPE_HTML4 = </span>
-<span class="fc" id="L266">        new AggregateTranslator(</span>
+        new AggregateTranslator(
 <span class="fc" id="L267">            new LookupTranslator(EntityArrays.BASIC_UNESCAPE()),</span>
 <span class="fc" id="L268">            new LookupTranslator(EntityArrays.ISO8859_1_UNESCAPE()),</span>
 <span class="fc" id="L269">            new LookupTranslator(EntityArrays.HTML40_EXTENDED_UNESCAPE()),</span>
-<span class="fc" id="L270">            new NumericEntityUnescaper()</span>
+            new NumericEntityUnescaper()
         );
 
     /**
@@ -280,10 +280,10 @@ public class StringEscapeUtils {
      * @since 3.0
      */
 <span class="fc" id="L282">    public static final CharSequenceTranslator UNESCAPE_XML = </span>
-<span class="fc" id="L283">        new AggregateTranslator(</span>
+        new AggregateTranslator(
 <span class="fc" id="L284">            new LookupTranslator(EntityArrays.BASIC_UNESCAPE()),</span>
 <span class="fc" id="L285">            new LookupTranslator(EntityArrays.APOS_UNESCAPE()),</span>
-<span class="fc" id="L286">            new NumericEntityUnescaper()</span>
+            new NumericEntityUnescaper()
         );
 
     /**
@@ -303,7 +303,7 @@ public class StringEscapeUtils {
         private static final char CSV_QUOTE = '&quot;';
 <span class="fc" id="L304">        private static final String CSV_QUOTE_STR = String.valueOf(CSV_QUOTE);</span>
 <span class="fc" id="L305">        private static final char[] CSV_SEARCH_CHARS = </span>
-<span class="fc" id="L306">            new char[] {CSV_DELIMITER, CSV_QUOTE, CharUtils.CR, CharUtils.LF};</span>
+            new char[] {CSV_DELIMITER, CSV_QUOTE, CharUtils.CR, CharUtils.LF};
 
         @Override
         public int translate(final CharSequence input, final int index, final Writer out) throws IOException {
@@ -323,7 +323,7 @@ public class StringEscapeUtils {
 <span class="fc bfc" id="L323" title="All 2 branches covered.">            if ( StringUtils.containsAny(quoteless, CSV_SEARCH_CHARS) ) {</span>
                 // deal with escaped quotes; ie) &quot;&quot;
 <span class="fc" id="L325">                out.write(StringUtils.replace(quoteless, CSV_QUOTE_STR + CSV_QUOTE_STR, CSV_QUOTE_STR));</span>
-<span class="fc" id="L326">            } else {</span>
+            } else {
 <span class="fc" id="L327">                out.write(input.toString());</span>
             }
 <span class="fc" id="L329">            return input.length();</span>

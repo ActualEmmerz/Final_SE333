@@ -191,12 +191,12 @@ public class CharSet implements Serializable {
                 // negated char
 <span class="fc" id="L192">                set.add(CharRange.isNot(str.charAt(pos + 1)));</span>
 <span class="fc" id="L193">                pos += 2;</span>
-<span class="fc" id="L194">            } else {</span>
+            } else {
                 // char
 <span class="fc" id="L196">                set.add(CharRange.is(str.charAt(pos)));</span>
 <span class="fc" id="L197">                pos += 1;</span>
             }
-        }
+<span class="fc" id="L199">        }</span>
 <span class="fc" id="L200">    }</span>
 
     //-----------------------------------------------------------------------
@@ -225,7 +225,7 @@ public class CharSet implements Serializable {
 <span class="fc bfc" id="L225" title="All 2 branches covered.">            if (range.contains(ch)) {</span>
 <span class="fc" id="L226">                return true;</span>
             }
-        }
+<span class="fc" id="L228">        }</span>
 <span class="fc" id="L229">        return false;</span>
     }
 

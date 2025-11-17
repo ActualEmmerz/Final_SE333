@@ -173,7 +173,7 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
 <span class="fc bfc" id="L173" title="All 2 branches covered.">            if (getRegistry() == null) {</span>
 <span class="fc" id="L174">                REGISTRY.set(new HashSet&lt;Pair&lt;IDKey, IDKey&gt;&gt;());</span>
             }
-        }
+<span class="fc" id="L176">        }</span>
 
 <span class="fc" id="L178">        final Set&lt;Pair&lt;IDKey, IDKey&gt;&gt; registry = getRegistry();</span>
 <span class="fc" id="L179">        final Pair&lt;IDKey, IDKey&gt; pair = getRegisterPair(lhs, rhs);</span>
@@ -203,7 +203,7 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
 <span class="pc bpc" id="L203" title="1 of 4 branches missed.">                if (registry != null &amp;&amp; registry.isEmpty()) {</span>
 <span class="fc" id="L204">                    REGISTRY.remove();</span>
                 }
-            }
+<span class="fc" id="L206">            }</span>
         }
 <span class="fc" id="L208">    }</span>
 
@@ -348,7 +348,7 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
                 // lhsClass is a subclass of rhsClass
 <span class="fc" id="L349">                testClass = lhsClass;</span>
             }
-<span class="fc" id="L351">        } else {</span>
+        } else {
             // The two classes are not related.
 <span class="fc" id="L353">            return false;</span>
         }
@@ -359,14 +359,14 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
 <span class="fc" id="L359">                testClass = testClass.getSuperclass();</span>
 <span class="fc" id="L360">                reflectionAppend(lhs, rhs, testClass, equalsBuilder, testTransients, excludeFields);</span>
             }
-<span class="pc" id="L362">        } catch (final IllegalArgumentException e) {</span>
+<span class="fc" id="L362">        } catch (final IllegalArgumentException e) {</span>
             // In this case, we tried to test a subclass vs. a superclass and
             // the subclass has ivars or the ivars are transient and
             // we are testing transients.
             // If a subclass has ivars that we are trying to test them, we get an
             // exception and we know that the objects are not equal.
 <span class="fc" id="L368">            return false;</span>
-        }
+<span class="fc" id="L369">        }</span>
 <span class="fc" id="L370">        return equalsBuilder.isEquals();</span>
     }
 
@@ -400,19 +400,19 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
 <span class="fc bfc" id="L400" title="All 4 branches covered.">            for (int i = 0; i &lt; fields.length &amp;&amp; builder.isEquals; i++) {</span>
 <span class="fc" id="L401">                final Field f = fields[i];</span>
 <span class="fc bfc" id="L402" title="All 2 branches covered.">                if (!ArrayUtils.contains(excludeFields, f.getName())</span>
-<span class="fc bfc" id="L403" title="All 2 branches covered.">                    &amp;&amp; (f.getName().indexOf('$') == -1)</span>
-<span class="fc bfc" id="L404" title="All 4 branches covered.">                    &amp;&amp; (useTransients || !Modifier.isTransient(f.getModifiers()))</span>
+<span class="fc bfc" id="L403" title="All 4 branches covered.">                    &amp;&amp; (f.getName().indexOf('$') == -1)</span>
+<span class="fc bfc" id="L404" title="All 2 branches covered.">                    &amp;&amp; (useTransients || !Modifier.isTransient(f.getModifiers()))</span>
 <span class="fc bfc" id="L405" title="All 2 branches covered.">                    &amp;&amp; (!Modifier.isStatic(f.getModifiers()))) {</span>
                     try {
 <span class="fc" id="L407">                        builder.append(f.get(lhs), f.get(rhs));</span>
-<span class="pc" id="L408">                    } catch (final IllegalAccessException e) {</span>
+<span class="nc" id="L408">                    } catch (final IllegalAccessException e) {</span>
                         //this can't happen. Would get a Security exception instead
                         //throw a runtime exception in case the impossible happens.
 <span class="nc" id="L411">                        throw new InternalError(&quot;Unexpected IllegalAccessException&quot;);</span>
-                    }
+<span class="fc" id="L412">                    }</span>
                 }
             }
-<span class="fc" id="L415">        } finally {</span>
+        } finally {
 <span class="fc" id="L416">            unregister(lhs, rhs);</span>
         }
 <span class="fc" id="L418">    }</span>
@@ -462,7 +462,7 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
 <span class="fc bfc" id="L462" title="All 2 branches covered.">        } else if (lhs.getClass() != rhs.getClass()) {</span>
             // Here when we compare different dimensions, for example: a boolean[][] to a boolean[]
 <span class="fc" id="L464">            this.setEquals(false);</span>
-<span class="fc" id="L465">        }</span>
+        }
         // 'Switch' on type of array, to dispatch to the correct handler
         // This handles multi dimensional arrays of the same depth
 <span class="fc bfc" id="L468" title="All 2 branches covered.">        else if (lhs instanceof long[]) {</span>
@@ -481,7 +481,7 @@ public class EqualsBuilder implements Builder&lt;Boolean&gt; {
 <span class="fc" id="L481">            append((float[]) lhs, (float[]) rhs);</span>
 <span class="fc bfc" id="L482" title="All 2 branches covered.">        } else if (lhs instanceof boolean[]) {</span>
 <span class="fc" id="L483">            append((boolean[]) lhs, (boolean[]) rhs);</span>
-<span class="fc" id="L484">        } else {</span>
+        } else {
             // Not an array of primitives
 <span class="fc" id="L486">            append((Object[]) lhs, (Object[]) rhs);</span>
         }

@@ -252,7 +252,7 @@ public class StrTokenizer implements ListIterator&lt;String&gt;, Cloneable {
 <span class="fc" id="L252">        super();</span>
 <span class="fc bfc" id="L253" title="All 2 branches covered.">        if (input != null) {</span>
 <span class="fc" id="L254">            chars = input.toCharArray();</span>
-<span class="fc" id="L255">        } else {</span>
+        } else {
 <span class="fc" id="L256">            chars = null;</span>
         }
 <span class="fc" id="L258">    }</span>
@@ -473,7 +473,7 @@ public class StrTokenizer implements ListIterator&lt;String&gt;, Cloneable {
 <span class="fc" id="L473">        reset();</span>
 <span class="fc bfc" id="L474" title="All 2 branches covered.">        if (input != null) {</span>
 <span class="fc" id="L475">            this.chars = input.toCharArray();</span>
-<span class="fc" id="L476">        } else {</span>
+        } else {
 <span class="fc" id="L477">            this.chars = null;</span>
         }
 <span class="fc" id="L479">        return this;</span>
@@ -695,7 +695,7 @@ public class StrTokenizer implements ListIterator&lt;String&gt;, Cloneable {
 <span class="nc" id="L695">                break;</span>
             }
 <span class="fc" id="L697">            start += removeLen;</span>
-        }
+<span class="fc" id="L698">        }</span>
         
         // handle reaching end
 <span class="fc bfc" id="L701" title="All 2 branches covered.">        if (start &gt;= len) {</span>
@@ -771,7 +771,7 @@ public class StrTokenizer implements ListIterator&lt;String&gt;, Cloneable {
 <span class="fc" id="L771">                workArea.append(chars[pos++]);</span>
 <span class="fc" id="L772">                trimStart = workArea.size();</span>
                 
-<span class="fc" id="L774">            } else {</span>
+            } else {
                 // Not in quoting mode
                 
                 // check for delimiter, and thus end of token
@@ -809,7 +809,7 @@ public class StrTokenizer implements ListIterator&lt;String&gt;, Cloneable {
                 // copy regular character from outside quotes
 <span class="fc" id="L810">                workArea.append(chars[pos++]);</span>
 <span class="fc" id="L811">                trimStart = workArea.size();</span>
-            }
+<span class="fc" id="L812">            }</span>
         }
         
         // return condition when end of string found
@@ -859,7 +859,7 @@ public class StrTokenizer implements ListIterator&lt;String&gt;, Cloneable {
     public StrTokenizer setDelimiterMatcher(final StrMatcher delim) {
 <span class="fc bfc" id="L860" title="All 2 branches covered.">        if (delim == null) {</span>
 <span class="fc" id="L861">            this.delimMatcher = StrMatcher.noneMatcher();</span>
-<span class="fc" id="L862">        } else {</span>
+        } else {
 <span class="fc" id="L863">            this.delimMatcher = delim;</span>
         }
 <span class="fc" id="L865">        return this;</span>

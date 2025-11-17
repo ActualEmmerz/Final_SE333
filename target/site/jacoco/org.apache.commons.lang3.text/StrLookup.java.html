@@ -52,9 +52,9 @@ public abstract class StrLookup&lt;V&gt; {
             @SuppressWarnings(&quot;unchecked&quot;) // System property keys and values are always Strings
 <span class="fc" id="L53">            final Map&lt;String, String&gt; properties = (Map&lt;String, String&gt;) propMap;</span>
 <span class="fc" id="L54">            lookup = new MapStrLookup&lt;String&gt;(properties);</span>
-<span class="pc" id="L55">        } catch (final SecurityException ex) {</span>
+<span class="nc" id="L55">        } catch (final SecurityException ex) {</span>
 <span class="nc" id="L56">            lookup = NONE_LOOKUP;</span>
-        }
+<span class="fc" id="L57">        }</span>
 <span class="fc" id="L58">        SYSTEM_PROPERTIES_LOOKUP = lookup;</span>
 <span class="fc" id="L59">    }</span>
 

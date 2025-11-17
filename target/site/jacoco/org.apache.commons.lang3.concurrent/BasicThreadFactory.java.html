@@ -115,7 +115,7 @@ public class BasicThreadFactory implements ThreadFactory {
 <span class="fc" id="L115">    private BasicThreadFactory(final Builder builder) {</span>
 <span class="fc bfc" id="L116" title="All 2 branches covered.">        if (builder.wrappedFactory == null) {</span>
 <span class="fc" id="L117">            wrappedFactory = Executors.defaultThreadFactory();</span>
-<span class="fc" id="L118">        } else {</span>
+        } else {
 <span class="fc" id="L119">            wrappedFactory = builder.wrappedFactory;</span>
         }
 
@@ -282,7 +282,7 @@ public class BasicThreadFactory implements ThreadFactory {
         public Builder wrappedFactory(final ThreadFactory factory) {
 <span class="fc bfc" id="L283" title="All 2 branches covered.">            if (factory == null) {</span>
 <span class="fc" id="L284">                throw new NullPointerException(</span>
-<span class="fc" id="L285">                        &quot;Wrapped ThreadFactory must not be null!&quot;);</span>
+                        &quot;Wrapped ThreadFactory must not be null!&quot;);
             }
 
 <span class="fc" id="L288">            wrappedFactory = factory;</span>
@@ -300,7 +300,7 @@ public class BasicThreadFactory implements ThreadFactory {
         public Builder namingPattern(final String pattern) {
 <span class="fc bfc" id="L301" title="All 2 branches covered.">            if (pattern == null) {</span>
 <span class="fc" id="L302">                throw new NullPointerException(</span>
-<span class="fc" id="L303">                        &quot;Naming pattern must not be null!&quot;);</span>
+                        &quot;Naming pattern must not be null!&quot;);
             }
 
 <span class="fc" id="L306">            namingPattern = pattern;</span>
@@ -345,7 +345,7 @@ public class BasicThreadFactory implements ThreadFactory {
                 final Thread.UncaughtExceptionHandler handler) {
 <span class="fc bfc" id="L346" title="All 2 branches covered.">            if (handler == null) {</span>
 <span class="fc" id="L347">                throw new NullPointerException(</span>
-<span class="fc" id="L348">                        &quot;Uncaught exception handler must not be null!&quot;);</span>
+                        &quot;Uncaught exception handler must not be null!&quot;);
             }
 
 <span class="fc" id="L351">            exceptionHandler = handler;</span>

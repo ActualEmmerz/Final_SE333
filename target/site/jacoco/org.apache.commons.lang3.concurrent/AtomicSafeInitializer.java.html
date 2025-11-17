@@ -57,7 +57,7 @@ import java.util.concurrent.atomic.AtomicReference;
         ConcurrentInitializer&lt;T&gt; {
     /** A guard which ensures that initialize() is called only once. */
 <span class="fc" id="L59">    private final AtomicReference&lt;AtomicSafeInitializer&lt;T&gt;&gt; factory =</span>
-<span class="fc" id="L60">            new AtomicReference&lt;AtomicSafeInitializer&lt;T&gt;&gt;();</span>
+            new AtomicReference&lt;AtomicSafeInitializer&lt;T&gt;&gt;();
 
     /** Holds the reference to the managed object. */
 <span class="fc" id="L63">    private final AtomicReference&lt;T&gt; reference = new AtomicReference&lt;T&gt;();</span>
@@ -74,7 +74,7 @@ import java.util.concurrent.atomic.AtomicReference;
         T result;
 
 <span class="fc bfc" id="L76" title="All 2 branches covered.">        while ((result = reference.get()) == null) {</span>
-<span class="pc bpc" id="L77" title="1 of 2 branches missed.">            if (factory.compareAndSet(null, this)) {</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">            if (factory.compareAndSet(null, this)) {</span>
 <span class="fc" id="L78">                reference.set(initialize());</span>
             }
         }

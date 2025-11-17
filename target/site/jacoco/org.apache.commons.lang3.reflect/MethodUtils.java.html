@@ -120,10 +120,10 @@ public class MethodUtils {
 <span class="fc" id="L120">            args = ArrayUtils.EMPTY_OBJECT_ARRAY;</span>
         }
 <span class="fc" id="L122">        final Method method = getMatchingAccessibleMethod(object.getClass(),</span>
-<span class="fc" id="L123">                methodName, parameterTypes);</span>
+                methodName, parameterTypes);
 <span class="fc bfc" id="L124" title="All 2 branches covered.">        if (method == null) {</span>
 <span class="fc" id="L125">            throw new NoSuchMethodException(&quot;No such accessible method: &quot;</span>
-<span class="fc" id="L126">                    + methodName + &quot;() on object: &quot;</span>
+                    + methodName + &quot;() on object: &quot;
 <span class="fc" id="L127">                    + object.getClass().getName());</span>
         }
 <span class="fc" id="L129">        return method.invoke(object, args);</span>
@@ -187,10 +187,10 @@ public class MethodUtils {
 <span class="fc" id="L187">            parameterTypes = ArrayUtils.EMPTY_CLASS_ARRAY;</span>
         }
 <span class="fc" id="L189">        final Method method = getAccessibleMethod(object.getClass(), methodName,</span>
-<span class="fc" id="L190">                parameterTypes);</span>
+                parameterTypes);
 <span class="fc bfc" id="L191" title="All 2 branches covered.">        if (method == null) {</span>
 <span class="fc" id="L192">            throw new NoSuchMethodException(&quot;No such accessible method: &quot;</span>
-<span class="fc" id="L193">                    + methodName + &quot;() on object: &quot;</span>
+                    + methodName + &quot;() on object: &quot;
 <span class="fc" id="L194">                    + object.getClass().getName());</span>
         }
 <span class="fc" id="L196">        return method.invoke(object, args);</span>
@@ -300,7 +300,7 @@ public class MethodUtils {
 <span class="fc" id="L300">            args = ArrayUtils.EMPTY_OBJECT_ARRAY;</span>
         }
 <span class="fc" id="L302">        final Method method = getMatchingAccessibleMethod(cls, methodName,</span>
-<span class="fc" id="L303">                parameterTypes);</span>
+                parameterTypes);
 <span class="fc bfc" id="L304" title="All 2 branches covered.">        if (method == null) {</span>
 <span class="fc" id="L305">            throw new NoSuchMethodException(&quot;No such accessible method: &quot;</span>
 <span class="fc" id="L306">                    + methodName + &quot;() on class: &quot; + cls.getName());</span>
@@ -352,7 +352,7 @@ public class MethodUtils {
             final Class&lt;?&gt;... parameterTypes) {
         try {
 <span class="fc" id="L354">            return getAccessibleMethod(cls.getMethod(methodName,</span>
-<span class="fc" id="L355">                    parameterTypes));</span>
+                    parameterTypes));
 <span class="fc" id="L356">        } catch (final NoSuchMethodException e) {</span>
 <span class="fc" id="L357">            return null;</span>
         }
@@ -380,12 +380,12 @@ public class MethodUtils {
 
         // Check the implemented interfaces and subinterfaces
 <span class="fc" id="L382">        method = getAccessibleMethodFromInterfaceNest(cls, methodName,</span>
-<span class="fc" id="L383">                parameterTypes);</span>
+                parameterTypes);
 
         // Check the superclass chain
 <span class="fc bfc" id="L386" title="All 2 branches covered.">        if (method == null) {</span>
 <span class="fc" id="L387">            method = getAccessibleMethodFromSuperclass(cls, methodName,</span>
-<span class="fc" id="L388">                    parameterTypes);</span>
+                    parameterTypes);
         }
 <span class="fc" id="L390">        return method;</span>
     }
@@ -448,19 +448,19 @@ public class MethodUtils {
                 // Does the method exist on this interface?
                 try {
 <span class="fc" id="L450">                    method = interfaces[i].getDeclaredMethod(methodName,</span>
-<span class="fc" id="L451">                            parameterTypes);</span>
-<span class="pc" id="L452">                } catch (final NoSuchMethodException e) { // NOPMD</span>
+                            parameterTypes);
+<span class="nc" id="L452">                } catch (final NoSuchMethodException e) { // NOPMD</span>
                     /*
                      * Swallow, if no method is found after the loop then this
                      * method returns null.
                      */
-                }
+<span class="fc" id="L457">                }</span>
 <span class="pc bpc" id="L458" title="1 of 2 branches missed.">                if (method != null) {</span>
 <span class="fc" id="L459">                    break;</span>
                 }
                 // Recursively check our parent interfaces
 <span class="nc" id="L462">                method = getAccessibleMethodFromInterfaceNest(interfaces[i],</span>
-<span class="nc" id="L463">                        methodName, parameterTypes);</span>
+                        methodName, parameterTypes);
 <span class="nc bnc" id="L464" title="All 2 branches missed.">                if (method != null) {</span>
 <span class="nc" id="L465">                    break;</span>
                 }
@@ -508,7 +508,7 @@ public class MethodUtils {
 <span class="pc bpc" id="L508" title="1 of 6 branches missed.">                if (accessibleMethod != null &amp;&amp; (bestMatch == null || MemberUtils.compareParameterTypes(</span>
 <span class="fc" id="L509">                            accessibleMethod.getParameterTypes(),</span>
 <span class="fc" id="L510">                            bestMatch.getParameterTypes(),</span>
-<span class="fc" id="L511">                            parameterTypes) &lt; 0)) {</span>
+                            parameterTypes) &lt; 0)) {
 <span class="fc" id="L512">                        bestMatch = accessibleMethod;</span>
                  }
             }

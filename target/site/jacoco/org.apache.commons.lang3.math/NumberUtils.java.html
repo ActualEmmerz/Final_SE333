@@ -490,18 +490,18 @@ public class NumberUtils {
 <span class="fc" id="L490">                    throw new NumberFormatException(str + &quot; is not a valid number.&quot;);</span>
                 }
 <span class="fc" id="L492">                dec = str.substring(decPos + 1, expPos);</span>
-<span class="fc" id="L493">            } else {</span>
+            } else {
 <span class="fc" id="L494">                dec = str.substring(decPos + 1);</span>
             }
 <span class="fc" id="L496">            mant = str.substring(0, decPos);</span>
 <span class="fc" id="L497">            numDecimals = dec.length(); // gets number of digits past the decimal to ensure no loss of precision for floating point numbers.</span>
-<span class="fc" id="L498">        } else {</span>
+        } else {
 <span class="fc bfc" id="L499" title="All 2 branches covered.">            if (expPos &gt; -1) {</span>
 <span class="fc bfc" id="L500" title="All 2 branches covered.">                if (expPos &gt; str.length()) { // prevents double exponent causing IOOBE</span>
 <span class="fc" id="L501">                    throw new NumberFormatException(str + &quot; is not a valid number.&quot;);</span>
                 }
 <span class="fc" id="L503">                mant = str.substring(0, expPos);</span>
-<span class="fc" id="L504">            } else {</span>
+            } else {
 <span class="fc" id="L505">                mant = str;</span>
             }
 <span class="fc" id="L507">            dec = null;</span>
@@ -509,7 +509,7 @@ public class NumberUtils {
 <span class="fc bfc" id="L509" title="All 4 branches covered.">        if (!Character.isDigit(lastChar) &amp;&amp; lastChar != '.') {</span>
 <span class="fc bfc" id="L510" title="All 4 branches covered.">            if (expPos &gt; -1 &amp;&amp; expPos &lt; str.length() - 1) {</span>
 <span class="fc" id="L511">                exp = str.substring(expPos + 1, str.length() - 1);</span>
-<span class="fc" id="L512">            } else {</span>
+            } else {
 <span class="fc" id="L513">                exp = null;</span>
             }
             //Requesting a specific type..
@@ -518,8 +518,8 @@ public class NumberUtils {
 <span class="fc bfc" id="L518" title="All 4 branches covered.">            switch (lastChar) {</span>
                 case 'l' :
                 case 'L' :
-<span class="pc bpc" id="L521" title="1 of 2 branches missed.">                    if (dec == null</span>
-<span class="fc bfc" id="L522" title="All 2 branches covered.">                        &amp;&amp; exp == null</span>
+<span class="pc bpc" id="L521" title="1 of 4 branches missed.">                    if (dec == null</span>
+                        &amp;&amp; exp == null
 <span class="pc bpc" id="L523" title="2 of 6 branches missed.">                        &amp;&amp; (numeric.charAt(0) == '-' &amp;&amp; isDigits(numeric.substring(1)) || isDigits(numeric))) {</span>
                         try {
 <span class="fc" id="L525">                            return createLong(numeric);</span>
@@ -542,7 +542,7 @@ public class NumberUtils {
 
 <span class="fc" id="L543">                    } catch (final NumberFormatException nfe) { // NOPMD</span>
                         // ignore the bad number
-                    }
+<span class="fc" id="L545">                    }</span>
                     //$FALL-THROUGH$
                 case 'd' :
                 case 'D' :
@@ -553,7 +553,7 @@ public class NumberUtils {
                         }
 <span class="fc" id="L554">                    } catch (final NumberFormatException nfe) { // NOPMD</span>
                         // ignore the bad number
-                    }
+<span class="fc" id="L556">                    }</span>
                     try {
 <span class="fc" id="L558">                        return createBigDecimal(numeric);</span>
 <span class="fc" id="L559">                    } catch (final NumberFormatException e) { // NOPMD</span>
@@ -569,7 +569,7 @@ public class NumberUtils {
         //small and go from there...
 <span class="pc bpc" id="L570" title="1 of 4 branches missed.">        if (expPos &gt; -1 &amp;&amp; expPos &lt; str.length() - 1) {</span>
 <span class="fc" id="L571">            exp = str.substring(expPos + 1, str.length());</span>
-<span class="fc" id="L572">        } else {</span>
+        } else {
 <span class="fc" id="L573">            exp = null;</span>
         }
 <span class="fc bfc" id="L575" title="All 4 branches covered.">        if (dec == null &amp;&amp; exp == null) { // no decimal point and no exponent</span>
@@ -598,7 +598,7 @@ public class NumberUtils {
             }
 <span class="fc" id="L599">        } catch (final NumberFormatException nfe) { // NOPMD</span>
             // ignore the bad number
-        }
+<span class="fc" id="L601">        }</span>
         try {
 <span class="fc bfc" id="L603" title="All 2 branches covered.">            if(numDecimals &lt;= 16){// If number has between 8 and 16 digits past the decimal point then make it a double</span>
 <span class="fc" id="L604">                final Double d = createDouble(str);</span>
@@ -608,7 +608,7 @@ public class NumberUtils {
             }
 <span class="fc" id="L609">        } catch (final NumberFormatException nfe) { // NOPMD</span>
             // ignore the bad number
-        }
+<span class="fc" id="L611">        }</span>
 
 <span class="fc" id="L613">        return createBigDecimal(str);</span>
     }
@@ -1341,9 +1341,9 @@ public class NumberUtils {
             }
             // checking hex (it can't be anything else)
 <span class="fc bfc" id="L1343" title="All 2 branches covered.">            for (; i &lt; chars.length; i++) {</span>
-<span class="fc bfc" id="L1344" title="All 4 branches covered.">                if ((chars[i] &lt; '0' || chars[i] &gt; '9')</span>
-<span class="pc bpc" id="L1345" title="3 of 4 branches missed.">                    &amp;&amp; (chars[i] &lt; 'a' || chars[i] &gt; 'f')</span>
-<span class="fc bfc" id="L1346" title="All 4 branches covered.">                    &amp;&amp; (chars[i] &lt; 'A' || chars[i] &gt; 'F')) {</span>
+<span class="pc bpc" id="L1344" title="3 of 12 branches missed.">                if ((chars[i] &lt; '0' || chars[i] &gt; '9')</span>
+                    &amp;&amp; (chars[i] &lt; 'a' || chars[i] &gt; 'f')
+                    &amp;&amp; (chars[i] &lt; 'A' || chars[i] &gt; 'F')) {
 <span class="fc" id="L1347">                    return false;</span>
                 }
             }
@@ -1382,7 +1382,7 @@ public class NumberUtils {
                 }
 <span class="fc" id="L1383">                allowSigns = false;</span>
 <span class="fc" id="L1384">                foundDigit = false; // we need a digit after the E</span>
-<span class="fc" id="L1385">            } else {</span>
+            } else {
 <span class="fc" id="L1386">                return false;</span>
             }
 <span class="fc" id="L1388">            i++;</span>
@@ -1404,15 +1404,15 @@ public class NumberUtils {
                 // single trailing decimal point after non-exponent is ok
 <span class="fc" id="L1405">                return foundDigit;</span>
             }
-<span class="fc bfc" id="L1407" title="All 2 branches covered.">            if (!allowSigns</span>
-<span class="pc bpc" id="L1408" title="1 of 2 branches missed.">                &amp;&amp; (chars[i] == 'd'</span>
-<span class="fc bfc" id="L1409" title="All 2 branches covered.">                    || chars[i] == 'D'</span>
-<span class="pc bpc" id="L1410" title="1 of 2 branches missed.">                    || chars[i] == 'f'</span>
-<span class="fc bfc" id="L1411" title="All 2 branches covered.">                    || chars[i] == 'F')) {</span>
+<span class="pc bpc" id="L1407" title="2 of 10 branches missed.">            if (!allowSigns</span>
+                &amp;&amp; (chars[i] == 'd'
+                    || chars[i] == 'D'
+                    || chars[i] == 'f'
+                    || chars[i] == 'F')) {
 <span class="fc" id="L1412">                return foundDigit;</span>
             }
-<span class="fc bfc" id="L1414" title="All 2 branches covered.">            if (chars[i] == 'l'</span>
-<span class="fc bfc" id="L1415" title="All 2 branches covered.">                || chars[i] == 'L') {</span>
+<span class="fc bfc" id="L1414" title="All 4 branches covered.">            if (chars[i] == 'l'</span>
+                || chars[i] == 'L') {
                 // not allowing L with an exponent or decimal point
 <span class="pc bpc" id="L1417" title="1 of 6 branches missed.">                return foundDigit &amp;&amp; !hasExp &amp;&amp; !hasDecPoint;</span>
             }

@@ -1088,8 +1088,8 @@ public class SystemUtils {
      *
      * @since 2.1
      */
-<span class="pc bpc" id="L1091" title="5 of 10 branches missed.">    public static final boolean IS_OS_UNIX = IS_OS_AIX || IS_OS_HP_UX || IS_OS_IRIX || IS_OS_LINUX || IS_OS_MAC_OSX</span>
-<span class="pc bpc" id="L1092" title="5 of 10 branches missed.">            || IS_OS_SOLARIS || IS_OS_SUN_OS || IS_OS_FREE_BSD || IS_OS_OPEN_BSD || IS_OS_NET_BSD;</span>
+<span class="pc bpc" id="L1091" title="10 of 20 branches missed.">    public static final boolean IS_OS_UNIX = IS_OS_AIX || IS_OS_HP_UX || IS_OS_IRIX || IS_OS_LINUX || IS_OS_MAC_OSX</span>
+            || IS_OS_SOLARIS || IS_OS_SUN_OS || IS_OS_FREE_BSD || IS_OS_OPEN_BSD || IS_OS_NET_BSD;
 
     /**
      * &lt;p&gt;
@@ -1322,7 +1322,7 @@ public class SystemUtils {
 <span class="nc" id="L1322">        } catch (final SecurityException ex) {</span>
             // we are not allowed to look at this property
 <span class="nc" id="L1324">            System.err.println(&quot;Caught a SecurityException reading the system property '&quot; + property</span>
-<span class="nc" id="L1325">                    + &quot;'; the SystemUtils property value will default to null.&quot;);</span>
+                    + &quot;'; the SystemUtils property value will default to null.&quot;);
 <span class="nc" id="L1326">            return null;</span>
         }
     }

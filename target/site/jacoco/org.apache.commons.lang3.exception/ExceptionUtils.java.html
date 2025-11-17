@@ -52,19 +52,19 @@ public class ExceptionUtils {
      */
     // TODO: Remove in Lang 4.0
 <span class="fc" id="L54">    private static final String[] CAUSE_METHOD_NAMES = {</span>
-<span class="fc" id="L55">        &quot;getCause&quot;,</span>
-<span class="fc" id="L56">        &quot;getNextException&quot;,</span>
-<span class="fc" id="L57">        &quot;getTargetException&quot;,</span>
-<span class="fc" id="L58">        &quot;getException&quot;,</span>
-<span class="fc" id="L59">        &quot;getSourceException&quot;,</span>
-<span class="fc" id="L60">        &quot;getRootCause&quot;,</span>
-<span class="fc" id="L61">        &quot;getCausedByException&quot;,</span>
-<span class="fc" id="L62">        &quot;getNested&quot;,</span>
-<span class="fc" id="L63">        &quot;getLinkedException&quot;,</span>
-<span class="fc" id="L64">        &quot;getNestedException&quot;,</span>
-<span class="fc" id="L65">        &quot;getLinkedCause&quot;,</span>
-<span class="fc" id="L66">        &quot;getThrowable&quot;,</span>
-<span class="fc" id="L67">    };</span>
+        &quot;getCause&quot;,
+        &quot;getNextException&quot;,
+        &quot;getTargetException&quot;,
+        &quot;getException&quot;,
+        &quot;getSourceException&quot;,
+        &quot;getRootCause&quot;,
+        &quot;getCausedByException&quot;,
+        &quot;getNested&quot;,
+        &quot;getLinkedException&quot;,
+        &quot;getNestedException&quot;,
+        &quot;getLinkedCause&quot;,
+        &quot;getThrowable&quot;,
+    };
 
     /**
      * &lt;p&gt;
@@ -197,7 +197,7 @@ public class ExceptionUtils {
             // exception ignored
 <span class="nc" id="L198">        } catch (final SecurityException ignored) { // NOPMD</span>
             // exception ignored
-        }
+<span class="fc" id="L200">        }</span>
 
 <span class="fc bfc" id="L202" title="All 4 branches covered.">        if (method != null &amp;&amp; Throwable.class.isAssignableFrom(method.getReturnType())) {</span>
             try {
@@ -208,7 +208,7 @@ public class ExceptionUtils {
                 // exception ignored
 <span class="nc" id="L209">            } catch (final InvocationTargetException ignored) { // NOPMD</span>
                 // exception ignored
-            }
+<span class="nc" id="L211">            }</span>
         }
 <span class="fc" id="L213">        return null;</span>
     }
@@ -400,7 +400,7 @@ public class ExceptionUtils {
 <span class="fc" id="L400">                    return i;</span>
                 }
             }
-<span class="fc" id="L403">        } else {</span>
+        } else {
 <span class="fc bfc" id="L404" title="All 2 branches covered.">            for (int i = fromIndex; i &lt; throwables.length; i++) {</span>
 <span class="fc bfc" id="L405" title="All 2 branches covered.">                if (type.equals(throwables[i].getClass())) {</span>
 <span class="fc" id="L406">                    return i;</span>
@@ -529,13 +529,13 @@ public class ExceptionUtils {
             }
 <span class="fc bfc" id="L530" title="All 2 branches covered.">            if (i == count - 1) {</span>
 <span class="fc" id="L531">                frames.add(throwables[i].toString());</span>
-<span class="fc" id="L532">            } else {</span>
+            } else {
 <span class="fc" id="L533">                frames.add(WRAPPED_MARKER + throwables[i].toString());</span>
             }
 <span class="fc bfc" id="L535" title="All 2 branches covered.">            for (int j = 0; j &lt; trace.size(); j++) {</span>
 <span class="fc" id="L536">                frames.add(trace.get(j));</span>
             }
-        }
+<span class="fc" id="L538">        }</span>
 <span class="fc" id="L539">        return frames.toArray(new String[frames.size()]);</span>
     }
 
@@ -563,7 +563,7 @@ public class ExceptionUtils {
             }
 <span class="fc" id="L564">            causeFrameIndex--;</span>
 <span class="fc" id="L565">            wrapperFrameIndex--;</span>
-        }
+<span class="fc" id="L566">        }</span>
 <span class="fc" id="L567">    }</span>
 
     //-----------------------------------------------------------------------
@@ -653,7 +653,7 @@ public class ExceptionUtils {
 <span class="fc bfc" id="L653" title="All 2 branches covered.">            } else if (traceStarted) {</span>
 <span class="fc" id="L654">                break;</span>
             }
-        }
+<span class="fc" id="L656">        }</span>
 <span class="fc" id="L657">        return list;</span>
     }
 

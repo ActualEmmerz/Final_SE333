@@ -168,7 +168,7 @@ final class CharRange implements Iterable&lt;Character&gt;, Serializable {
      * @return {@code true} if this range contains the input character
      */
     public boolean contains(final char ch) {
-<span class="fc bfc" id="L171" title="All 4 branches covered.">        return (ch &gt;= start &amp;&amp; ch &lt;= end) != negated;</span>
+<span class="fc bfc" id="L171" title="All 6 branches covered.">        return (ch &gt;= start &amp;&amp; ch &lt;= end) != negated;</span>
     }
 
     /**
@@ -287,13 +287,13 @@ final class CharRange implements Iterable&lt;Character&gt;, Serializable {
 <span class="fc bfc" id="L287" title="All 2 branches covered.">                    if (range.end == Character.MAX_VALUE) {</span>
                         // This range is an empty set
 <span class="fc" id="L289">                        hasNext = false;</span>
-<span class="fc" id="L290">                    } else {</span>
+                    } else {
 <span class="fc" id="L291">                        current = (char) (range.end + 1);</span>
                     }
-<span class="fc" id="L293">                } else {</span>
+                } else {
 <span class="fc" id="L294">                    current = 0;</span>
                 }
-<span class="fc" id="L296">            } else {</span>
+            } else {
 <span class="fc" id="L297">                current = range.start;</span>
             }
 <span class="fc" id="L299">        }</span>
@@ -308,15 +308,15 @@ final class CharRange implements Iterable&lt;Character&gt;, Serializable {
 <span class="fc bfc" id="L308" title="All 2 branches covered.">                } else if (current + 1 == range.start) {</span>
 <span class="fc bfc" id="L309" title="All 2 branches covered.">                    if (range.end == Character.MAX_VALUE) {</span>
 <span class="fc" id="L310">                        hasNext = false;</span>
-<span class="fc" id="L311">                    } else {</span>
+                    } else {
 <span class="fc" id="L312">                        current = (char) (range.end + 1);</span>
                     }
-<span class="fc" id="L314">                } else {</span>
+                } else {
 <span class="fc" id="L315">                    current = (char) (current + 1);</span>
                 }
 <span class="fc bfc" id="L317" title="All 2 branches covered.">            } else if (current &lt; range.end) {</span>
 <span class="fc" id="L318">                current = (char) (current + 1);</span>
-<span class="fc" id="L319">            } else {</span>
+            } else {
 <span class="fc" id="L320">                hasNext = false;</span>
             }
 <span class="fc" id="L322">        }</span>

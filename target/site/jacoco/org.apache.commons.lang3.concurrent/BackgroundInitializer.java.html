@@ -154,7 +154,7 @@ public abstract class BackgroundInitializer&lt;T&gt; implements
             final ExecutorService externalExecutor) {
 <span class="fc bfc" id="L155" title="All 2 branches covered.">        if (isStarted()) {</span>
 <span class="fc" id="L156">            throw new IllegalStateException(</span>
-<span class="fc" id="L157">                    &quot;Cannot set ExecutorService after start()!&quot;);</span>
+                    &quot;Cannot set ExecutorService after start()!&quot;);
         }
 
 <span class="fc" id="L160">        this.externalExecutor = externalExecutor;</span>
@@ -180,7 +180,7 @@ public abstract class BackgroundInitializer&lt;T&gt; implements
 <span class="fc" id="L180">            executor = getExternalExecutor();</span>
 <span class="fc bfc" id="L181" title="All 2 branches covered.">            if (executor == null) {</span>
 <span class="fc" id="L182">                executor = tempExec = createExecutor();</span>
-<span class="fc" id="L183">            } else {</span>
+            } else {
 <span class="fc" id="L184">                tempExec = null;</span>
             }
 

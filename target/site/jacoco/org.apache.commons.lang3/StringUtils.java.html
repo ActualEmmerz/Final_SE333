@@ -928,17 +928,17 @@ public class StringUtils {
         }
 <span class="fc" id="L929">        int found = 0;</span>
 <span class="fc bfc" id="L930" title="All 2 branches covered.">        int index = lastIndex ? str.length() : INDEX_NOT_FOUND;</span>
-<span class="fc bfc" id="L931" title="All 2 branches covered.">        do {</span>
+        do {
 <span class="fc bfc" id="L932" title="All 2 branches covered.">            if (lastIndex) {</span>
 <span class="fc" id="L933">                index = CharSequenceUtils.lastIndexOf(str, searchStr, index - 1);</span>
-<span class="fc" id="L934">            } else {</span>
+            } else {
 <span class="fc" id="L935">                index = CharSequenceUtils.indexOf(str, searchStr, index + 1);</span>
             }
 <span class="fc bfc" id="L937" title="All 2 branches covered.">            if (index &lt; 0) {</span>
 <span class="fc" id="L938">                return index;</span>
             }
 <span class="fc" id="L940">            found++;</span>
-<span class="fc" id="L941">        } while (found &lt; ordinal);</span>
+<span class="fc bfc" id="L941" title="All 2 branches covered.">        } while (found &lt; ordinal);</span>
 <span class="fc" id="L942">        return index;</span>
     }
 
@@ -1666,7 +1666,7 @@ public class StringUtils {
 <span class="pc bpc" id="L1666" title="1 of 4 branches missed.">                if (chFound &amp;&amp; CharSequenceUtils.indexOf(searchChars, ch2, 0) &lt; 0) {</span>
 <span class="fc" id="L1667">                    return i;</span>
                 }
-            } else {
+<span class="fc" id="L1669">            } else {</span>
 <span class="fc bfc" id="L1670" title="All 2 branches covered.">                if (!chFound) {</span>
 <span class="fc" id="L1671">                    return i;</span>
                 }
@@ -2434,7 +2434,7 @@ public class StringUtils {
             }
 <span class="fc" id="L2435">            list.add(str.substring(start, end));</span>
 <span class="fc" id="L2436">            pos = end + closeLen;</span>
-        }
+<span class="fc" id="L2437">        }</span>
 <span class="fc bfc" id="L2438" title="All 2 branches covered.">        if (list.isEmpty()) {</span>
 <span class="fc" id="L2439">            return null;</span>
         }
@@ -2730,7 +2730,7 @@ public class StringUtils {
 <span class="fc bfc" id="L2730" title="All 2 branches covered.">                    if (numberOfSubstrings == max) {</span>
 <span class="fc" id="L2731">                        end = len;</span>
 <span class="fc" id="L2732">                        substrings.add(str.substring(beg));</span>
-<span class="fc" id="L2733">                    } else {</span>
+                    } else {
                         // The following is OK, because String.substring( beg, end ) excludes
                         // the character at the position 'end'.
 <span class="fc" id="L2736">                        substrings.add(str.substring(beg, end));</span>
@@ -2740,20 +2740,20 @@ public class StringUtils {
                         // which is the right calculation:
 <span class="fc" id="L2741">                        beg = end + separatorLength;</span>
                     }
-<span class="fc" id="L2743">                } else {</span>
+                } else {
                     // We found a consecutive occurrence of the separator, so skip it.
 <span class="fc bfc" id="L2745" title="All 2 branches covered.">                    if (preserveAllTokens) {</span>
 <span class="fc" id="L2746">                        numberOfSubstrings += 1;</span>
 <span class="fc bfc" id="L2747" title="All 2 branches covered.">                        if (numberOfSubstrings == max) {</span>
 <span class="fc" id="L2748">                            end = len;</span>
 <span class="fc" id="L2749">                            substrings.add(str.substring(beg));</span>
-<span class="fc" id="L2750">                        } else {</span>
+                        } else {
 <span class="fc" id="L2751">                            substrings.add(EMPTY);</span>
                         }
                     }
 <span class="fc" id="L2754">                    beg = end + separatorLength;</span>
                 }
-<span class="fc" id="L2756">            } else {</span>
+            } else {
                 // String.substring( beg ) goes from 'beg' to the end of the String.
 <span class="fc" id="L2758">                substrings.add(str.substring(beg));</span>
 <span class="fc" id="L2759">                end = len;</span>
@@ -3952,7 +3952,7 @@ public class StringUtils {
 <span class="pc bpc" id="L3952" title="1 of 2 branches missed.">            if (obj != null) {</span>
 <span class="fc" id="L3953">                buf.append(obj);</span>
             }
-        }
+<span class="fc" id="L3955">        }</span>
 
 <span class="fc" id="L3957">        return buf.toString();</span>
     }
@@ -3998,7 +3998,7 @@ public class StringUtils {
 <span class="pc bpc" id="L3998" title="1 of 2 branches missed.">            if (obj != null) {</span>
 <span class="fc" id="L3999">                buf.append(obj);</span>
             }
-        }
+<span class="fc" id="L4001">        }</span>
 <span class="fc" id="L4002">        return buf.toString();</span>
     }
 
@@ -4580,8 +4580,8 @@ public class StringUtils {
         // mchyzer Performance note: This creates very few new objects (one major goal)
         // let me know if there are performance requests, we can create a harness to measure
 
-<span class="fc bfc" id="L4583" title="All 6 branches covered.">        if (text == null || text.isEmpty() || searchList == null ||</span>
-<span class="pc bpc" id="L4584" title="1 of 6 branches missed.">                searchList.length == 0 || replacementList == null || replacementList.length == 0) {</span>
+<span class="pc bpc" id="L4583" title="1 of 12 branches missed.">        if (text == null || text.isEmpty() || searchList == null ||</span>
+                searchList.length == 0 || replacementList == null || replacementList.length == 0) {
 <span class="fc" id="L4585">            return text;</span>
         }
 
@@ -4597,9 +4597,9 @@ public class StringUtils {
         // make sure lengths are ok, these need to be equal
 <span class="pc bpc" id="L4598" title="1 of 2 branches missed.">        if (searchLength != replacementLength) {</span>
 <span class="nc" id="L4599">            throw new IllegalArgumentException(&quot;Search and Replace array lengths don't match: &quot;</span>
-<span class="nc" id="L4600">                + searchLength</span>
-<span class="nc" id="L4601">                + &quot; vs &quot;</span>
-<span class="nc" id="L4602">                + replacementLength);</span>
+                + searchLength
+                + &quot; vs &quot;
+                + replacementLength);
         }
 
         // keep track of which still have matches
@@ -4622,7 +4622,7 @@ public class StringUtils {
             // see if we need to keep searching for this
 <span class="fc bfc" id="L4623" title="All 2 branches covered.">            if (tempIndex == -1) {</span>
 <span class="fc" id="L4624">                noMoreMatchesForReplIndex[i] = true;</span>
-<span class="fc" id="L4625">            } else {</span>
+            } else {
 <span class="fc bfc" id="L4626" title="All 4 branches covered.">                if (textIndex == -1 || tempIndex &lt; textIndex) {</span>
 <span class="fc" id="L4627">                    textIndex = tempIndex;</span>
 <span class="fc" id="L4628">                    replaceIndex = i;</span>
@@ -4680,7 +4680,7 @@ public class StringUtils {
                 // see if we need to keep searching for this
 <span class="fc bfc" id="L4681" title="All 2 branches covered.">                if (tempIndex == -1) {</span>
 <span class="fc" id="L4682">                    noMoreMatchesForReplIndex[i] = true;</span>
-<span class="fc" id="L4683">                } else {</span>
+                } else {
 <span class="fc bfc" id="L4684" title="All 4 branches covered.">                    if (textIndex == -1 || tempIndex &lt; textIndex) {</span>
 <span class="fc" id="L4685">                        textIndex = tempIndex;</span>
 <span class="fc" id="L4686">                        replaceIndex = i;</span>
@@ -4786,7 +4786,7 @@ public class StringUtils {
 <span class="fc bfc" id="L4786" title="All 2 branches covered.">                if (index &lt; replaceCharsLength) {</span>
 <span class="fc" id="L4787">                    buf.append(replaceChars.charAt(index));</span>
                 }
-<span class="fc" id="L4789">            } else {</span>
+            } else {
 <span class="fc" id="L4790">                buf.append(ch);</span>
             }
         }
@@ -5672,7 +5672,7 @@ public class StringUtils {
 <span class="fc" id="L5672">                buffer[i] = Character.toLowerCase(ch);</span>
 <span class="pc bpc" id="L5673" title="1 of 2 branches missed.">            } else if (Character.isTitleCase(ch)) {</span>
 <span class="nc" id="L5674">                buffer[i] = Character.toLowerCase(ch);</span>
-<span class="pc bfc" id="L5675" title="All 2 branches covered.">            } else if (Character.isLowerCase(ch)) {</span>
+<span class="fc bfc" id="L5675" title="All 2 branches covered.">            } else if (Character.isLowerCase(ch)) {</span>
 <span class="fc" id="L5676">                buffer[i] = Character.toUpperCase(ch);</span>
             }
         }
@@ -6499,7 +6499,7 @@ public class StringUtils {
 <span class="fc bfc" id="L6499" title="All 2 branches covered.">            if (css[i] == null) {</span>
 <span class="fc" id="L6500">                anyStringNull = true;</span>
 <span class="fc" id="L6501">                shortestStrLen = 0;</span>
-<span class="fc" id="L6502">            } else {</span>
+            } else {
 <span class="fc" id="L6503">                allStringsNull = false;</span>
 <span class="fc" id="L6504">                shortestStrLen = Math.min(css[i].length(), shortestStrLen);</span>
 <span class="fc" id="L6505">                longestStrLen = Math.max(css[i].length(), longestStrLen);</span>
@@ -6849,7 +6849,7 @@ public class StringUtils {
 <span class="fc bfc" id="L6849" title="All 2 branches covered.">                if (s.charAt(i - 1) == t_j) {</span>
                     // diagonally left and up
 <span class="fc" id="L6851">                    d[i] = p[i - 1];</span>
-<span class="fc" id="L6852">                } else {</span>
+                } else {
                     // 1 + minimum of cell to the left, to the top, diagonally left and up
 <span class="fc" id="L6854">                    d[i] = 1 + Math.min(Math.min(d[i - 1], p[i]), p[i - 1]);</span>
                 }

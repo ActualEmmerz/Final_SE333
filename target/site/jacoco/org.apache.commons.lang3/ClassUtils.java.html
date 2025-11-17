@@ -88,7 +88,7 @@ public class ClassUtils {
 <span class="fc bfc" id="L88" title="All 2 branches covered.">            if (!primitiveClass.equals(wrapperClass)) {</span>
 <span class="fc" id="L89">                wrapperPrimitiveMap.put(wrapperClass, primitiveClass);</span>
             }
-        }
+<span class="fc" id="L91">        }</span>
     }
 
     /**
@@ -369,7 +369,7 @@ public class ClassUtils {
             }
 
 <span class="fc" id="L371">            cls = cls.getSuperclass();</span>
-         }
+<span class="fc" id="L372">         }</span>
 <span class="fc" id="L373">     }</span>
 
     // Convert list
@@ -396,8 +396,8 @@ public class ClassUtils {
 <span class="fc" id="L396">                classes.add(Class.forName(className));</span>
 <span class="fc" id="L397">            } catch (final Exception ex) {</span>
 <span class="fc" id="L398">                classes.add(null);</span>
-            }
-        }
+<span class="fc" id="L399">            }</span>
+<span class="fc" id="L400">        }</span>
 <span class="fc" id="L401">        return classes;</span>
     }
 
@@ -421,10 +421,10 @@ public class ClassUtils {
 <span class="fc bfc" id="L421" title="All 2 branches covered.">        for (final Class&lt;?&gt; cls : classes) {</span>
 <span class="fc bfc" id="L422" title="All 2 branches covered.">            if (cls == null) {</span>
 <span class="fc" id="L423">                classNames.add(null);</span>
-<span class="fc" id="L424">            } else {</span>
+            } else {
 <span class="fc" id="L425">                classNames.add(cls.getName());</span>
             }
-        }
+<span class="fc" id="L427">        }</span>
 <span class="fc" id="L428">        return classNames;</span>
     }
 
@@ -828,7 +828,7 @@ public class ClassUtils {
                 try {
 <span class="fc" id="L829">                    return getClass(classLoader, className.substring(0, lastDotIndex) +</span>
 <span class="fc" id="L830">                            INNER_CLASS_SEPARATOR_CHAR + className.substring(lastDotIndex + 1),</span>
-<span class="fc" id="L831">                            initialize);</span>
+                            initialize);
 <span class="fc" id="L832">                } catch (final ClassNotFoundException ex2) { // NOPMD</span>
                     // ignore exception
                 }
@@ -928,13 +928,13 @@ public class ClassUtils {
             Method candidateMethod;
             try {
 <span class="fc" id="L930">                candidateMethod = candidateClass.getMethod(methodName, parameterTypes);</span>
-<span class="pc" id="L931">            } catch (final NoSuchMethodException ex) {</span>
+<span class="nc" id="L931">            } catch (final NoSuchMethodException ex) {</span>
 <span class="nc" id="L932">                continue;</span>
-            }
+<span class="fc" id="L933">            }</span>
 <span class="pc bpc" id="L934" title="1 of 2 branches missed.">            if (Modifier.isPublic(candidateMethod.getDeclaringClass().getModifiers())) {</span>
 <span class="fc" id="L935">                return candidateMethod;</span>
             }
-        }
+<span class="nc" id="L937">        }</span>
 
 <span class="nc" id="L939">        throw new NoSuchMethodException(&quot;Can't find a public method for &quot; +</span>
 <span class="nc" id="L940">                methodName + &quot; &quot; + ArrayUtils.toString(parameterTypes));</span>
@@ -960,7 +960,7 @@ public class ClassUtils {
 <span class="fc" id="L960">            final String abbreviation = abbreviationMap.get(className);</span>
 <span class="fc bfc" id="L961" title="All 2 branches covered.">            if (abbreviation != null) {</span>
 <span class="fc" id="L962">                classNameBuffer.append(abbreviation);</span>
-<span class="fc" id="L963">            } else {</span>
+            } else {
 <span class="fc" id="L964">                classNameBuffer.append(&quot;L&quot;).append(className).append(&quot;;&quot;);</span>
             }
 <span class="fc" id="L966">            className = classNameBuffer.toString();</span>
@@ -1111,11 +1111,11 @@ public class ClassUtils {
             } else {
 <span class="fc bfc" id="L1112" title="All 2 branches covered.">                if (className.startsWith(&quot;L&quot;)) {</span>
 <span class="fc" id="L1113">                    className = className.substring(</span>
-<span class="fc" id="L1114">                        1,</span>
+                        1,
 <span class="pc bpc" id="L1115" title="1 of 2 branches missed.">                        className.endsWith(&quot;;&quot;)</span>
 <span class="fc" id="L1116">                            ? className.length() - 1</span>
 <span class="nc" id="L1117">                            : className.length());</span>
-<span class="fc" id="L1118">                } else {</span>
+                } else {
 <span class="pc bpc" id="L1119" title="1 of 2 branches missed.">                    if (className.length() &gt; 0) {</span>
 <span class="fc" id="L1120">                        className = reverseAbbreviationMap.get(className.substring(0, 1));</span>
                     }

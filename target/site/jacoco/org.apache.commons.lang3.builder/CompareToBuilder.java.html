@@ -315,16 +315,16 @@ public class CompareToBuilder implements Builder&lt;Integer&gt; {
 <span class="fc bfc" id="L315" title="All 4 branches covered.">        for (int i = 0; i &lt; fields.length &amp;&amp; builder.comparison == 0; i++) {</span>
 <span class="fc" id="L316">            final Field f = fields[i];</span>
 <span class="fc bfc" id="L317" title="All 2 branches covered.">            if (!ArrayUtils.contains(excludeFields, f.getName())</span>
-<span class="fc bfc" id="L318" title="All 2 branches covered.">                &amp;&amp; (f.getName().indexOf('$') == -1)</span>
-<span class="pc bpc" id="L319" title="1 of 4 branches missed.">                &amp;&amp; (useTransients || !Modifier.isTransient(f.getModifiers()))</span>
+<span class="fc bfc" id="L318" title="All 4 branches covered.">                &amp;&amp; (f.getName().indexOf('$') == -1)</span>
+<span class="pc bpc" id="L319" title="1 of 2 branches missed.">                &amp;&amp; (useTransients || !Modifier.isTransient(f.getModifiers()))</span>
 <span class="pc bpc" id="L320" title="1 of 2 branches missed.">                &amp;&amp; (!Modifier.isStatic(f.getModifiers()))) {</span>
                 try {
 <span class="fc" id="L322">                    builder.append(f.get(lhs), f.get(rhs));</span>
-<span class="pc" id="L323">                } catch (final IllegalAccessException e) {</span>
+<span class="nc" id="L323">                } catch (final IllegalAccessException e) {</span>
                     // This can't happen. Would get a Security exception instead.
                     // Throw a runtime exception in case the impossible happens.
 <span class="nc" id="L326">                    throw new InternalError(&quot;Unexpected IllegalAccessException&quot;);</span>
-                }
+<span class="fc" id="L327">                }</span>
             }
         }
 <span class="fc" id="L330">    }</span>
@@ -430,12 +430,12 @@ public class CompareToBuilder implements Builder&lt;Integer&gt; {
 <span class="fc" id="L430">                append((float[]) lhs, (float[]) rhs);</span>
 <span class="fc bfc" id="L431" title="All 2 branches covered.">            } else if (lhs instanceof boolean[]) {</span>
 <span class="fc" id="L432">                append((boolean[]) lhs, (boolean[]) rhs);</span>
-<span class="fc" id="L433">            } else {</span>
+            } else {
                 // not an array of primitives
                 // throws a ClassCastException if rhs is not an array
 <span class="fc" id="L436">                append((Object[]) lhs, (Object[]) rhs, comparator);</span>
             }
-<span class="fc" id="L438">        } else {</span>
+        } else {
             // the simple case, not an array, just test the element
 <span class="fc bfc" id="L440" title="All 2 branches covered.">            if (comparator == null) {</span>
                 @SuppressWarnings(&quot;unchecked&quot;) // assume this can be done; if not throw CCE as per Javadoc
@@ -590,7 +590,7 @@ public class CompareToBuilder implements Builder&lt;Integer&gt; {
         }
 <span class="fc bfc" id="L591" title="All 2 branches covered.">        if (lhs == false) {</span>
 <span class="fc" id="L592">            comparison = -1;</span>
-<span class="fc" id="L593">        } else {</span>
+        } else {
 <span class="fc" id="L594">            comparison = +1;</span>
         }
 <span class="fc" id="L596">        return this;</span>
