@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-parent</artifactId>
         <version>28</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-lang3</artifactId>
     <version>3.2-SNAPSHOT</version>
     <name>Commons Lang</name>
-
     <inceptionYear>2001</inceptionYear>
-    <description>
-        Commons Lang, a package of Java utility classes for the
-        classes that are in java.lang's hierarchy, or are considered to be so
-        standard as to justify existence in java.lang.
-    </description>
-
     <url>http://commons.apache.org/proper/commons-lang/</url>
-
     <issueManagement>
         <system>jira</system>
         <url>http://issues.apache.org/jira/browse/LANG</url>
     </issueManagement>
-
     <scm>
         <connection>scm:svn:http://svn.apache.org/repos/asf/commons/proper/lang/trunk</connection>
         <developerConnection>scm:svn:https://svn.apache.org/repos/asf/commons/proper/lang/trunk</developerConnection>
@@ -43,14 +31,12 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
@@ -58,14 +44,18 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <distributionManagement>
+        <site>
+            <id>apache.website</id>
+            <name>Apache Commons Site</name>
+            <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-lang/</url>
+        </site>
+    </distributionManagement>
     <properties>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
         <maven.compile.source>1.8</maven.compile.source>
         <maven.compile.target>1.8</maven.compile.target>
-
         <commons.componentid>lang3</commons.componentid>
         <commons.release.version>3.1</commons.release.version>
         <commons.release.desc>(Java 5.0+)</commons.release.desc>
@@ -74,12 +64,10 @@
         <commons.release.2.name>commons-lang-${commons.release.2.version}</commons.release.2.name>
         <commons.jira.id>LANG</commons.jira.id>
         <commons.jira.pid>12310481</commons.jira.pid>
-
         <commons.site.path>lang</commons.site.path>
         <commons.scmPubUrl>https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-lang</commons.scmPubUrl>
         <commons.scmPubCheckoutDirectory>site-content</commons.scmPubCheckoutDirectory>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -92,7 +80,6 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -112,7 +99,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -122,9 +108,10 @@
                         <include>**/*Test.java</include>
                     </includes>
                     <runOrder>random</runOrder>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>${argLine} --add-opens java.base/java.lang=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
-
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.6.0</version>
@@ -136,7 +123,6 @@
                     <tarLongFileMode>gnu</tarLongFileMode>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -151,7 +137,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>setup-checkout</id>

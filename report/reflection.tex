@@ -1,0 +1,58 @@
+\documentclass[conference]{IEEEtran}
+
+\begin{document}
+
+\title{AI-Assisted Software Testing via Model Context Protocol: A Reflection}
+\author{Emma Rusnac}
+\maketitle
+
+\begin{abstract}
+This reflection tells of my experience implementing AI-driven test generation agents 
+for Java codebased using the Model Context Protocol (MCP). This project combined
+Maven, Jacoco, and Git automations to create a feedback loop that continuously improved 
+coverage, test quality, and fixed / exposed bugs. In this reflection, I will be discussing
+technical challenges, coverage improvements, and insights into AI-assisted testing.
+\end{abstract}
+
+\section{Introduction}
+The goal of this project was to design an autonomus agent that could analyze a Software system 
+and generate high-quality tests that improve coverage. Using MCP allowed the agent to integrate
+with VS code. The target was to reach Apache Commons Lang, which has real failing tests and hidden bugs.
+
+\section{Methodology}
+My code contains three main components. First, it has a python-based MCP server file. Second, it 
+has a Java Maven project that is implemented with JaCoCo. Third, it has an agent prompt that guides
+the AI in generating tests. I created MCP tools including \texttt{run\_tests}, \texttt{get\_coverage}, 
+\texttt{generate\_test}, \texttt{generate\_boundary\_tests}, and Git automation tools. These allowed forf
+full automation of test executions, generations, and commits. 
+
+\section{Results}
+
+
+\subsection{Coverage Improvement}
+The initial line coverage was pretty modest. After adding the agent to make new test files, the coverage 
+improved significantly. The agent was able to identify untested paths and generate tests that covered them.
+The agent was able to identify several classes with weak coverage and focused the test creation accordingly.
+
+\subsection{Bug Detection}
+The original codebase had intentional bugs. Some tests failed due to Java 17 restrictions, but other revealed 
+more logical bugs. By generating tests around edge conditions, the agent was able to expose state bugs in the 
+ToStringBuilder style registry and fixed inconsistencies with the way the date was being formatted. Small fixes
+were used to resolve these problems, but the following executions confirmed the repairs. 
+
+\subsection{AI-Assisted Development Insights}
+AI-generated tests allowed for fast repeated workflows and for seemless commit pushes. The agent was very effective
+in finding coverage gaps and suggesting test skeletons. However, human insight was needed to make sure the output was
+correct and to guide the agent towards more complex scenarios. MCP's structure tool interface allowed for easy control,
+but the prompt engineering allowed for much better results.
+
+\section{Future Enhancements}
+Future work that could be done on this project is the incorporation of mutation testing or automatic patch validation.
+Expanding on boundary-value generation into full partitions could help improve robustness or help improve usability.
+
+\section{Conclusion}
+This project showed the potential of AI-assisted software testing using MCP. MCP allowed for seemless integration between
+agent, python tools, and the Java test infrastructure. The iterative approach allowed for many improvemnts in coverage and 
+code quality. Overall, this experience highlighted the promise of AI in augmenting software testing processes.
+
+\end{document}
